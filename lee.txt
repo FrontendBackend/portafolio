@@ -1,0 +1,1 @@
+Nuevo sistema de portafolio hecho con Angular 9+ (Frontend) y Spring Boot (Backend) para alojar todas mis lecciones aprendidas durante mis estudios y en ambiente laborales.

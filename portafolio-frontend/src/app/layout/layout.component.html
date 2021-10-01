@@ -1,7 +1,7 @@
 <div class="example-container">
-  <mat-toolbar style="background-color:#2C5364;" color="primary" class="expanded-toolbar">
+  <mat-toolbar color="primary" class="expanded-toolbar cabecera-color">
     <span>
-      <button mat-button>
+      <button mat-button routerLink="/pages/formulario">
         <mat-icon>person</mat-icon>
         {{title}}
       </button>
@@ -20,6 +20,7 @@
         <mat-icon>emoji_events</mat-icon>
         Experience
       </button>
+      <!-- <button mat-button href="#contact"> -->
       <button mat-button routerLink="/pages/contacto">
         <mat-icon>perm_contact_calendar</mat-icon>
         Contact
@@ -47,9 +48,16 @@
       Contact
     </button>
   </mat-menu>
+
+
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <div align="center">
+        <br>
+        <div class="example-card">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

@@ -9,6 +9,8 @@ import { SkillsetComponent } from './skillset/skillset.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule
     // MaterialModule
   ]
 })

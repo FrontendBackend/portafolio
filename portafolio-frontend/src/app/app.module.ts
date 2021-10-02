@@ -18,6 +18,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ServerErrorsInterceptor } from 'src/shared/server-errors.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +38,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatCardModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: ServerErrorsInterceptor, multi: true }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ServerErrorsInterceptor,
+    //   multi: true
+    // },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

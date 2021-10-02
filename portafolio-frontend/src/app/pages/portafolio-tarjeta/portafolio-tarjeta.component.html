@@ -1,0 +1,31 @@
+<mat-card class="oh little-profile">
+  <mat-card-content>
+
+    <mat-card-title>
+      <!-- <div class="text-center" align="start">
+        <mat-icon class="tamanio-icon" fxFlex>person</mat-icon>
+      </div> -->
+      <!-- <br><br><br> -->
+      <h4 class="text-center">
+        <b matTooltip="Nombre del proyecto">
+          {{ tblPortafolioDTO.noPortafolio | uppercase }}
+        </b>
+      </h4>
+    </mat-card-title>
+
+    <span matTooltip="descripción del proyecto">{{ tblPortafolioDTO.dePortafolio}}</span>
+
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions class="oh text-center little-profile">
+    <button mat-raised-button color="primary" matTooltip="Editar" class="cabecera-color">
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" matTooltip="Ver detalle" class="cabecera-color">
+      <mat-icon>remove_red_eye</mat-icon>
+    </button>
+    <!-- <button mat-raised-button color="primary" (click)="solicitarEliminacion(tblPortafolioDTO)" matTooltip="Eliminar">
+      <mat-icon>delete</mat-icon>
+    </button> -->
+  </mat-card-actions>
+</mat-card>

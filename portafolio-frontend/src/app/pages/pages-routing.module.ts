@@ -9,7 +9,17 @@ import { SkillsetComponent } from './skillset/skillset.component';
 const routes: Routes = [
   {
     path: '',
-    component: FormularioComponent
+    component: FormularioComponent,
+    // children: [
+    //   {
+    //     path: 'portafolio',
+    //     component: PortafolioComponent,
+    //     data: {
+    //       title: 'Empleados',
+    //       breadcrumb: 'Empleados'
+    //     }
+    //   },
+    // ]
   },
 
   {

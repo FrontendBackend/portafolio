@@ -9,9 +9,21 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-card>
-  <h1>
-    <b>
-      Portafolio
-    </b>
-  </h1>
+  <!--Inicio contentenido de tarjeas-->
+  <mat-progress-bar *ngIf="enProceso" color="accent" mode="query"></mat-progress-bar>
+
+  <div class="alerta alerta-warning animated fadeInDown" *ngIf="lTblPortafolioDTO?.length == 0">
+    Sin registros para mostrar
+  </div>
+
+  <div *ngIf="!enProceso" class="items-supervision-container">
+
+    <div class="item-supervision-wrap" *ngFor="let tblPortafolioDTO of lTblPortafolioDTO; let i = index"
+      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="0 1 calc(33.3%)"
+      fxFlex.lg="0 1 calc(50%)" fxFlex.lt-lg="0 1 calc(50%)" fxFlex.lt-md="0 1 calc(50%)" fxFlex.lt-sm="100%">
+      <app-portafolio-tarjeta [tblPortafolioDTO]="tblPortafolioDTO">
+      </app-portafolio-tarjeta>
+    </div>
+
+  </div>
 </mat-card>

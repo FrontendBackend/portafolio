@@ -12,15 +12,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
-
+import { PortafolioTarjetaComponent } from './portafolio-tarjeta/portafolio-tarjeta.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 @NgModule({
   declarations: [
     FormularioComponent,
     PortafolioComponent,
     SkillsetComponent,
     ExperienceComponent,
-    ContactComponent
+    ContactComponent,
+    PortafolioTarjetaComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatDividerModule
     // MaterialModule
   ]
 })

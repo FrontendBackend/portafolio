@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  // titulo = 'Contact';
+
   constructor() { }
 
   ngOnInit(): void {
+    // window.document.title = this.titulo;
   }
 
 }

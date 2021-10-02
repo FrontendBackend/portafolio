@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatSidenavModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

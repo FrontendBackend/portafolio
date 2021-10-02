@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
+  // titulo = 'Experience';
+
   constructor() { }
 
   ngOnInit(): void {
+    // window.document.title = this.titulo;
   }
-
 }

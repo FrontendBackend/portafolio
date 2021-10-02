@@ -8,7 +8,7 @@ import { SkillsetComponent } from './skillset/skillset.component';
 
 const routes: Routes = [
   {
-    path: 'formulario',
+    path: '',
     component: FormularioComponent
   },
 

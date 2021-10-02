@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortafolioComponent implements OnInit {
 
-  constructor() { }
+  titulo = 'Portafolio';
+
 
   ngOnInit(): void {
+    // window.document.title = this.titulo;
   }
-
 }

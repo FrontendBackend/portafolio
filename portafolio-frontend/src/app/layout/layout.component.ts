@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  title = 'Hello, I´m Juan Valerio Mayta';
+  title = 'Hello, I´m Valerious';
+
+  titulo = 'Juan Valerio - Portafolio';
 
   constructor() { }
 
   ngOnInit(): void {
+    window.document.title = this.titulo;
   }
 
 }

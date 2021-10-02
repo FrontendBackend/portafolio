@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsetComponent implements OnInit {
 
+  titulo = 'Skillset';
+
   constructor() { }
 
   ngOnInit(): void {
+    // window.document.title = this.titulo;
   }
 
 }

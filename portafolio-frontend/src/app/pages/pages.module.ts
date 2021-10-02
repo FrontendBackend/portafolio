@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     PagesRoutingModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
     // MaterialModule
   ]
 })

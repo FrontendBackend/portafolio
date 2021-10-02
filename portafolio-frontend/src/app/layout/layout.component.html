@@ -1,7 +1,8 @@
+<title>{{titulo}}</title>
 <div class="example-container">
   <mat-toolbar color="primary" class="expanded-toolbar cabecera-color">
     <span>
-      <button mat-button routerLink="/pages/formulario">
+      <button mat-button routerLink="/pages">
         <mat-icon>person</mat-icon>
         {{title}}
       </button>
@@ -12,18 +13,26 @@
         <mat-icon>business_center</mat-icon>
         Portafolio
       </button>
+
       <button mat-button routerLink="/pages/habilidades">
         <mat-icon>military_tech</mat-icon>
         Skillset
       </button>
+
       <button mat-button routerLink="/pages/experiencia">
         <mat-icon>emoji_events</mat-icon>
         Experience
       </button>
+
       <!-- <button mat-button href="#contact"> -->
       <button mat-button routerLink="/pages/contacto">
         <mat-icon>perm_contact_calendar</mat-icon>
         Contact
+      </button>
+
+      <button mat-button matTooltip="Descargar Curriculum Vitae">
+        <mat-icon>get_app</mat-icon>
+        CV
       </button>
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
@@ -35,17 +44,25 @@
       <mat-icon>business_center</mat-icon>
       Portafolio
     </button>
+
     <button mat-menu-item routerLink="/pages/habilidades">
       <mat-icon>military_tech</mat-icon>
       Skillset
     </button>
+
     <button mat-menu-item routerLink="/pages/experiencia">
       <mat-icon>emoji_events</mat-icon>
       Experience
     </button>
+
     <button mat-menu-item routerLink="/pages/contacto">
       <mat-icon>perm_contact_calendar</mat-icon>
       Contact
+    </button>
+
+    <button mat-menu-item matTooltip="Descargar Curriculum Vitae">
+      <mat-icon>get_app</mat-icon>
+      CV
     </button>
   </mat-menu>
 

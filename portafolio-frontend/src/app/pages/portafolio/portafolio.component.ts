@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ETipoAccionCRUD } from 'src/app/enums/tipo-accion';
+import { ParametroDialogo } from 'src/app/models/ParametroDialogo';
 import { TblPortafolioDTO } from 'src/app/models/TblPortafolioDTO';
 import { PortafolioService } from 'src/app/services/portafolio.service';
 import { pgimAnimations } from 'src/shared/animations/pgim-animations';
+import { PortafolioDialogoComponent } from '../portafolio-dialogo/portafolio-dialogo.component';
 
 @Component({
   selector: 'app-portafolio',
@@ -24,7 +28,8 @@ export class PortafolioComponent implements OnInit {
    lTblPortafolioDTO: TblPortafolioDTO[];
 
   constructor(
-    private portafolioService: PortafolioService,) {
+    private portafolioService: PortafolioService,
+    private dialog: MatDialog,) {
   }
 
   ngOnInit(): void {
@@ -43,6 +48,32 @@ export class PortafolioComponent implements OnInit {
       // this.totalElements = respuesta.totalElements;
 
       this.enProceso = false;
+    });
+  }
+
+  /**
+   * Permite iniciar la creación de un portafolio.
+   */
+   crearPortafolio(): void {
+    let tblPortafolioDTO: TblPortafolioDTO;
+
+    const parametroDialogo = new ParametroDialogo<TblPortafolioDTO, any>();
+
+    parametroDialogo.accion = ETipoAccionCRUD.CREAR;
+    parametroDialogo.objeto = new TblPortafolioDTO();
+    parametroDialogo.objeto.idPortafolio = 0;
+
+    const dialogRef = this.dialog.open(PortafolioDialogoComponent, {
+      disableClose: true,
+      data: parametroDialogo,
+      width: '120%',
+    });
+
+    dialogRef.afterClosed().subscribe(resultado => {
+      if (parametroDialogo.resultado === 'ok') {
+        tblPortafolioDTO = parametroDialogo.objeto;
+        this.listarPortafolio();
+      }
     });
   }
 }

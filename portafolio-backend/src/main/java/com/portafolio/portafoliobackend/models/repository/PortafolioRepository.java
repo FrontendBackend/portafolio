@@ -7,6 +7,7 @@ import com.portafolio.portafoliobackend.models.entity.TblPortafolio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface PortafolioRepository extends JpaRepository<TblPortafolio, Long> {
 
@@ -18,4 +19,12 @@ public interface PortafolioRepository extends JpaRepository<TblPortafolio, Long>
             + "WHERE ptf.esRegistro = '1' "
             )
     List<TblPortafolioDTO> listarPortafolio();
+
+    // PERMITE OBTENER LOS DATOS DEL OBJETO
+    @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPortafolioDTOResultado("
+            + "ptf.idPortafolio, ptf.noPortafolio, ptf.dePortafolio, ptf.imgPortafolio " 
+            + " ) " 
+            + "FROM TblPortafolio ptf "
+            )
+    TblPortafolioDTO obtenerPortafolioPorId(@Param("idPortafolio") Long idPortafolio);
 }

@@ -16,6 +16,9 @@ import { PortafolioTarjetaComponent } from './portafolio-tarjeta/portafolio-tarj
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { PortafolioDialogoComponent } from './portafolio-dialogo/portafolio-dialogo.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     FormularioComponent,
@@ -23,7 +26,8 @@ import { MatDividerModule } from '@angular/material/divider';
     SkillsetComponent,
     ExperienceComponent,
     ContactComponent,
-    PortafolioTarjetaComponent
+    PortafolioTarjetaComponent,
+    PortafolioDialogoComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTooltipModule,
     MatProgressBarModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
     // MaterialModule
   ]
 })

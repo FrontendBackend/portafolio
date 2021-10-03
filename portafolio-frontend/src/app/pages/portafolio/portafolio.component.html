@@ -1,5 +1,10 @@
-<!-- <title>{{titulo}}</title> -->
 <mat-toolbar class="cabecera-color" color="primary">
+  <div align="start" class="no-shadow">
+    <button mat-fab color="accent" matTooltip="Crear portafolio" (click)="crearPortafolio()">
+      <mat-icon>add</mat-icon>
+    </button>
+    &nbsp;
+  </div>
   <mat-toolbar-row>
     <span class="span">
       <b>
@@ -8,6 +13,7 @@
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-card>
   <!--Inicio contentenido de tarjeas-->
   <mat-progress-bar *ngIf="enProceso" color="accent" mode="query"></mat-progress-bar>

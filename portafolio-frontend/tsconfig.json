@@ -15,8 +15,11 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "target": "es2017",
     "module": "es2020",
+    // "typeRoots": [],
+    // "types": [] ,
     "lib": [
       "es2018",
       "dom"
@@ -27,5 +30,14 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+//   "types": [
+//     "core-js",
+//     "jasmine",
+//     "requirejs",
+//     "chance"
+// ],
+"typeRoots": [
+  "./node_modules/@types"
+]
 }

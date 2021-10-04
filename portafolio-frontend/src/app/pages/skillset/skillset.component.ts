@@ -21,7 +21,7 @@ export class SkillsetComponent implements OnInit {
     private sanitization: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.listarSkillset();
+    //this.listarSkillset();
     // window.document.title = this.titulo;
   }
 

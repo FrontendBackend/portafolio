@@ -18,7 +18,7 @@ public class SkillsetServiceImpl implements SkillsetService {
     @Autowired
 	private SkillsetRepository skillsetRepository;
     
-    // @Transactional(readOnly = false)
+    //@Transactional(readOnly = false)
     @Override
     public long crearSkillset(TblSkillset tblSkillset) {
         TblSkillset ar = skillsetRepository.save(tblSkillset);

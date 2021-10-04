@@ -1,7 +1,5 @@
 package com.portafolio.portafoliobackend.models.entity;
 
-import java.sql.Blob;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

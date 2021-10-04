@@ -1,12 +1,17 @@
 <mat-toolbar class="cabecera-color altura-toolbar" color="primary" matTooltip="Nombre del proyecto">
-    <span class="span">
-      <b>
-        {{ tblPortafolioDTO.noPortafolio | uppercase}}
-      </b>
-    </span>
+  <span class="span">
+    <b>
+      {{ tblPortafolioDTO.noPortafolio | uppercase}}
+    </b>
+  </span>
 </mat-toolbar>
+<mat-card class="oh little-profile tarjeta text-statico">
 
-<mat-card class="oh little-profile">
+  <div class="breakpoint">
+    <div class="img-tamanio">
+      <img [src]="tblPortafolioDTO.imgPortafolio" alt="" height="190">
+    </div>
+  </div>
 
   <mat-card-content>
     <span matTooltip="Descripción del proyecto">{{ tblPortafolioDTO.dePortafolio}}</span>
@@ -28,3 +33,4 @@
     </button> -->
   </mat-card-actions>
 </mat-card>
+<br>

@@ -16,10 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServerErrorsInterceptor } from 'src/shared/server-errors.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { ServerErrorsInterceptor } from 'src/shared/server-errors.interceptor';
     MatCardModule,
     MatDividerModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    // MatFormFieldModule,
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

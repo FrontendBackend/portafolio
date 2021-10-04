@@ -14,12 +14,9 @@ export class PortafolioService {
 
   private httpHeaders: HttpHeaders;
 
-
-
   constructor(private httpClient: HttpClient) {
     this.httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
   }
-
 
   listarPortafolio(): Observable<TblPortafolioDTO[]> {
     const urlEndPoint = `${this.url}/listarPortafolio`;
@@ -27,22 +24,21 @@ export class PortafolioService {
   }
 
   /**
-   * Permite crear un centro de estudio.
+   * Permite crear un portafolios.
    * @param tblPortafolioDTO,
    */
-
    crearPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
     const urlEndPoint = `${this.url}/crearPortafolio`;
-    const clave = 'tblPortafolioDTOCreado';
+    const clave  = 'tblPortafolioDTOCreado';
 
     return this.httpClient.post<TblPortafolioDTO>(urlEndPoint, tblPortafolioDTO, { headers: this.httpHeaders })
       .pipe(
-        map(respuesta => respuesta[clave] as TblPortafolioDTO )
+        map((respuesta: any) => respuesta[clave] as TblPortafolioDTO )
       );
   }
 
   /**
-   * Permite modificar un centro de estudio.
+   * Permite modificar un portafolios.
    * @param tblPortafolioDTO,
    */
    modificarPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
@@ -50,12 +46,12 @@ export class PortafolioService {
     const clave = 'tblPortafolioDTOModificada';
     return this.httpClient.put<TblPortafolioDTO>(urlEndPoint, tblPortafolioDTO, { headers: this.httpHeaders })
       .pipe(
-        map(respuesta => respuesta[clave] as TblPortafolioDTO)
+        map((respuesta: any) => respuesta[clave] as TblPortafolioDTO)
       );
   }
 
   /**
-   * Permite obtener las configuraciones necesarias para el listado de centro de estudio.
+   * Permite obtener las configuraciones necesarias para el listado de portafolios.
    */
    obtenerConfiguracionesGenerales(idPortafolio: number): Observable<any> {
     const urlEndPoint = `${this.url}/obtenerConfiguracionesGenerales/${idPortafolio}`;

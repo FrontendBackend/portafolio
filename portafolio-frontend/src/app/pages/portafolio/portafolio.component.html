@@ -1,11 +1,11 @@
 <mat-toolbar class="cabecera-color" color="primary">
-  <div align="start" class="no-shadow">
-    <button mat-fab color="accent" matTooltip="Crear portafolio" (click)="crearPortafolio()">
-      <mat-icon>add</mat-icon>
-    </button>
-    &nbsp;
-  </div>
+
   <mat-toolbar-row>
+    <div class="no-shadow">
+      <button mat-icon-button color="Basic" matTooltip="Crear portafolio" (click)="crearPortafolio()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
     <span class="span">
       <b>
         Portafolio
@@ -14,19 +14,18 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-card>
+<mat-card >
   <!--Inicio contentenido de tarjeas-->
-  <mat-progress-bar *ngIf="enProceso" color="accent" mode="query"></mat-progress-bar>
+  <mat-progress-bar *ngIf="enProceso" color="primary" mode="query"></mat-progress-bar>
 
   <div class="alerta alerta-warning animated fadeInDown" *ngIf="lTblPortafolioDTO?.length == 0">
-    Sin registros para mostrar
+      Sin registros para mostrar
   </div>
 
-  <div *ngIf="!enProceso" class="items-supervision-container">
-
+  <div *ngIf="!enProceso" class="items-supervision-container" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <!-- fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" -->
     <div class="item-supervision-wrap" *ngFor="let tblPortafolioDTO of lTblPortafolioDTO; let i = index"
-      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="0 1 calc(33.3%)"
-      fxFlex.lg="0 1 calc(50%)" fxFlex.lt-lg="0 1 calc(50%)" fxFlex.lt-md="0 1 calc(50%)" fxFlex.lt-sm="100%">
+      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%" fxFlex.sm="33%">
       <app-portafolio-tarjeta [tblPortafolioDTO]="tblPortafolioDTO">
       </app-portafolio-tarjeta>
     </div>

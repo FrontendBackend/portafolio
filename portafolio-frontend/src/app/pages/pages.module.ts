@@ -17,8 +17,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { PortafolioDialogoComponent } from './portafolio-dialogo/portafolio-dialogo.component';
-import {MatDialogModule} from '@angular/material/dialog';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     FormularioComponent,
@@ -27,7 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ExperienceComponent,
     ContactComponent,
     PortafolioTarjetaComponent,
-    PortafolioDialogoComponent
+    PortafolioDialogoComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressBarModule,
     MatButtonModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+
     // MaterialModule
   ]
 })

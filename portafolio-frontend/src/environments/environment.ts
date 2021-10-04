@@ -8,6 +8,9 @@ export const environment = {
   HOST: 'http://localhost:9999',
 
   REINTENTOS: 2
+
+  //Comando para ejecutar desde mi celular
+  // ng serve --host 0.0.0.0
 };
 
 /*

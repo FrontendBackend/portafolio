@@ -48,11 +48,12 @@ export class PortafolioDialogoComponent implements OnInit {
   /**
    * Permite iniciar la configuración del formulario reactivo.
    */
-   inicializarFormulario(): void {
+  inicializarFormulario(): void {
     this.frmReactivo = this.fb.group(
       {
-        noProfesion: [null],
-        noAbreviatura: [null],
+        noPortafolio: [null],
+        dePortafolio: [null],
+        imgPortafolio: [null],
       }
     );
     // this.dialogRef.updateSize('28%');
@@ -107,7 +108,7 @@ export class PortafolioDialogoComponent implements OnInit {
   /**
    * Procesa el envío del formulario.
    */
-   enviar() {
+  enviar() {
 
     this.buscarControlesNoValidos();
 
@@ -138,7 +139,7 @@ export class PortafolioDialogoComponent implements OnInit {
   /**
    * Permite procesar la acción de crear o modificar.
    */
-   procesarCrearOModificar() {
+  procesarCrearOModificar() {
     this.enProceso = true;
 
     let tblPortafolioDTOCU = new TblPortafolioDTO();

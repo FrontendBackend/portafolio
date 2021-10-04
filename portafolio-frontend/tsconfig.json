@@ -18,6 +18,7 @@
     "strictNullChecks": false,
     "target": "es2017",
     "module": "es2020",
+    "resolveJsonModule": true,
     // "typeRoots": [],
     // "types": [] ,
     "lib": [
@@ -31,13 +32,12 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-//   "types": [
-//     "core-js",
-//     "jasmine",
-//     "requirejs",
-//     "chance"
+//   "typeRoots": [
+//     "./node_modules/@types",
+//     "./custom_definitions"
 // ],
-"typeRoots": [
-  "./node_modules/@types"
-]
+// "types": [
+//     "jasmine",
+// ]
+
 }

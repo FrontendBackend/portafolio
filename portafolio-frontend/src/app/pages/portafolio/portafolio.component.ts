@@ -66,7 +66,7 @@ export class PortafolioComponent implements OnInit {
     const dialogRef = this.dialog.open(PortafolioDialogoComponent, {
       disableClose: true,
       data: parametroDialogo,
-      width: '120%',
+      width: '60%',
     });
 
     dialogRef.afterClosed().subscribe(resultado => {

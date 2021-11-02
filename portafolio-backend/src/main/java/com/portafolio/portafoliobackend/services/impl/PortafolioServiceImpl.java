@@ -56,7 +56,45 @@ public class PortafolioServiceImpl implements PortafolioService {
         tblPortafolio.setNoPortafolio(tblPortafolioDTO.getNoPortafolio());
         tblPortafolio.setDePortafolio(tblPortafolioDTO.getDePortafolio());
         tblPortafolio.setImgPortafolio(tblPortafolioDTO.getImgPortafolio());
+        
         return tblPortafolio;
     }
-    
+
+    @Override
+    @Transactional(readOnly = false)
+    public TblPortafolioDTO modificarPortafolio(TblPortafolioDTO tblPortafolioDTO, TblPortafolio tblPortafolio)
+            throws Exception {
+
+        this.configurarValores(tblPortafolioDTO, tblPortafolio);
+
+        tblPortafolio.setFeActualizacion(new Date());
+        tblPortafolio.setUsActualizacion("jvalerio");
+        tblPortafolio.setIpActualizacion("127.0.0.0");
+
+        TblPortafolio tblPortafolioModificado = this.portafolioRepository.save(tblPortafolio);
+
+        TblPortafolioDTO tblPortafolioDTOModificado = this
+                .obtenerPortafolioPorId(tblPortafolioModificado.getIdPortafolio());
+
+        return tblPortafolioDTOModificado;
+    }
+
+    @Override
+    @Transactional(readOnly = false)
+    public void eliminarPortafolio(TblPortafolio tblPortafolioActual) throws Exception {
+        tblPortafolioActual.setEsRegistro(ConstantesUtil.IND_INACTIVO);
+
+        tblPortafolioActual.setFeActualizacion(new Date());
+        tblPortafolioActual.setUsActualizacion("jvalerio");
+        tblPortafolioActual.setIpActualizacion("127.0.0.0");
+
+        this.portafolioRepository.save(tblPortafolioActual);
+
+    }
+
+    @Override
+    public TblPortafolio findById(Long idPortafolio) {
+        return portafolioRepository.findById(idPortafolio).orElse(null);
+    }
+
 }

@@ -1,57 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TblSkillsetDTO } from 'src/app/models/TblSkillsetDTO';
 import { SkillsetService } from 'src/app/services/skillset.service';
+import { pgimAnimations } from 'src/shared/animations/pgim-animations';
 
 @Component({
   selector: 'app-skillset',
   templateUrl: './skillset.component.html',
-  styleUrls: ['./skillset.component.scss']
+  styleUrls: ['./skillset.component.scss'],
+  animations: [pgimAnimations],
 })
 export class SkillsetComponent implements OnInit {
 
-  titulo = 'Skillset';
+  /**
+   * Señala si la carga de la lista de contratos se encuentra en curso.
+   */
+  enProceso = false;
 
-  nombreArchivo: string;
-  archivosSeleccionados: FileList;
-
-  imagenEstado: boolean = false;
-  imagenData: any;
+  /**
+  * Lista de contratos.
+  */
+  lTblSkillsetDTO: TblSkillsetDTO[];
 
   constructor(private skillsetService: SkillsetService,
+    // private confirmService: AppConfirmService,
     private sanitization: DomSanitizer) { }
 
   ngOnInit(): void {
-    //this.listarSkillset();
     // window.document.title = this.titulo;
+    this.listarSkillset();
   }
 
-  listarSkillset() {
-    this.skillsetService.listarSkillset().subscribe(data => {
-      this.convertir(data);
+  listarSkillset(): void {
+    this.enProceso = true;
+
+    this.skillsetService.listarSkillset().subscribe((respuesta) => {
+      this.lTblSkillsetDTO = respuesta;
+      // this.totalElements = respuesta.totalElements;
+
+      this.enProceso = false;
     });
   }
 
-  convertir(data: any) {
-    let reader = new FileReader();
-    reader.readAsDataURL(data);
-    reader.onloadend = () => {
-      let base64 = reader.result;
-      //console.log(base64);
-      this.sanar(base64);
-    }
+  crearSkillset(): void {
+
   }
 
-  sanar(base64: any) {
-    this.imagenData = this.sanitization.bypassSecurityTrustResourceUrl(base64);
-    this.imagenEstado = true;
-  }
+  eliminarCentro(tblSkillsetDTO: TblSkillsetDTO, indice: number) {
+    // const contenidoMensaje = `Esta acción eliminará el registro de un centro de estudio <strong style="text-transform: uppercase;">${legCentroDTO.noCentro}</strong>
+    // , si lo hace, ya no podrá acceder a su información.`;
 
-  seleccionarArchivo(e: any) {
-    this.nombreArchivo = e.target.files[0].name;
-    this.archivosSeleccionados = e.target.files;
-  }
-
-  subirArchivo(){
-    this.skillsetService.crearSkillset(this.archivosSeleccionados.item(0)).subscribe();
+    // this.confirmService.confirmar(
+    //   {
+    //     titulo: '¿Eliminar un centro de estudio?',
+    //     mensaje: contenidoMensaje,
+    //     nombreAccion: 'ELIMINAR'
+    //   }).subscribe(respuesta => {
+    //     if (respuesta) {
+    //       // Se procede con la eliminación lógica.
+    //       this.centroService.eliminarCentro(legCentroDTO.idCentro).subscribe(respuesta => {
+    //         this.listarCentro();
+    //       });
+    //     }
+    //   });
   }
 }

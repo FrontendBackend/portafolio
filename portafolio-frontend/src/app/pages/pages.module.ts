@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SkillsetTarjetaComponent } from './skillset-tarjeta/skillset-tarjeta.component';
 @NgModule({
   declarations: [
     FormularioComponent,
@@ -33,6 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ContactComponent,
     PortafolioTarjetaComponent,
     PortafolioDialogoComponent,
+    SkillsetTarjetaComponent,
   ],
   imports: [
     CommonModule,

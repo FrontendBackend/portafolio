@@ -7,6 +7,10 @@ export const environment = {
 
   HOST: 'http://localhost:9999',
 
+  HOST_IMG: 'http://localhost:9999/images/no-usuario.png',
+
+  // HOST_IMG_UPLOAD: 'http://localhost:9999/api/uploads/img',
+
   REINTENTOS: 2
 
   //Comando para ejecutar desde mi celular

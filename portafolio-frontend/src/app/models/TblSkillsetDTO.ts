@@ -1,16 +1,13 @@
 export class TblSkillsetDTO {
 
-  // CAMPO IDENTIFICADOR DEL PORTAFOLIO
-  idPortafolio: number;
+  // ID DE SKILLSET
+  idSkillset: number;
 
-  // CAMPO NOMBRE DE PORTAFOLIO
-  noPortafolio: string;
+  // NOMBRE DE SKILLSET
+  noSkillset: string;
 
-  // CAMPO DESCRIPCIÓN DEL PORTAFOLIO
-  dePortafolio: string;
-
-  // CAMPO IMAGEN DEL PORTAFOLIO
-  imgPortafolio: string;
+  // FOTO O IMAGEN DE SKILLSET
+  fotoSkillset: string;
 
   // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
   esRegistro: string;

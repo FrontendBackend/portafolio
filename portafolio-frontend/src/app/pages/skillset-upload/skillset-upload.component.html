@@ -1,0 +1,53 @@
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary">
+  <span class="span">
+    <b>
+      <h2 matDialogTitle>Subir foto</h2>
+    </b>
+  </span>
+</mat-toolbar>
+
+<!-- <div fxLayout="row" *ngIf="enProceso">
+      <mat-progress-bar mode="query" color="primary" fxFlex></mat-progress-bar>
+      <br />
+    </div> -->
+
+<!-- <mat-dialog-content class="mat-typography body"> -->
+  <mat-card  align="center" class="oh little-profile tarjeta text-statico">
+
+    <div class="breakpoint">
+      <div class="img-tamanio">
+
+        <img *ngIf="tblSkillsetDTO?.fotoSkillset" src="http://localhost:9999/skillsets/uploads/img/{{tblSkillsetDTO.fotoSkillset}}"
+          alt="{{tblSkillsetDTO.fotoSkillset}}" class="img-thumbnail rounded" style="cursor: pointer;" height="190">
+
+          <mat-progress-bar *ngIf="progreso" color="primary" mode="query"></mat-progress-bar>
+        <!-- <div *ngIf="progreso > 0" class="progress" style="height: 40px;">
+          <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso+'%'}"
+            attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
+            {{progreso}}%
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions class="oh text-center little-profile">
+      <button mat-button color="primary"
+        onclick="document.getElementById('inputGroupFile04').click()">Seleccionar</button>
+
+      <input style="display: none;" (change)="seleccionarFoto($event)" type="file" class="form-control form-control-sm"
+        id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+
+      <button mat-button color="primary" (click)="subirFoto()" [disabled]="!fotoSeleccionada" class="btn btn-outline-secondary" type="button"
+        id="inputGroupFileAddon04">Subir
+      </button>
+      <button mat-button mat-dialog-close>CERRAR</button>
+    </mat-card-actions>
+  </mat-card>
+<!-- </mat-dialog-content> -->
+
+<!-- <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>CERRAR</button>
+</mat-dialog-actions> -->

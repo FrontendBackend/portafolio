@@ -27,10 +27,9 @@
       [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%"
       fxFlex.sm="33%">
       <app-skillset-tarjeta [tblSkillsetDTO]="tblSkillsetDTO" (eventoSkillsetSolicitadoParaEliminar)="eliminarSkillset($event)"
-      (eventoSkillsetSolicitadoParaModificar)="modificarSkillset($event)">
+      (eventoSkillsetSolicitadoParaModificar)="modificarSkillset($event)" (eventoSkillsetSolicitadoParaSubirFoto)="subirFoto($event)">
       </app-skillset-tarjeta>
     </div>
-    <!-- (eventoEmpleadoSolicitadoParaModificar)="modificarEmpleado($event)" -->
-    <!-- (eventoEmpleadoSolicitadoParaConsultar)="consultarEmpleado($event)" -->
   </div>
 </mat-card>
+

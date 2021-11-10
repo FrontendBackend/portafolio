@@ -1,5 +1,5 @@
 import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TblSkillsetDTO } from '../models/TblSkillsetDTO';
@@ -74,15 +74,31 @@ export class SkillsetService {
     return this.httpClient.get<any[]>(urlEndPoint);
   }
 
-  subirFoto(archivo: File, id: any): Observable<HttpEvent<{}>> {
+  subirFoto(archivo: File, idSkillset: any): Observable<HttpEvent<{}>> {
     let formData = new FormData();
     formData.append("archivo", archivo);
-    formData.append("id", id);
+    formData.append("idSkillset", idSkillset);
 
     const req = new HttpRequest('POST', `${this.url}/upload`, formData, {
       reportProgress: true
     });
 
     return this.httpClient.request(req);
+  }
+
+  modal: boolean = false;
+
+  private _notificarUpload = new EventEmitter<any>();
+
+  get notificarUpload(): EventEmitter<any> {
+    return this._notificarUpload;
+  }
+
+  abrirModal() {
+    this.modal = true;
+  }
+
+  cerrarModal() {
+    this.modal = false;
   }
 }

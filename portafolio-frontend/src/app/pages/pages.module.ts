@@ -26,6 +26,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SkillsetTarjetaComponent } from './skillset-tarjeta/skillset-tarjeta.component';
 import { SkillsetDialogoComponent } from './skillset-dialogo/skillset-dialogo.component';
+import { SkillsetUploadComponent } from './skillset-upload/skillset-upload.component';
+import { SkillsetFotoComponent } from './skillset-foto/skillset-foto.component';
 @NgModule({
   declarations: [
     FormularioComponent,
@@ -37,6 +39,8 @@ import { SkillsetDialogoComponent } from './skillset-dialogo/skillset-dialogo.co
     PortafolioDialogoComponent,
     SkillsetTarjetaComponent,
     SkillsetDialogoComponent,
+    SkillsetUploadComponent,
+    SkillsetFotoComponent,
   ],
   imports: [
     CommonModule,

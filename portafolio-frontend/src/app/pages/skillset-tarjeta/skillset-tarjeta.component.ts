@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TblSkillsetDTO } from 'src/app/models/TblSkillsetDTO';
+import { SkillsetService } from 'src/app/services/skillset.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,13 +15,16 @@ export class SkillsetTarjetaComponent implements OnInit {
   host_img = environment.HOST_IMG;
   // host_img_upload = `${environment.HOST_IMG_UPLOAD}`;
 
+
   @Output() eventoSkillsetSolicitadoParaModificar = new EventEmitter<TblSkillsetDTO>();
 
   @Output() eventoSkillsetSolicitadoParaConsultar = new EventEmitter<number>();
 
   @Output() eventoSkillsetSolicitadoParaEliminar = new EventEmitter<TblSkillsetDTO>();
 
-  constructor() { }
+  @Output() eventoSkillsetSolicitadoParaSubirFoto = new EventEmitter<TblSkillsetDTO>();
+
+  constructor(private skillsetService: SkillsetService) { }
 
   ngOnInit(): void {
   }
@@ -47,5 +51,10 @@ export class SkillsetTarjetaComponent implements OnInit {
    */
   solicitarEliminacion(tblSkillsetDTO: TblSkillsetDTO) {
     this.eventoSkillsetSolicitadoParaEliminar.emit(tblSkillsetDTO);
+  }
+
+  solicitarSubidaFoto(tblSkillsetDTO: TblSkillsetDTO) {
+    // this.skillsetService.abrirModal();
+    this.eventoSkillsetSolicitadoParaSubirFoto.emit(tblSkillsetDTO);
   }
 }

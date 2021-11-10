@@ -213,10 +213,10 @@ public class SkillsetController {
 	}
 
 	@PostMapping("/upload")
-	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id) {
+	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("idSkillset") Long idSkillset) {
 		Map<String, Object> response = new HashMap<>();
 
-		TblSkillset tblSkillset = skillsetService.findById(id);
+		TblSkillset tblSkillset = skillsetService.findById(idSkillset);
 
 		if (!archivo.isEmpty()) {
 

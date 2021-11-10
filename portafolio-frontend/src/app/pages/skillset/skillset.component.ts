@@ -8,6 +8,8 @@ import { SkillsetService } from 'src/app/services/skillset.service';
 import { pgimAnimations } from 'src/shared/animations/pgim-animations';
 import Swal from 'sweetalert2';
 import { SkillsetDialogoComponent } from '../skillset-dialogo/skillset-dialogo.component';
+import { SkillsetFotoComponent } from '../skillset-foto/skillset-foto.component';
+import { SkillsetUploadComponent } from '../skillset-upload/skillset-upload.component';
 
 @Component({
   selector: 'app-skillset',
@@ -26,6 +28,8 @@ export class SkillsetComponent implements OnInit {
   * Lista de contratos.
   */
   lTblSkillsetDTO: TblSkillsetDTO[];
+
+  clienteSeleccionado: TblSkillsetDTO;
 
   constructor(private skillsetService: SkillsetService,
     // private confirmService: AppConfirmService,
@@ -88,6 +92,25 @@ export class SkillsetComponent implements OnInit {
         tblSkillsetDTO = parametroDialogo.objeto;
         this.listarSkillset();
       }
+    });
+  }
+
+  subirFoto(tblSkillsetDTO: TblSkillsetDTO): void {
+    const parametroDialogo = new ParametroDialogo<TblSkillsetDTO, any>();
+
+    parametroDialogo.objeto = tblSkillsetDTO;
+    // parametroDialogo.objeto.idSkillset = tblSkillsetDTO.idSkillset;
+    const dialogRef = this.dialog.open(SkillsetFotoComponent, {
+      disableClose: true,
+      data: parametroDialogo,
+      width: '30%',
+    });
+
+    dialogRef.afterClosed().subscribe(resultado => {
+      if (parametroDialogo.resultado === 'ok') {
+        tblSkillsetDTO = parametroDialogo.objeto;
+      }
+      this.listarSkillset();
     });
   }
 

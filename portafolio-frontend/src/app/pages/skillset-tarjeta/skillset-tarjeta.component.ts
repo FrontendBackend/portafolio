@@ -6,33 +6,34 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-skillset-tarjeta',
   templateUrl: './skillset-tarjeta.component.html',
-  styleUrls: ['./skillset-tarjeta.component.scss']
+  styleUrls: ['./skillset-tarjeta.component.scss'],
 })
 export class SkillsetTarjetaComponent implements OnInit {
-
   @Input() tblSkillsetDTO: TblSkillsetDTO;
 
   host_img = environment.HOST_IMG;
-  // host_img_upload = `${environment.HOST_IMG_UPLOAD}`;
 
+  host_img_upload = environment.HOST_IMG_UPLOAD;
 
-  @Output() eventoSkillsetSolicitadoParaModificar = new EventEmitter<TblSkillsetDTO>();
+  @Output() eventoSkillsetSolicitadoParaModificar =
+    new EventEmitter<TblSkillsetDTO>();
 
   @Output() eventoSkillsetSolicitadoParaConsultar = new EventEmitter<number>();
 
-  @Output() eventoSkillsetSolicitadoParaEliminar = new EventEmitter<TblSkillsetDTO>();
+  @Output() eventoSkillsetSolicitadoParaEliminar =
+    new EventEmitter<TblSkillsetDTO>();
 
-  @Output() eventoSkillsetSolicitadoParaSubirFoto = new EventEmitter<TblSkillsetDTO>();
+  @Output() eventoSkillsetSolicitadoParaSubirFoto =
+    new EventEmitter<TblSkillsetDTO>();
 
-  constructor(private skillsetService: SkillsetService) { }
+  constructor(private skillsetService: SkillsetService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   /**
-    * Permite solicitar la modificación del skillset.
-    * @param idSkillset Identificador interno de skillset a modificar.
-    */
+   * Permite solicitar la modificación del skillset.
+   * @param idSkillset Identificador interno de skillset a modificar.
+   */
   solicitarModificacion(tblSkillsetDTO: TblSkillsetDTO) {
     this.eventoSkillsetSolicitadoParaModificar.emit(tblSkillsetDTO);
   }

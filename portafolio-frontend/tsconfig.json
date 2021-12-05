@@ -19,8 +19,6 @@
     "target": "es2017",
     "module": "es2020",
     "resolveJsonModule": true,
-    // "typeRoots": [],
-    // "types": [] ,
     "lib": [
       "es2018",
       "dom"
@@ -32,12 +30,4 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-//   "typeRoots": [
-//     "./node_modules/@types",
-//     "./custom_definitions"
-// ],
-// "types": [
-//     "jasmine",
-// ]
-
 }

@@ -9,9 +9,13 @@ export const environment = {
 
   HOST_IMG: 'http://localhost:9999/images/no-usuario.png',
 
-  // HOST_IMG_UPLOAD: 'http://localhost:9999/api/uploads/img',
+  HOST_IMG_PORTAFOLIO: 'http://localhost:9999/images/programer_3.png',
 
-  REINTENTOS: 2
+  HOST_IMG_UPLOAD: 'http://localhost:9999/skillsets/uploads/img',
+
+  HOST_IMG_UPLOAD_VER: 'http://localhost:9999/skillsets/uploads/img',
+
+  REINTENTOS: 2,
 
   //Comando para ejecutar desde mi celular
   // ng serve --host 0.0.0.0

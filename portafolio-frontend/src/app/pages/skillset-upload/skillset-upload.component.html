@@ -17,7 +17,7 @@
     <div class="breakpoint">
       <div class="img-tamanio">
 
-        <img *ngIf="tblSkillsetDTO?.fotoSkillset" src="http://localhost:9999/skillsets/uploads/img/{{tblSkillsetDTO.fotoSkillset}}"
+        <img *ngIf="tblSkillsetDTO?.fotoSkillset" src="{{host_img_upload_ver}}/{{tblSkillsetDTO.fotoSkillset}}"
           alt="{{tblSkillsetDTO.fotoSkillset}}" class="img-thumbnail rounded" style="cursor: pointer;" height="190">
 
           <mat-progress-bar *ngIf="progreso" color="primary" mode="query"></mat-progress-bar>

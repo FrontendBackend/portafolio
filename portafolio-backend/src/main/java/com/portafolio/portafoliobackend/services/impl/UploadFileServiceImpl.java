@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class UploadFileServiceImpl implements UploadFileService {
 
-    private final static String DIRECTORIO_UPLOAD = "uploads";
+    private final static String DIRECTORIO_UPLOAD = "src/main/resources/static/uploads";
 
     @Override
     public Resource cargar(String nombreFoto) throws MalformedURLException {
@@ -56,7 +56,7 @@ public class UploadFileServiceImpl implements UploadFileService {
     @Override
     public boolean eliminar(String nombreFoto) {
         if (nombreFoto != null && nombreFoto.length() > 0) {
-            Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
+            Path rutaFotoAnterior = Paths.get("src/main/resources/static/uploads").resolve(nombreFoto).toAbsolutePath();
             File archivoFotoAnterior = rutaFotoAnterior.toFile();
             if (archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
                 archivoFotoAnterior.delete();

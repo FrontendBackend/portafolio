@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FormularioComponent implements OnInit {
 
   // titulo = 'Formulario';
-
+  host_img_portafolio = environment.HOST_IMG_PORTAFOLIO;
   constructor() { }
 
   ngOnInit(): void {

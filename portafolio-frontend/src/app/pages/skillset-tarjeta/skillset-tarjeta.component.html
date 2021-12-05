@@ -11,7 +11,7 @@
     <div class="img-tamanio">
       <!-- <img [src]="tblSkillsetDTO.imgPortafolio" alt="" height="190"> -->
       <img *ngIf="tblSkillsetDTO?.fotoSkillset"
-      src="http://localhost:9999/skillsets/uploads/img/{{tblSkillsetDTO.fotoSkillset}}" alt="{{tblSkillsetDTO.fotoSkillset}}"
+      src="{{host_img_upload}}/{{tblSkillsetDTO.fotoSkillset}}" alt="{{tblSkillsetDTO.fotoSkillset}}"
       class="img-thumbnail rounded" style="cursor: pointer;" height="190">
 
       <img *ngIf="!tblSkillsetDTO?.fotoSkillset" [src]="host_img" alt="Sin foto"

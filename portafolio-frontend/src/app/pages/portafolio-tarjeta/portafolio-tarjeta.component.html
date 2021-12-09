@@ -9,7 +9,10 @@
 
   <div class="breakpoint">
     <div class="img-tamanio">
-      <img [src]="tblPortafolioDTO.imgPortafolio" alt="" height="190">
+      <img *ngIf="tblPortafolioDTO.imgPortafolio" [src]="tblPortafolioDTO.imgPortafolio" alt="" height="190">
+
+      <img *ngIf="tblPortafolioDTO.imgPortafolio == null" src="data:image/png;base64,{{imagenData}}" alt="nullo"
+        height="190">
     </div>
   </div>
 
@@ -20,17 +23,19 @@
   <mat-divider></mat-divider>
 
   <mat-card-actions class="oh text-center little-profile">
-    <button mat-raised-button color="primary" matTooltip="Editar" class="cabecera-color">
+    <button mat-raised-button color="primary" matTooltip="Editar" (click)="solicitarModificacion(tblPortafolioDTO)"
+      class="cabecera-color">
       <mat-icon>mode_edit</mat-icon>
     </button>
 
-    <button mat-raised-button color="primary" matTooltip="Ver detalle" class="cabecera-color">
+    <!-- <button mat-raised-button color="primary" matTooltip="Ver detalle" class="cabecera-color">
       <mat-icon>remove_red_eye</mat-icon>
-    </button>
-
-    <!-- <button mat-raised-button color="primary" (click)="solicitarEliminacion(tblPortafolioDTO)" matTooltip="Eliminar">
-      <mat-icon>delete</mat-icon>
     </button> -->
+
+    <button mat-raised-button color="primary" (click)="solicitarEliminacion(tblPortafolioDTO)" matTooltip="Eliminar"
+      class="cabecera-color">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
 <br>

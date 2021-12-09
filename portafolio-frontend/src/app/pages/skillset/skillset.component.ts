@@ -64,7 +64,7 @@ export class SkillsetComponent implements OnInit {
     const dialogRef = this.dialog.open(SkillsetDialogoComponent, {
       disableClose: true,
       data: parametroDialogo,
-      width: '60%',
+      width: '120%',
     });
 
     dialogRef.afterClosed().subscribe(resultado => {
@@ -84,7 +84,7 @@ export class SkillsetComponent implements OnInit {
     const dialogRef = this.dialog.open(SkillsetDialogoComponent, {
       disableClose: true,
       data: parametroDialogo,
-      width: '60%',
+      width: '120%',
     });
 
     dialogRef.afterClosed().subscribe(resultado => {

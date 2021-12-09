@@ -27,13 +27,13 @@ export class PortafolioService {
    * Permite crear un portafolios.
    * @param tblPortafolioDTO,
    */
-   crearPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
+  crearPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
     const urlEndPoint = `${this.url}/crearPortafolio`;
-    const clave  = 'tblPortafolioDTOCreado';
+    const clave = 'tblPortafolioDTOCreado';
 
     return this.httpClient.post<TblPortafolioDTO>(urlEndPoint, tblPortafolioDTO, { headers: this.httpHeaders })
       .pipe(
-        map((respuesta: any) => respuesta[clave] as TblPortafolioDTO )
+        map((respuesta: any) => respuesta[clave] as TblPortafolioDTO)
       );
   }
 
@@ -41,7 +41,7 @@ export class PortafolioService {
    * Permite modificar un portafolios.
    * @param tblPortafolioDTO,
    */
-   modificarPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
+  modificarPortafolio(tblPortafolioDTO: TblPortafolioDTO): Observable<TblPortafolioDTO> {
     const urlEndPoint = `${this.url}/modificarPortafolio`;
     const clave = 'tblPortafolioDTOModificada';
     return this.httpClient.put<TblPortafolioDTO>(urlEndPoint, tblPortafolioDTO, { headers: this.httpHeaders })
@@ -51,9 +51,27 @@ export class PortafolioService {
   }
 
   /**
+ * Permite eliminar un portafolio.
+ * @param idPortafolio Identificador interno de portafolio para la eliminación.
+ */
+  eliminarPortafolio(idPortafolio: number) {
+    const urlEndPoint = `${this.url}/eliminarPortafolio/${idPortafolio}`;
+
+    return this.httpClient
+      .delete<any>(urlEndPoint, { headers: this.httpHeaders })
+      .pipe(
+        map((respuesta) => {
+          if (respuesta['mensaje'] === 'ok') {
+            return true;
+          }
+        })
+      );
+  }
+
+  /**
    * Permite obtener las configuraciones necesarias para el listado de portafolios.
    */
-   obtenerConfiguracionesGenerales(idPortafolio: number): Observable<any> {
+  obtenerConfiguracionesGenerales(idPortafolio: number): Observable<any> {
     const urlEndPoint = `${this.url}/obtenerConfiguracionesGenerales/${idPortafolio}`;
     return this.httpClient.get<any[]>(urlEndPoint);
   }
@@ -62,7 +80,7 @@ export class PortafolioService {
    * Permite analizar el error y responder un error específico para el usuario.
    * @param error que debe ser controlado.
    */
-   private manejarError(error: HttpErrorResponse) {
+  private manejarError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Se produjo un error del lado del cliente o de la red. Manejarlo en consecuencia.
       console.error("Un error ha ocurrido:", error.error.message);

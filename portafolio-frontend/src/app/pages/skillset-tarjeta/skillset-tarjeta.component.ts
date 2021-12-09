@@ -1,3 +1,4 @@
+import { Img } from 'src/app/models/Img';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TblSkillsetDTO } from 'src/app/models/TblSkillsetDTO';
 import { SkillsetService } from 'src/app/services/skillset.service';
@@ -11,9 +12,7 @@ import { environment } from 'src/environments/environment';
 export class SkillsetTarjetaComponent implements OnInit {
   @Input() tblSkillsetDTO: TblSkillsetDTO;
 
-  host_img = environment.HOST_IMG;
-
-  host_img_upload = environment.HOST_IMG_UPLOAD;
+  imagenData = Img.noImgCode;
 
   @Output() eventoSkillsetSolicitadoParaModificar =
     new EventEmitter<TblSkillsetDTO>();

@@ -1,3 +1,4 @@
+import { Img } from 'src/app/models/Img';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TblPortafolioDTO } from 'src/app/models/TblPortafolioDTO';
 
@@ -10,7 +11,9 @@ export class PortafolioTarjetaComponent implements OnInit {
 
   @Input() tblPortafolioDTO: TblPortafolioDTO;
 
-  @Output() eventoPortafolioSolicitadoParaModificar = new EventEmitter<number>();
+  imagenData = Img.noImgCode;
+
+  @Output() eventoPortafolioSolicitadoParaModificar = new EventEmitter<TblPortafolioDTO>();
 
   @Output() eventoPortafolioSolicitadoParaConsultar = new EventEmitter<number>();
 
@@ -25,8 +28,8 @@ export class PortafolioTarjetaComponent implements OnInit {
    * Permite solicitar la modificación del portafolio.
    * @param idPortafolio Identificador interno de portafolio a modificar.
    */
-  solicitarModificacion(idPortafolio: number) {
-    this.eventoPortafolioSolicitadoParaModificar.emit(idPortafolio);
+  solicitarModificacion(tblPortafolioDTO: TblPortafolioDTO) {
+    this.eventoPortafolioSolicitadoParaModificar.emit(tblPortafolioDTO);
   }
 
   /**

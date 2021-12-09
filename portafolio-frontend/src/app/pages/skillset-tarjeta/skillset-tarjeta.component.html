@@ -13,7 +13,7 @@
       src="data:image/png;base64,{{tblSkillsetDTO.value}}" alt="{{tblSkillsetDTO.filename}}"
       class="img-thumbnail rounded" style="cursor: pointer;" height="190">
 
-      <img *ngIf="!tblSkillsetDTO?.filename" [src]="host_img" alt="Sin foto"
+      <img *ngIf="!tblSkillsetDTO?.filename" src="data:image/png;base64,{{imagenData}}" alt="Sin foto"
               class="img-thumbnail rounded" style="cursor: pointer;" height="190">
     </div>
   </div>

@@ -14,19 +14,24 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-card >
+<mat-card>
   <!--Inicio contentenido de tarjeas-->
   <mat-progress-bar *ngIf="enProceso" color="primary" mode="query"></mat-progress-bar>
 
   <div class="alerta alerta-warning animated fadeInDown" *ngIf="lTblPortafolioDTO?.length == 0">
-      Sin registros para mostrar
+    Sin registros para mostrar
   </div>
 
   <div *ngIf="!enProceso" class="items-supervision-container" fxLayout="row wrap" fxLayoutGap="16px grid">
     <!-- fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" -->
     <div class="item-supervision-wrap" *ngFor="let tblPortafolioDTO of lTblPortafolioDTO; let i = index"
-      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%" fxFlex.sm="33%">
-      <app-portafolio-tarjeta [tblPortafolioDTO]="tblPortafolioDTO">
+      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%"
+      fxFlex.sm="33%">
+      <app-portafolio-tarjeta [tblPortafolioDTO]="tblPortafolioDTO"
+        (eventoPortafolioSolicitadoParaEliminar)="eliminarPortafolio($event)"
+        (eventoPortafolioSolicitadoParaModificar)="modificarPortafolio($event)"
+        >
+        <!-- (eventoSkillsetSolicitadoParaSubirFoto)="subirFoto($event)" -->
       </app-portafolio-tarjeta>
     </div>
 

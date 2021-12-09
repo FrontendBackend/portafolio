@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ETipoAccionCRUD } from 'src/app/enums/tipo-accion';
@@ -25,7 +26,7 @@ export class PortafolioComponent implements OnInit {
   /**
    * Lista de contratos.
    */
-   lTblPortafolioDTO: TblPortafolioDTO[];
+  lTblPortafolioDTO: TblPortafolioDTO[];
 
   constructor(
     private portafolioService: PortafolioService,
@@ -54,7 +55,7 @@ export class PortafolioComponent implements OnInit {
   /**
    * Permite iniciar la creación de un portafolio.
    */
-   crearPortafolio(): void {
+  crearPortafolio(): void {
     let tblPortafolioDTO: TblPortafolioDTO;
 
     const parametroDialogo = new ParametroDialogo<TblPortafolioDTO, any>();
@@ -66,7 +67,7 @@ export class PortafolioComponent implements OnInit {
     const dialogRef = this.dialog.open(PortafolioDialogoComponent, {
       disableClose: true,
       data: parametroDialogo,
-      width: '60%',
+      width: '120%',
     });
 
     dialogRef.afterClosed().subscribe(resultado => {
@@ -75,5 +76,57 @@ export class PortafolioComponent implements OnInit {
         this.listarPortafolio();
       }
     });
+  }
+
+  modificarPortafolio(tblPortafolioDTO: TblPortafolioDTO): void {
+    const parametroDialogo = new ParametroDialogo<TblPortafolioDTO, any>();
+
+    parametroDialogo.accion = ETipoAccionCRUD.MODIFICAR;
+    parametroDialogo.objeto = tblPortafolioDTO;
+
+    const dialogRef = this.dialog.open(PortafolioDialogoComponent, {
+      disableClose: true,
+      data: parametroDialogo,
+      width: '120%',
+    });
+
+    dialogRef.afterClosed().subscribe(resultado => {
+      if (parametroDialogo.resultado === 'ok') {
+        tblPortafolioDTO = parametroDialogo.objeto;
+        this.listarPortafolio();
+      }
+    });
+  }
+
+  eliminarPortafolio(tblPortafolioDTO: TblPortafolioDTO) {
+    Swal.fire({
+      title: 'Está seguro?',
+      text: `¿Seguro que desea eliminar el Skillset ${tblPortafolioDTO.noPortafolio}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      cancelButtonText: 'No, cancelar!',
+      confirmButtonText: 'Sí, eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.portafolioService.eliminarPortafolio(tblPortafolioDTO.idPortafolio).subscribe(
+          response => {
+            this.lTblPortafolioDTO = this.lTblPortafolioDTO.filter(cli => cli !== tblPortafolioDTO)
+            Swal.fire(
+              'Portafolio eliminado!',
+              `Portafolio ${tblPortafolioDTO.noPortafolio} eliminado con éxito.`,
+              'success'
+            )
+          }
+        )
+
+        // swal.fire(
+        //   `El cliente ${cliente.nombre} ${cliente.apellido}`,
+        //   'ha sido eliminado.',
+        //   'success'
+        // )
+      }
+    })
   }
 }

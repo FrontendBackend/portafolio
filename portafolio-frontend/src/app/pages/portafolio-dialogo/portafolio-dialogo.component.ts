@@ -84,7 +84,7 @@ export class PortafolioDialogoComponent implements OnInit {
     this.frmReactivo = this.fb.group({
       noPortafolio: [this.tblPortafolioDTO.noPortafolio, [Validators.required]],
       dePortafolio: [this.tblPortafolioDTO.dePortafolio, [Validators.required]],
-      imgPortafolio: [this.tblPortafolioDTO.imgPortafolio, [Validators.required]],
+      imgPortafolio: [this.tblPortafolioDTO.imgPortafolio],
     });
 
     if (this.esFormularioSoloLectura) {

@@ -59,8 +59,11 @@ import { SkillsetFotoComponent } from './skillset-foto/skillset-foto.component';
     MatInputModule,
     MatSidenavModule,
     FlexLayoutModule,
-
     // MaterialModule
+  ],
+  exports:[],
+  providers:[
+
   ]
 })
 export class PagesModule { }

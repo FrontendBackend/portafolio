@@ -9,12 +9,12 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-card>
-  <button mat-button color="primary" onclick="document.getElementById('flArchivo').click()">Seleccionar</button>
+  <!-- <button mat-button color="primary" onclick="document.getElementById('flArchivo').click()">Seleccionar</button>
   <input id="flArchivo" type="file" style="display: none;" (change)="seleccionarArchivo($event)">
   <p>{{nombreArchivo}}</p>
 
-  <button mat-button color="primary" (click)="subirArchivo()" [disabled]="!archivosSeleccionados">Subir Archivo</button>
+  <button mat-button color="primary" (click)="subirArchivo()" [disabled]="!archivosSeleccionados">Subir Archivo</button> -->
 
-  <img mat-card-image [src]="imagenData" *ngIf="imagenEstado">
+  <!-- <img mat-card-image src="data:image/png;base64,{{imagenData}}" alt="demo"> -->
 
 </mat-card>

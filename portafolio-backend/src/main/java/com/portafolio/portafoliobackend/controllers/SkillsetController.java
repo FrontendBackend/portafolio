@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -178,10 +179,6 @@ public class SkillsetController {
 
 		try {
 			tblSkillsetActual = this.skillsetService.findById(idSkillset);
-			
-			String nombreFotoAnterior = tblSkillsetActual.getFotoSkillset();
-
-			uploadService.eliminar(nombreFotoAnterior);
 
 			if (tblSkillsetActual == null) {
 				mensaje = String.format("La skillset %s que intenta eliminar no existe en la base de datos",
@@ -212,38 +209,26 @@ public class SkillsetController {
 		return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
 	}
 
-	@PostMapping("/upload")
-	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("idSkillset") Long idSkillset) {
+	@PostMapping(value = "/guardarArchivo", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public ResponseEntity<?> guardarArchivo(@RequestParam("adjunto") MultipartFile file,
+			@RequestParam("idSkillset") Long idSkillset) throws IOException {
+
 		Map<String, Object> response = new HashMap<>();
 
 		TblSkillset tblSkillset = skillsetService.findById(idSkillset);
 
-		if (!archivo.isEmpty()) {
+		// Archivo ar = new Archivo();
 
-			String nombreArchivo = null;
-			try {
-				nombreArchivo = uploadService.copiar(archivo);
-			} catch (IOException e) {
-				response.put("mensaje", "Error al subir la imagen del cliente");
-				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
+		tblSkillset.setFiletype(file.getContentType());
+		tblSkillset.setFilename(file.getOriginalFilename());
+		tblSkillset.setValue(file.getBytes());
 
-				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+		skillsetService.save(tblSkillset);
 
-			String nombreFotoAnterior = tblSkillset.getFotoSkillset();
+		response.put("tblSkillset", tblSkillset);
+		response.put("mensaje", "Has subido correctamente la imagen: " + tblSkillset.getFilename());
 
-			uploadService.eliminar(nombreFotoAnterior);
-
-			tblSkillset.setFotoSkillset(nombreArchivo);
-
-			skillsetService.save(tblSkillset);
-
-			response.put("tblSkillset", tblSkillset);
-			response.put("mensaje", "Has subido correctamente la imagen: " + nombreArchivo);
-
-		}
-
-		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
 
 	@GetMapping("/uploads/img/{nombreFoto:.+}")

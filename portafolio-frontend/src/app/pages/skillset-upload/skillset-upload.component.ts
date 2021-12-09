@@ -29,7 +29,7 @@ export class SkillsetUploadComponent implements OnInit {
   seleccionarFoto(event: any) {
     this.fotoSeleccionada = event.target.files[0];
     this.progreso = 0;
-    console.log(this.fotoSeleccionada);
+    // console.log(this.fotoSeleccionada);
     if (this.fotoSeleccionada.type.indexOf('image') < 0) {
       Swal.fire(
         'Error seleccionar imagen: ',

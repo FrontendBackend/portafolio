@@ -22,7 +22,7 @@ export class ArchivoService {
   }
 
   leerArchivo() {
-    return this.httpClient.get(`${this.url}/leerArchivo/8`, {
+    return this.httpClient.get(`${this.url}/leerArchivo/2`, {
       responseType: 'blob'
     });
   }

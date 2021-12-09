@@ -87,10 +87,10 @@ export class SkillsetService {
 
   subirFoto(archivo: File, idSkillset: any): Observable<HttpEvent<{}>> {
     let formData = new FormData();
-    formData.append('archivo', archivo);
+    formData.append('adjunto', archivo);
     formData.append('idSkillset', idSkillset);
 
-    const req = new HttpRequest('POST', `${this.url}/upload`, formData, {
+    const req = new HttpRequest('POST', `${this.url}/guardarArchivo`, formData, {
       reportProgress: true,
     });
 

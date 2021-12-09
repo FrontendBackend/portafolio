@@ -34,6 +34,18 @@ public class TblSkillset {
 	@Column(name = "FOTO_SKILLSET", nullable = true)
 	private String fotoSkillset;
 
+    // NOMBRE ORIGINAL DE LA IMAGEN
+    @Column(name = "NO_IMAGEN_ORIGINAL", nullable = true, length = 50)
+    private String filename;
+
+    // TIPO DE IMAGEN
+    @Column(name = "TIPO_IMAGEN", nullable = true, length = 15)
+    private String filetype;
+
+    // NOMBRE DE LA IMAGEN
+    @Column(name = "NO_IMAGEN", nullable = true, length = 5000)
+    private byte[] value;
+
 	// CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
     @Column(name = "ES_REGISTRO", nullable = false, length = 1)
     private String esRegistro;

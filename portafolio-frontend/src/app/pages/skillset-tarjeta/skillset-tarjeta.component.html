@@ -9,12 +9,11 @@
 
   <div class="breakpoint">
     <div class="img-tamanio">
-      <!-- <img [src]="tblSkillsetDTO.imgPortafolio" alt="" height="190"> -->
-      <img *ngIf="tblSkillsetDTO?.fotoSkillset"
-      src="{{host_img_upload}}/{{tblSkillsetDTO.fotoSkillset}}" alt="{{tblSkillsetDTO.fotoSkillset}}"
+      <img *ngIf="tblSkillsetDTO?.filename"
+      src="data:image/png;base64,{{tblSkillsetDTO.value}}" alt="{{tblSkillsetDTO.filename}}"
       class="img-thumbnail rounded" style="cursor: pointer;" height="190">
 
-      <img *ngIf="!tblSkillsetDTO?.fotoSkillset" [src]="host_img" alt="Sin foto"
+      <img *ngIf="!tblSkillsetDTO?.filename" [src]="host_img" alt="Sin foto"
               class="img-thumbnail rounded" style="cursor: pointer;" height="190">
     </div>
   </div>

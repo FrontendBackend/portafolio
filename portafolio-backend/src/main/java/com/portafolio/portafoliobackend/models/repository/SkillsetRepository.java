@@ -13,7 +13,7 @@ public interface SkillsetRepository extends JpaRepository<TblSkillset, Long> {
     
     // PERMITE LISTAR LOS SKILLSETS
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblSkillsetDTOResultado("
-            + "sk.idSkillset, sk.noSkillset, sk.fotoSkillset " 
+            + "sk.idSkillset, sk.noSkillset, sk.fotoSkillset, sk.filename, sk.filetype, sk.value " 
             + " ) " 
             + "FROM TblSkillset sk "
             + "WHERE sk.esRegistro = '1' "
@@ -22,7 +22,7 @@ public interface SkillsetRepository extends JpaRepository<TblSkillset, Long> {
 
     // PERMITE OBTENER LOS DATOS DEL SKILLSETS
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblSkillsetDTOResultado("
-            + "sk.idSkillset, sk.noSkillset, sk.fotoSkillset " 
+            + "sk.idSkillset, sk.noSkillset, sk.fotoSkillset, sk.filename, sk.filetype, sk.value " 
             + " ) " 
             + "FROM TblSkillset sk "
             + "WHERE sk.idSkillset = :idSkillset " 

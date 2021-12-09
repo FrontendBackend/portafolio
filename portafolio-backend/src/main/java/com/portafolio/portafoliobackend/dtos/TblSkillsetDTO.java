@@ -16,6 +16,15 @@ public class TblSkillsetDTO {
     // FOTO O IMAGEN DE SKILLSET
     private String fotoSkillset;
 
+    // NOMBRE ORIGINAL DE LA IMAGEN
+    private String filename;
+
+    // TIPO DE IMAGEN
+    private String filetype;
+
+    // NOMBRE DE LA IMAGEN
+    private byte[] value;
+
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
     private String esRegistro;
 

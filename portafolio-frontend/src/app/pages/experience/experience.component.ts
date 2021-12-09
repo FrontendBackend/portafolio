@@ -23,7 +23,7 @@ export class ExperienceComponent implements OnInit {
     // window.document.title = this.titulo;
     this.archivoService.leerArchivo().subscribe(data => {
       this.convertir(data);
-      console.log({data});
+      // console.log({data});
 
     });
   }
@@ -33,7 +33,7 @@ export class ExperienceComponent implements OnInit {
     reader.readAsDataURL(data);
     reader.onloadend = () => {
       let base64 = reader.result;
-      console.log(base64);
+      // console.log(base64);
       this.sanar(base64);
     }
   }
@@ -44,7 +44,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   seleccionarArchivo(e: any) {
-    console.log(e);
+    // console.log(e);
     this.nombreArchivo = e.target.files[0].name;
     this.archivosSeleccionados = e.target.files;
 

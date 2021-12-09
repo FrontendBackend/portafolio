@@ -103,7 +103,7 @@ export class SkillsetComponent implements OnInit {
     const dialogRef = this.dialog.open(SkillsetFotoComponent, {
       disableClose: true,
       data: parametroDialogo,
-      width: '30%',
+      // width: '30%',
     });
 
     dialogRef.afterClosed().subscribe(resultado => {

@@ -1,3 +1,5 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export class TblSkillsetDTO {
 
   // ID DE SKILLSET
@@ -8,6 +10,15 @@ export class TblSkillsetDTO {
 
   // FOTO O IMAGEN DE SKILLSET
   fotoSkillset: string;
+
+  // NOMBRE ORIGINAL DE LA IMAGEN
+  filename: String;
+
+  // TIPO DE IMAGEN
+  filetype: String;
+
+  // NOMBRE DE LA IMAGEN
+  value: Byte[];
 
   // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
   esRegistro: string;
@@ -29,4 +40,5 @@ export class TblSkillsetDTO {
 
   // CAMPO FECHA Y HORA DE MODIFICACIÓN
   feActualizacion: Date;
+
 }

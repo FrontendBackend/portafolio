@@ -1,1 +1,35 @@
-<app-skillset-upload *ngIf="clienteSeleccionado" [tblSkillsetDTO]="clienteSeleccionado"></app-skillset-upload>
+<!-- <app-skillset-upload *ngIf="clienteSeleccionado" [tblSkillsetDTO]="clienteSeleccionado"></app-skillset-upload> -->
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary">
+  <span class="span">
+    <b>
+      <h2 matDialogTitle>Subir foto</h2>
+    </b>
+  </span>
+</mat-toolbar>
+<mat-card align="center" class="oh little-profile tarjeta text-statico">
+
+  <div class="breakpoint">
+    <div class="img-tamanio">
+
+      <img *ngIf="clienteSeleccionado?.value" src="data:image/png;base64,{{clienteSeleccionado.value}}"
+        alt="{{clienteSeleccionado.value}}" class="img-thumbnail rounded" style="cursor: pointer;" height="190">
+
+      <mat-progress-bar *ngIf="progreso" color="primary" mode="query"></mat-progress-bar>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions class="oh text-center little-profile">
+    <button mat-button color="primary"
+      onclick="document.getElementById('inputGroupFile04').click()">Seleccionar</button>
+
+    <input style="display: none;" (change)="seleccionarFoto($event)" type="file" class="form-control form-control-sm"
+      id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+
+    <button mat-button color="primary" (click)="subirFoto()" mat-button mat-dialog-close [disabled]="!fotoSeleccionada"
+      class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir
+    </button>
+    <button mat-button mat-dialog-close>CERRAR</button>
+  </mat-card-actions>
+</mat-card>

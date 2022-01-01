@@ -99,6 +99,8 @@ export class SkillsetComponent implements OnInit {
     const parametroDialogo = new ParametroDialogo<TblSkillsetDTO, any>();
 
     parametroDialogo.objeto = tblSkillsetDTO;
+    console.log(tblSkillsetDTO);
+
     // parametroDialogo.objeto.idSkillset = tblSkillsetDTO.idSkillset;
     const dialogRef = this.dialog.open(SkillsetFotoComponent, {
       disableClose: true,

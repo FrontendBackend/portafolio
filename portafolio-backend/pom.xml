@@ -78,7 +78,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>prueba</finalName>
+		<finalName>portafolio</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

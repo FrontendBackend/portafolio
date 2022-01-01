@@ -1,9 +1,11 @@
 import { environment } from 'src/environments/environment';
 import { HttpEventType } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TblSkillsetDTO } from 'src/app/models/TblSkillsetDTO';
 import { SkillsetService } from 'src/app/services/skillset.service';
 import Swal from 'sweetalert2';
+import { SkillsetTarjetaComponent } from '../skillset-tarjeta/skillset-tarjeta.component';
+import { SkillsetComponent } from '../skillset/skillset.component';
 
 @Component({
   selector: 'app-skillset-upload',
@@ -11,6 +13,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./skillset-upload.component.scss'],
 })
 export class SkillsetUploadComponent implements OnInit {
+
+  @ViewChild(SkillsetComponent) esTarjetaInfoComponent: SkillsetComponent;
+
   @Input() tblSkillsetDTO: TblSkillsetDTO;
 
   public fotoSeleccionada: File;
@@ -22,9 +27,9 @@ export class SkillsetUploadComponent implements OnInit {
   constructor(
     public skillsetService: SkillsetService // public authService: AuthService,
   ) // public modalService: ModalService
-  {}
+  { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   seleccionarFoto(event: any) {
     this.fotoSeleccionada = event.target.files[0];
@@ -59,11 +64,16 @@ export class SkillsetUploadComponent implements OnInit {
             Swal.fire(
               'La foto se ha subido completamente!',
               response.mensaje,
-              'success'
+              'success',
             );
           }
         });
     }
+  }
+
+  eventoImgSubido() {
+
+    this.esTarjetaInfoComponent.listarSkillset();
   }
 
   cerrarModal() {

@@ -1,0 +1,106 @@
+<div class="main-container">
+  <form fxLayout="column" [formGroup]="frmReactivo" (ngSubmit)="enviar()">
+
+    <div fxLayout="row" *ngIf="enProceso">
+      <mat-progress-bar mode="query" color="accent" fxFlex></mat-progress-bar>
+      <br />
+    </div>
+
+    <div class="items-supervision-container">
+
+      <div class="item-supervision-wrap" fxFlex.lt-sm="100%" fxFlex>
+        <mat-card>
+          <mat-label><b>Foto de perfil</b></mat-label>
+          <br>
+          <br>
+          <img class="img-tamanio" mat-card-image [src]="host_img_portafolio" alt="Photo of a Shiba Inu">
+        </mat-card>
+        <br>
+      </div>
+
+      <div fxFlex="50px"></div>
+
+      <div class="item-supervision-wrap" fxFlex.lt-sm="100%" fxFlex>
+        <mat-card>
+          <mat-label><b>Identificación</b></mat-label>
+          <br>
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>DNI:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="nuDniPerfil" appSoloEnteros
+                [class.is-invalid]="tieneError('nuDniPerfil', 'any')">
+              <mat-error *ngIf="tieneError('nuDniPerfil', 'required')">
+                Es requerido
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Nombres:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="noPerfil"
+                [class.is-invalid]="tieneError('noPerfil', 'any')" />
+              <mat-error *ngIf="tieneError('noPerfil', 'required')">
+                Es requerido
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Apellidos:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="apPerfil"
+                [class.is-invalid]="tieneError('apPerfil', 'any')" />
+              <mat-error *ngIf="tieneError('apPerfil', 'required')">
+                Es requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <br>
+          <mat-label><b>Ubicación y contactos</b></mat-label>
+          <br>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Dirección:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="dirPerfil" />
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Teléfono:</mat-label>
+              <input #nombre matInput aria-label="State" autocomplete="off" formControlName="telPerfil">
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Correo electrónico:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="emailPerfil" />
+            </mat-form-field>
+          </div>
+
+          <br>
+          <mat-label><b>Otros</b></mat-label>
+          <br>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field appearance="outline">
+              <mat-label>Nacido el:</mat-label>
+              <input matInput type="text" formControlName="feNacimientoPerfil" autocomplete="off"
+                [matDatepicker]="dpFeNacimiento" [class.is-invalid]="tieneError('feNacimientoPerfil', 'any')" />
+              <mat-datepicker-toggle matSuffix [for]="dpFeNacimiento"></mat-datepicker-toggle>
+              <mat-datepicker #dpFeNacimiento></mat-datepicker>
+              <mat-error *ngIf="tieneError('feNacimientoPerfil', 'required')">
+                Es requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <br>
+          <br>
+          <div align="start" *ngIf="!esFormularioSoloLectura">
+            <button type="submit" cdkFocusInitial mat-button color="primary" [disabled]="enProceso">
+              <mat-icon>save</mat-icon>
+              {{ etiquetaAccion }}
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </form>
+</div>

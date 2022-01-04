@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe, DecimalPipe } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { MaterialModule } from 'src/shared/material/material.module';
 import { FormularioComponent } from './formulario/formulario.component';
 import { PortafolioComponent } from './portafolio/portafolio.component';
 import { SkillsetComponent } from './skillset/skillset.component';
@@ -19,7 +18,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PortafolioDialogoComponent } from './portafolio-dialogo/portafolio-dialogo.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -28,6 +27,30 @@ import { SkillsetTarjetaComponent } from './skillset-tarjeta/skillset-tarjeta.co
 import { SkillsetDialogoComponent } from './skillset-dialogo/skillset-dialogo.component';
 import { SkillsetUploadComponent } from './skillset-upload/skillset-upload.component';
 import { SkillsetFotoComponent } from './skillset-foto/skillset-foto.component';
+import { PerfilFormularioComponent } from './perfil/perfil-formulario/perfil-formulario.component';
+import { PerfilGeneralComponent } from './perfil/perfil-general/perfil-general.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { ErrorStateMatcher, MAT_DATE_LOCALE, ShowOnDirtyErrorStateMatcher, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorImpl } from 'src/shared/material/mat-paginator';
+import { NgxCurrencyModule } from 'ngx-currency';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+const FECHA_FORMATOS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MM YYYY',
+  },
+};
+
 @NgModule({
   declarations: [
     FormularioComponent,
@@ -41,6 +64,8 @@ import { SkillsetFotoComponent } from './skillset-foto/skillset-foto.component';
     SkillsetDialogoComponent,
     SkillsetUploadComponent,
     SkillsetFotoComponent,
+    PerfilFormularioComponent,
+    PerfilGeneralComponent,
   ],
   imports: [
     CommonModule,
@@ -59,11 +84,22 @@ import { SkillsetFotoComponent } from './skillset-foto/skillset-foto.component';
     MatInputModule,
     MatSidenavModule,
     FlexLayoutModule,
-    // MaterialModule
+    MatTabsModule,
+    NgxMaterialTimepickerModule,
+    MatMomentDateModule,
+    MatDatepickerModule,
+    NgxCurrencyModule,
+    MatGridListModule
+    // MaterialModule,
+    // SharedModule,
   ],
-  exports:[],
-  providers:[
-
+  exports: [],
+  providers: [DatePipe,
+    DecimalPipe,
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    { provide: MatPaginatorIntl, useClass: MatPaginatorImpl },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: MAT_DATE_FORMATS, useValue: FECHA_FORMATOS }
   ]
 })
 export class PagesModule { }

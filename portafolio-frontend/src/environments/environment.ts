@@ -11,6 +11,8 @@ export const environment = {
 
   HOST_IMG_PORTAFOLIO: 'http://localhost:9999/images/programer_3.png',
 
+  HOST_IMG_PERFIL: 'http://localhost:9999/images/usuario.png',
+
   HOST_IMG_UPLOAD: 'http://localhost:9999/skillsets/uploads/img',
 
   HOST_IMG_UPLOAD_VER: 'http://localhost:9999/skillsets/uploads/img',

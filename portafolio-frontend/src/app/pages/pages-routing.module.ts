@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { PerfilFormularioComponent } from './perfil/perfil-formulario/perfil-formulario.component';
 import { PortafolioComponent } from './portafolio/portafolio.component';
 import { SkillsetComponent } from './skillset/skillset.component';
 
@@ -10,6 +11,21 @@ const routes: Routes = [
   {
     path: '',
     component: FormularioComponent,
+    // children: [
+    //   {
+    //     path: 'portafolio',
+    //     component: PortafolioComponent,
+    //     data: {
+    //       title: 'Empleados',
+    //       breadcrumb: 'Empleados'
+    //     }
+    //   },
+    // ]
+  },
+
+  {
+    path: '2/:idPerfil/:nroPestania',
+    component: PerfilFormularioComponent,
     // children: [
     //   {
     //     path: 'portafolio',

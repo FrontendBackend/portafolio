@@ -4,6 +4,9 @@ export class TblPerfilDTO {
   // CAMPO IDENTIFICADOR DE PERFIL
   idPerfil: number;
 
+  // CAMPO IDENTIFICADOR DE UBIGEO NACIMIENTO DEL PERFIL
+  idUbigeo: number;
+
   // CAMPO NUMERO DE DNI DEL PERFIL
   nuDniPerfil: number;
 
@@ -55,4 +58,9 @@ export class TblPerfilDTO {
 
   // CAMPO FECHA Y HORA DE MODIFICACIÓN
   feActualizacion: Date;
+
+  /**-------nuevo------ */
+
+  //UBIGEO DE NACIMIENTO O DE ORIGEN
+  descUbigeoNacimientoCompleto: string;
 }

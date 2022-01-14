@@ -13,7 +13,7 @@ public interface PortafolioRepository extends JpaRepository<TblPortafolio, Long>
 
     // PERMITE LISTAR LOS PORTAFOLIOS
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPortafolioDTOResultado("
-            + "ptf.idPortafolio, ptf.noPortafolio, ptf.dePortafolio, ptf.imgPortafolio " 
+            + "ptf.idPortafolio, ptf.tblPerfil.idPerfil, ptf.noPortafolio, ptf.dePortafolio, ptf.imgPortafolio " 
             + " ) " 
             + "FROM TblPortafolio ptf "
             + "WHERE ptf.esRegistro = '1' "
@@ -22,7 +22,7 @@ public interface PortafolioRepository extends JpaRepository<TblPortafolio, Long>
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPortafolioDTOResultado("
-            + "ptf.idPortafolio, ptf.noPortafolio, ptf.dePortafolio, ptf.imgPortafolio " 
+            + "ptf.idPortafolio, ptf.tblPerfil.idPerfil, ptf.noPortafolio, ptf.dePortafolio, ptf.imgPortafolio " 
             + " ) " 
             + "FROM TblPortafolio ptf "
             + "WHERE ptf.idPortafolio = :idPortafolio " 

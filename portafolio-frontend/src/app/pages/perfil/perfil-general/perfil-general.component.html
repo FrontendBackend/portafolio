@@ -59,11 +59,6 @@
 
           <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
             <mat-form-field fxFlex appearance="outline">
-              <mat-label>Dirección:</mat-label>
-              <input matInput aria-label="State" autocomplete="off" formControlName="dirPerfil" />
-            </mat-form-field>
-
-            <mat-form-field fxFlex appearance="outline">
               <mat-label>Teléfono:</mat-label>
               <input #nombre matInput aria-label="State" autocomplete="off" formControlName="telPerfil">
             </mat-form-field>
@@ -71,6 +66,39 @@
             <mat-form-field fxFlex appearance="outline">
               <mat-label>Correo electrónico:</mat-label>
               <input matInput aria-label="State" autocomplete="off" formControlName="emailPerfil" />
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Lugar de nacimiento</mat-label>
+              <input #idUbigeoNacimiento matInput aria-label="State" autocomplete="off"
+                formControlName="descUbigeoNacimientoCompleto" [matAutocomplete]="autoNacimiento"
+                (keyup)="seCambioUbigeoNacimiento(idUbigeoNacimiento.value)"
+                [class.is-invalid]="tieneError('descUbigeoNacimientoCompleto', 'any')" />
+              <mat-autocomplete #autoNacimiento="matAutocomplete" panelWidth="autoNacimiento">
+                <mat-option *ngIf="cargandoUbigeosNacimiento">
+                  <mat-progress-bar mode="buffer"></mat-progress-bar>
+                </mat-option>
+                <ng-container *ngIf="!cargandoUbigeosNacimiento">
+                  <mat-option *ngFor="let ubigeoNacimientoDTO of lLegUbigeoDTONacimiento"
+                    [value]="ubigeoNacimientoDTO.codigoUnico"
+                    (onSelectionChange)="ubigeoNacimientoSeleccionado($event.source.selected, ubigeoNacimientoDTO)">
+                    <span><small><strong>{{ ubigeoNacimientoDTO.codigoUnico }}</strong></small></span>
+                  </mat-option>
+                </ng-container>
+              </mat-autocomplete>
+              <mat-error *ngIf="tieneError('descUbigeoNacimientoCompleto', 'required')">
+                Es requerido
+              </mat-error>
+              <mat-error *ngIf="tieneError('descUbigeoNacimientoCompleto', 'ubigeoNacimientoIncorrecto')">
+                No ha seleccionado un lugar de nacimiento
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Dirección:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="dirPerfil" />
             </mat-form-field>
           </div>
 

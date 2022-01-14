@@ -1,9 +1,10 @@
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { TblPerfilDTO } from '../models/TblPerfilDTO';
+import { TblUbigeoDTO } from '../models/TblUbigeoDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,27 @@ export class PerfilService {
       .pipe(
         map((respuesta: any) => respuesta[clavePersonaModificada] as TblPerfilDTO)
       );
+  }
+
+  listarPorUbigeos(codigoUnico: string): Observable<TblUbigeoDTO[]> {
+    if (codigoUnico === '') {
+      codigoUnico = '_vacio_';
+    }
+
+    const urlEndPoint = `${this.url}/filtrar/palabraClave/${codigoUnico}`;
+    const claveRespuesta = 'lTblUbigeoDTO';
+
+    return this.httpClient.get<TblUbigeoDTO[]>(urlEndPoint, { headers: this.httpHeaders })
+      .pipe(
+        map((respuesta: any) => respuesta[claveRespuesta] as TblUbigeoDTO[]),
+        catchError(error => this.manejarError(error))
+      );
+  }
+
+  obtenerConfiguracionesGenerales(idPerfil: number): Observable<any> {
+    const urlEndPoint = `${this.url}/obtenerConfiguracionesGenerales/${idPerfil}`;
+
+    return this.httpClient.get<any[]>(urlEndPoint);
   }
 
   /**

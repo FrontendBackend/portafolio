@@ -12,6 +12,9 @@ public class TblPortafolioDTO {
     // CAMPO IDENTIFICADOR DEL PORTAFOLIO
     private Long idPortafolio;
 
+    // CAMPO IDENTIFICADOR DE PERFIL
+    private Long idPerfil;
+
     // CAMPO NOMBRE DE PORTAFOLIO
     private String noPortafolio;
 

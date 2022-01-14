@@ -10,6 +10,9 @@ public class TblSkillsetDTO {
     // ID DE SKILLSET
     private Long idSkillset;
 
+    // ID DE SKILLSET
+    private Long idPerfil;
+
     // NOMBRE DE SKILLSET
     private String noSkillset;
 

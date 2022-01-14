@@ -4,13 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class TblPerfil {
-    
+
     // CAMPO IDENTIFICADOR DE PERFIL
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TBL_PERFIL_SEQ")
@@ -28,6 +33,12 @@ public class TblPerfil {
     @Column(name = "ID_PERFIL", nullable = false)
     private Long idPerfil;
 
+    // CAMPO IDENTIFICADOR DE UBIGEO NACIMIENTO DEL PERFIL
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_UBIGEO", nullable = true)
+    private TblUbigeo tblUbigeo;
+    
     // CAMPO NUMERO DE DNI DEL PERFIL
     @Column(name = "NU_DNI_PERFIL", nullable = false, length = 8)
     private Long nuDniPerfil;
@@ -43,7 +54,7 @@ public class TblPerfil {
     // CAMPO DIRECCIÓN DEL PERFIL
     @Column(name = "DIR_PERFIL", nullable = true, length = 75)
     private String dirPerfil;
-    
+
     // CAMPO TELEFONO DEL PERFIL
     @Column(name = "TEL_PERFIL", nullable = true, length = 9)
     private Long telPerfil;
@@ -64,15 +75,16 @@ public class TblPerfil {
     // TIPO DE IMAGEN
     @Column(name = "TIPO_IMG", nullable = true, length = 15)
     private String tipoImg;
-    
+
     // NOMBRE DE LA IMAGEN
     @Column(name = "COD_IMG", nullable = true, length = 5000)
     private byte[] codImg;
-    
-    // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
+
+    // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
+    // INACTIVO
     @Column(name = "ES_REGISTRO", nullable = false, length = 1)
     private String esRegistro;
-    
+
     // CAMPO USUARIO CREADOR
     @Column(name = "US_CREACION", nullable = true, length = 10)
     private String usCreacion;

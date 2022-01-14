@@ -1,5 +1,6 @@
 package com.portafolio.portafoliobackend.controllers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +9,10 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
+import com.portafolio.portafoliobackend.dtos.TblUbigeoDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 import com.portafolio.portafoliobackend.services.PerfilService;
+import com.portafolio.portafoliobackend.services.UbigeoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -33,6 +36,9 @@ public class PerfilController {
 
     @Autowired
     private PerfilService perfilService;
+
+    @Autowired
+    private UbigeoService ubigeoService;
 
     @PostMapping("/crearPerfil")
     public ResponseEntity<?> crearPerfil(@Valid @RequestBody TblPerfilDTO tblPerfilDTO,
@@ -152,4 +158,36 @@ public class PerfilController {
 
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.CREATED);
     }
+
+    @GetMapping("/filtrar/palabraClave/{codigoUnico}")
+    public ResponseEntity<?> listarPorUbigeo(@PathVariable String codigoUnico) {
+
+        Map<String, Object> respuesta = new HashMap<>();
+        List<TblUbigeoDTO> lTblUbigeoDTO = null;
+
+        if (codigoUnico == "_vacio_") {
+            lTblUbigeoDTO = new ArrayList<TblUbigeoDTO>();
+            respuesta.put("mensaje", "No se encontraron ubigeos");
+            respuesta.put("lTblUbigeoDTO", lTblUbigeoDTO);
+
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+        }
+
+        try {
+            lTblUbigeoDTO = this.ubigeoService.listarPorUbigeo(codigoUnico);
+        } catch (DataAccessException e) {
+            respuesta.put("mensaje", "Ocurrió un error al realizar la consulta de ubigeos");
+            respuesta.put("error", e.getMostSpecificCause().getMessage());
+
+            log.error(e.getMostSpecificCause().getMessage());
+
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        respuesta.put("mensaje", "Se encontraron ubigeos");
+        respuesta.put("lTblUbigeoDTO", lTblUbigeoDTO);
+
+        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+    }
+    
 }

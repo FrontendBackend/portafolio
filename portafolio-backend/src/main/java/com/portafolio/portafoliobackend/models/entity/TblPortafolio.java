@@ -4,13 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +33,12 @@ public class TblPortafolio {
     @Column(name = "ID_PORTAFOLIO", nullable = false)
     private Long idPortafolio;
 
+    // IDENTIFICADOR INTERNO DEL PERFIL
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PERFIL", nullable = true)
+    private TblPerfil tblPerfil;
+
     // CAMPO NOMBRE DE PORTAFOLIO
     @Column(name = "NO_PORTAFOLIO", nullable = false, length = 100)
     private String noPortafolio;
@@ -40,7 +51,8 @@ public class TblPortafolio {
     @Column(name = "IMG_PORTAFOLIO", nullable = true, length = 500)
     private String imgPortafolio;
 
-    // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" = INACTIVO
+    // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
+    // INACTIVO
     @Column(name = "ES_REGISTRO", nullable = false, length = 1)
     private String esRegistro;
 

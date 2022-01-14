@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ETipoAccionCRUD } from 'src/app/enums/tipo-accion';
 import { TblPerfilDTO } from 'src/app/models/TblPerfilDTO';
 import { PerfilService } from 'src/app/services/perfil.service';
+import { debounceTime, finalize, switchMap, tap } from 'rxjs/operators';
+import { TblUbigeoDTO } from 'src/app/models/TblUbigeoDTO';
 
 @Component({
   selector: 'app-perfil-general',
@@ -30,16 +32,20 @@ export class PerfilGeneralComponent implements OnInit {
 
   frmReactivo: FormGroup;
 
+  lLegUbigeoDTONacimiento: TblUbigeoDTO[];
+  cargandoUbigeosNacimiento = false;
+  legUbigeoDTONacimientoSelec: TblUbigeoDTO;
+
   host_img_portafolio = environment.HOST_IMG_PERFIL;
 
   constructor(private formBuilder: FormBuilder,
     private perfilService: PerfilService,
     private matSnackBar: MatSnackBar,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
-    // this.configurarInicio();
+    this.configurarInicio();
   }
 
   iniciarFormulario() {
@@ -67,11 +73,87 @@ export class PerfilGeneralComponent implements OnInit {
         // imgPerfil: [this.tblPerfilDTO.imgPerfil],
         // tipoImg: [this.tblPerfilDTO.tipoImg],
         // codImg: [this.tblPerfilDTO.codImg],
+        descUbigeoNacimientoCompleto: [this.tblPerfilDTO.descUbigeoNacimientoCompleto, [Validators.required]],
       }
     );
 
     if (this.esFormularioSoloLectura) {
       Object.values(this.frmReactivo.controls).forEach(control => control.disable());
+    }
+  }
+
+  configurarInicio() {
+    this.enProceso = true;
+
+    let idPerfil = 0;
+
+    if (this.tblPerfilDTO.idPerfil) {
+      idPerfil = this.tblPerfilDTO.idPerfil;
+    }
+
+    // observaciones que corregir
+    this.perfilService.obtenerConfiguracionesGenerales(idPerfil).subscribe(respuesta => {
+
+      this.configurarAutocompletarUbigeoNacimiento();
+
+      if (this.tipoAccionCrud === ETipoAccionCRUD.MODIFICAR || this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
+        const clave = 'tblPerfilDTO';
+        this.tblPerfilDTO = respuesta[clave];
+
+        this.enProceso = false;
+      }
+
+      this.enProceso = false;
+
+    });
+  }
+
+  /***
+   * Permite configurar el autocompletado para los ubigeos de nacimiento.
+   */
+  private configurarAutocompletarUbigeoNacimiento() {
+    const nombreControl = 'descUbigeoNacimientoCompleto';
+
+    this.frmReactivo.controls[nombreControl].valueChanges.pipe(
+      debounceTime(500),
+      tap(() => {
+        this.lLegUbigeoDTONacimiento = [];
+        this.cargandoUbigeosNacimiento = true;
+      }),
+      switchMap(valor => this.perfilService.listarPorUbigeos(valor).pipe(
+        finalize(() => {
+          this.cargandoUbigeosNacimiento = false;
+        }),
+      )
+      )
+    ).subscribe(respuesta => {
+      if (respuesta === undefined) {
+        this.lLegUbigeoDTONacimiento = [];
+      } else {
+        this.lLegUbigeoDTONacimiento = respuesta;
+      }
+    });
+  }
+
+  seCambioUbigeoNacimiento(descUbigeoNacimientoCompletoActual: string): void {
+    if (descUbigeoNacimientoCompletoActual !== '') {
+      if (this.legUbigeoDTONacimientoSelec?.codigoUnico !== descUbigeoNacimientoCompletoActual) {
+        this.frmReactivo.get('descUbigeoNacimientoCompleto').setErrors({ ubigeoNacimientoIncorrecto: true });
+      } else {
+        if (this.frmReactivo.get('descUbigeoNacimientoCompleto').hasError('descUbigeoNacimientoCompleto')) {
+          delete this.frmReactivo.get('descUbigeoNacimientoCompleto').errors.ubigeoNacimientoIncorrecto;
+        }
+      }
+    } else {
+      this.legUbigeoDTONacimientoSelec = null;
+    }
+  }
+
+  ubigeoNacimientoSeleccionado(seleccionado: boolean, legUbigeoDTO: TblUbigeoDTO): void {
+    if (seleccionado) {
+      this.legUbigeoDTONacimientoSelec = legUbigeoDTO;
+    } else {
+      this.legUbigeoDTONacimientoSelec = null;
     }
   }
 
@@ -120,6 +202,11 @@ export class PerfilGeneralComponent implements OnInit {
     pgimContratoDTOCU.esRegistro = this.tblPerfilDTO.esRegistro;
     pgimContratoDTOCU.idPerfil = this.tblPerfilDTO.idPerfil;
 
+    if (this.legUbigeoDTONacimientoSelec !== undefined && this.legUbigeoDTONacimientoSelec !== null) {
+      pgimContratoDTOCU.idUbigeo = this.legUbigeoDTONacimientoSelec.idUbigeo;
+    } else {
+      pgimContratoDTOCU.idUbigeo = this.tblPerfilDTO.idUbigeo;
+    }
 
     let peticion: Observable<TblPerfilDTO>;
     let mensaje: string;

@@ -12,6 +12,9 @@ public class TblPerfilDTO {
     // CAMPO IDENTIFICADOR DE PERFIL
     private Long idPerfil;
 
+    // CAMPO IDENTIFICADOR DE UBIGEO NACIMIENTO DEL PERFIL
+    private Long idUbigeo;
+
     // CAMPO NUMERO DE DNI DEL PERFIL
     private Long nuDniPerfil;
 
@@ -63,4 +66,8 @@ public class TblPerfilDTO {
 
     // CAMPO FECHA Y HORA DE MODIFICACIÓN
     private Date feActualizacion;
+
+    /**--------nuevo------- */
+    // Ubigeo nacimiento u origen
+    private String descUbigeoNacimientoCompleto;
 }

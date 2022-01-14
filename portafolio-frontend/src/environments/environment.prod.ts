@@ -8,6 +8,8 @@ export const environment = {
   HOST_IMG_PORTAFOLIO:
     'http://35.211.150.9:8080/portafolio/images/programer_3.png',
 
+  HOST_IMG_PERFIL: 'http://35.211.150.9:8080/images/usuario.png',
+
   HOST_IMG_UPLOAD:
     'http://35.211.150.9:8080/portafolio/skillsets/uploads/img',
 

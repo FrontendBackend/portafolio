@@ -4,11 +4,12 @@ import java.util.Date;
 
 public class TblPerfilDTOResultado extends TblPerfilDTO {
 
-     /**
+    /**
      * @see com.portafolio.portafoliobackend.models.repository.PerfilRepository#obtenerPerfilPorId
      */
     public TblPerfilDTOResultado(Long idPerfil, Long nuDniPerfil, String noPerfil, String apPerfil, String dirPerfil,
-            Long telPerfil, String emailPerfil, Date feNacimientoPerfil, String imgPerfil, String tipoImg, byte[] codImg) {
+            Long telPerfil, String emailPerfil, Date feNacimientoPerfil, String imgPerfil, String tipoImg,
+            byte[] codImg, Long idUbigeo, String descUbigeoNacimientoCompleto) {
         super();
         this.setIdPerfil(idPerfil);
         this.setNuDniPerfil(nuDniPerfil);
@@ -21,5 +22,7 @@ public class TblPerfilDTOResultado extends TblPerfilDTO {
         this.setImgPerfil(imgPerfil);
         this.setTipoImg(tipoImg);
         this.setCodImg(codImg);
+        this.setIdUbigeo(idUbigeo);
+        this.setDescUbigeoNacimientoCompleto(descUbigeoNacimientoCompleto);
     }
 }

@@ -11,9 +11,11 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
     
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPerfilDTOResultado("
             + "per.idPerfil, per.nuDniPerfil, per.noPerfil, per.apPerfil, per.dirPerfil, per.telPerfil, " 
-            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg " 
+            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg, " 
+            + "ubi.idUbigeo, (ubi.departamento || ' ' || ubi.provincia || ' ' || ubi.distrito) " 
             + " ) " 
             + "FROM TblPerfil per "
+            + "LEFT OUTER JOIN per.tblUbigeo ubi "
             + "WHERE per.idPerfil = :idPerfil " 
             )
     TblPerfilDTO obtenerPerfilPorId(@Param("idPerfil") Long idPerfil);

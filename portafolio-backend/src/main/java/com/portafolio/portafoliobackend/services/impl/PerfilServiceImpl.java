@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
+import com.portafolio.portafoliobackend.models.entity.TblUbigeo;
 import com.portafolio.portafoliobackend.models.repository.PerfilRepository;
 import com.portafolio.portafoliobackend.services.PerfilService;
 import com.portafolio.portafoliobackend.utils.ConstantesUtil;
@@ -46,6 +47,15 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
         tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
 
+        // Lugar donde nació (origen)
+        if (tblPerfilDTO.getIdUbigeo() != null) {
+            TblUbigeo legUbigeoNacimiento = new TblUbigeo();
+            legUbigeoNacimiento.setIdUbigeo(tblPerfilDTO.getIdUbigeo());
+            tblPerfil.setTblUbigeo(legUbigeoNacimiento);
+        } else {
+            tblPerfil.setTblUbigeo(null);
+        }
+
         TblPerfil tblPerfilCreado = this.perfilRepository.save(tblPerfil);
 
         TblPerfilDTO tblPerfilDTOCreado = this.obtenerPerfilPorId(tblPerfilCreado.getIdPerfil());
@@ -71,6 +81,15 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setImgPerfil(tblPerfilDTO.getImgPerfil());
         tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
         tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
+
+        // Lugar donde nació (origen)
+        if (tblPerfilDTO.getIdUbigeo() != null) {
+            TblUbigeo legUbigeoNacimiento = new TblUbigeo();
+            legUbigeoNacimiento.setIdUbigeo(tblPerfilDTO.getIdUbigeo());
+            tblPerfil.setTblUbigeo(legUbigeoNacimiento);
+        } else {
+            tblPerfil.setTblUbigeo(null);
+        }
 
         TblPerfil tblPerfilModificado = this.perfilRepository.save(tblPerfil);
 

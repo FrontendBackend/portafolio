@@ -38,6 +38,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorImpl } from 'src/shared/material/mat-paginator';
 import { NgxCurrencyModule } from 'ngx-currency';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -89,7 +90,8 @@ const FECHA_FORMATOS = {
     MatMomentDateModule,
     MatDatepickerModule,
     NgxCurrencyModule,
-    MatGridListModule
+    MatGridListModule,
+    MatAutocompleteModule
     // MaterialModule,
     // SharedModule,
   ],

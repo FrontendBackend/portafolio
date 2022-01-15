@@ -6,7 +6,6 @@
         <mat-icon>person</mat-icon>
         {{title}}
       </button>
-      <!-- <button mat-button routerLink="/"><mat-icon>home</mat-icon></button> -->
     </span>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
       <button mat-button routerLink="/pages">
@@ -29,22 +28,40 @@
         Experience
       </button>
 
-      <!-- <button mat-button href="#contact"> -->
       <button mat-button routerLink="/pages/contacto">
         <mat-icon>perm_contact_calendar</mat-icon>
         Contact
       </button>
 
-      <button mat-button matTooltip="Descargar Curriculum Vitae">
-        <mat-icon>get_app</mat-icon>
-        CV
+      <button mat-button [matMenuTriggerFor]="menuBarra" >
+        <mat-icon>settings</mat-icon>
+        Configuración
       </button>
+
+      <mat-menu #menuBarra="matMenu">
+        <button mat-menu-item routerLink="/pages/2/:idPerfil/:nroPestania">
+          <mat-icon>account_circle</mat-icon>
+          <span>Mi perfil</span>
+        </button>
+
+        <button mat-menu-item matTooltip="Descargar Curriculum Vitae">
+          <mat-icon>get_app</mat-icon>
+          <span>CV</span>
+        </button>
+      </mat-menu>
     </div>
+
     <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
+
   <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/pages/2/:idPerfil/:nroPestania">
+      <mat-icon>account_circle</mat-icon>
+      Mi perfil
+    </button>
+
     <button mat-menu-item routerLink="/pages">
       <mat-icon>home</mat-icon>
       Home

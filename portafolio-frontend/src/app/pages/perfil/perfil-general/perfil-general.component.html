@@ -70,6 +70,13 @@
           </div>
 
           <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Dirección:</mat-label>
+              <input matInput aria-label="State" autocomplete="off" formControlName="dirPerfil" />
+            </mat-form-field>
+
             <mat-form-field fxFlex appearance="outline">
               <mat-label>Lugar de nacimiento</mat-label>
               <input #idUbigeoNacimiento matInput aria-label="State" autocomplete="off"
@@ -81,8 +88,7 @@
                   <mat-progress-bar mode="buffer"></mat-progress-bar>
                 </mat-option>
                 <ng-container *ngIf="!cargandoUbigeosNacimiento">
-                  <mat-option *ngFor="let ubigeoNacimientoDTO of lLegUbigeoDTONacimiento"
-                    [value]="ubigeoNacimientoDTO.codigoUnico"
+                  <mat-option *ngFor="let ubigeoNacimientoDTO of lLegUbigeoDTONacimiento" [value]="ubigeoNacimientoDTO.codigoUnico"
                     (onSelectionChange)="ubigeoNacimientoSeleccionado($event.source.selected, ubigeoNacimientoDTO)">
                     <span><small><strong>{{ ubigeoNacimientoDTO.codigoUnico }}</strong></small></span>
                   </mat-option>
@@ -94,11 +100,6 @@
               <mat-error *ngIf="tieneError('descUbigeoNacimientoCompleto', 'ubigeoNacimientoIncorrecto')">
                 No ha seleccionado un lugar de nacimiento
               </mat-error>
-            </mat-form-field>
-
-            <mat-form-field fxFlex appearance="outline">
-              <mat-label>Dirección:</mat-label>
-              <input matInput aria-label="State" autocomplete="off" formControlName="dirPerfil" />
             </mat-form-field>
           </div>
 

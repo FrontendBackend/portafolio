@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 public interface UbigeoRepository extends JpaRepository<TblUbigeo, Long> {
     
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblUbigeoDTOResultado("
-            + "lu.idUbigeo, (lu.departamento || ' ' || lu.provincia || ' ' || lu.distrito) "
+            + "lu.idUbigeo, (lu.departamento || ', ' || lu.provincia || ', ' || lu.distrito) "
             + " )"
             + "FROM TblUbigeo lu "
             + "WHERE (:codigoUnico IS NULL OR LOWER(lu.codigoUnico) LIKE LOWER(CONCAT('%', :codigoUnico, '%')) "

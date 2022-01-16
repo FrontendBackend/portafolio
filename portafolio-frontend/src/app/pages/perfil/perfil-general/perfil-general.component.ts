@@ -1,3 +1,4 @@
+import { Img } from './../../../models/Img';
 import { environment } from './../../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -36,7 +37,11 @@ export class PerfilGeneralComponent implements OnInit {
   cargandoUbigeosNacimiento = false;
   legUbigeoDTONacimientoSelec: TblUbigeoDTO;
 
-  host_img_portafolio = environment.HOST_IMG_PERFIL;
+  // CUANDO NO HAY IMAGEN REAL
+  imagenData = Img.noPerfilCode;
+
+  // CUANDO SI HAY IMAGEN REAL
+  imagenDataPerfil = Img.noPerfilCode2;
 
   constructor(private formBuilder: FormBuilder,
     private perfilService: PerfilService,

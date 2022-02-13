@@ -37,8 +37,8 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setIpCreacion("127.0.0.0");
 
         tblPerfil.setNuDniPerfil(tblPerfilDTO.getNuDniPerfil());
-        tblPerfil.setNoPerfil(tblPerfilDTO.getNoPerfil());
-        tblPerfil.setApPerfil(tblPerfilDTO.getApPerfil());
+        tblPerfil.setNoPerfil(tblPerfilDTO.getNoPerfil().toUpperCase());
+        tblPerfil.setApPerfil(tblPerfilDTO.getApPerfil().toUpperCase());
         tblPerfil.setDirPerfil(tblPerfilDTO.getDirPerfil());
         tblPerfil.setTelPerfil(tblPerfilDTO.getTelPerfil());
         tblPerfil.setEmailPerfil(tblPerfilDTO.getEmailPerfil());
@@ -72,8 +72,8 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setIpActualizacion("127.0.0.0");
 
         tblPerfil.setNuDniPerfil(tblPerfilDTO.getNuDniPerfil());
-        tblPerfil.setNoPerfil(tblPerfilDTO.getNoPerfil());
-        tblPerfil.setApPerfil(tblPerfilDTO.getApPerfil());
+        tblPerfil.setNoPerfil(tblPerfilDTO.getNoPerfil().toUpperCase());
+        tblPerfil.setApPerfil(tblPerfilDTO.getApPerfil().toUpperCase());
         tblPerfil.setDirPerfil(tblPerfilDTO.getDirPerfil());
         tblPerfil.setTelPerfil(tblPerfilDTO.getTelPerfil());
         tblPerfil.setEmailPerfil(tblPerfilDTO.getEmailPerfil());

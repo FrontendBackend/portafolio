@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 
 @RestController
 @Slf4j
@@ -190,4 +191,10 @@ public class PerfilController {
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
     }
     
+    @GetMapping(value = "/generarReporteCurriculum", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> generarReporte() {
+        byte[] data = null;
+        data = perfilService.generarReporteCurriculum();
+        return new ResponseEntity<byte[]>(data, HttpStatus.OK);
+    }
 }

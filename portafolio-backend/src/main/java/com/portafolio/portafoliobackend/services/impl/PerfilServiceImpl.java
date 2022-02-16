@@ -1,6 +1,10 @@
 package com.portafolio.portafoliobackend.services.impl;
 
+import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
@@ -12,6 +16,12 @@ import com.portafolio.portafoliobackend.utils.ConstantesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.core.io.ClassPathResource;
+
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Service
 // @Slf4j
@@ -102,6 +112,31 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public TblPerfil findById(Long idPerfil) {
         return perfilRepository.findById(idPerfil).orElse(null);
+    }
+
+    @Override
+    public byte[] generarReporteCurriculum() {
+        byte[] data = null;
+
+        Map<String, Object> parametros = new HashMap<String, Object>();
+        parametros.put(null, "Prueba de titulo");
+
+        try {
+            File file = new ClassPathResource("/reports/portafolio.jasper").getFile();
+            JasperPrint print = JasperFillManager.fillReport(file.getPath(), 
+                    parametros,
+                    new JRBeanCollectionDataSource(this.listarPerfil()));
+            data = JasperExportManager.exportReportToPdf(print);
+            // mitocode jasperreports | excel, pdf, ppt, word, csv
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    @Override
+    public List<TblPerfilDTO> listarPerfil() {
+        return this.perfilRepository.listarPerfil();
     }
 
 }

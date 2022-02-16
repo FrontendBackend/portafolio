@@ -1,9 +1,14 @@
 package com.portafolio.portafoliobackend.services;
 
+import java.util.List;
+
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 
 public interface PerfilService {
+
+    // PERMITE OBTENER LOS DATOS DEL OBJETO
+    List<TblPerfilDTO> listarPerfil();
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
     public TblPerfilDTO obtenerPerfilPorId(Long idPerfil);
@@ -16,4 +21,7 @@ public interface PerfilService {
 
     // PERMITE OBTENER LAS PROPIEDADES DEL PERFIL
     public TblPerfil findById(Long idPerfil);
+
+    // PERMITE GENERAR EL CURRICULUM VITAE
+    byte[] generarReporteCurriculum();
 }

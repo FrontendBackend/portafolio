@@ -48,7 +48,9 @@ export class SkillsetComponent implements OnInit {
       this.lTblSkillsetDTO = respuesta;
       // this.totalElements = respuesta.totalElements;
 
-      this.enProceso = false;
+      setTimeout(() => {
+        this.enProceso = false;
+      }, 3000)
     });
   }
 

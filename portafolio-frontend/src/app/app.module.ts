@@ -17,6 +17,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatDividerModule,
     MatTooltipModule,
     HttpClientModule,
+    PdfViewerModule,
+    PagesModule
     // MatFormFieldModule,
   ],
   providers: [

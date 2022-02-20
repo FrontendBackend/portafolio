@@ -39,6 +39,8 @@ import { MatPaginatorImpl } from 'src/shared/material/mat-paginator';
 import { NgxCurrencyModule } from 'ngx-currency';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { CurriculumVitaeDialogoComponent } from './curriculum-vitae-dialogo/curriculum-vitae-dialogo.component';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -67,6 +69,7 @@ const FECHA_FORMATOS = {
     SkillsetFotoComponent,
     PerfilFormularioComponent,
     PerfilGeneralComponent,
+    CurriculumVitaeDialogoComponent,
   ],
   imports: [
     CommonModule,
@@ -91,11 +94,12 @@ const FECHA_FORMATOS = {
     MatDatepickerModule,
     NgxCurrencyModule,
     MatGridListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    PdfViewerModule,
     // MaterialModule,
     // SharedModule,
   ],
-  exports: [],
+  exports: [CurriculumVitaeDialogoComponent],
   providers: [DatePipe,
     DecimalPipe,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

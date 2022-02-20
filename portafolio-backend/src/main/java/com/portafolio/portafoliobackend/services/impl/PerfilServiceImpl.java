@@ -1,10 +1,16 @@
 package com.portafolio.portafoliobackend.services.impl;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
@@ -14,14 +20,9 @@ import com.portafolio.portafoliobackend.services.PerfilService;
 import com.portafolio.portafoliobackend.utils.ConstantesUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.core.io.ClassPathResource;
-
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Service
 // @Slf4j
@@ -119,12 +120,12 @@ public class PerfilServiceImpl implements PerfilService {
         byte[] data = null;
 
         Map<String, Object> parametros = new HashMap<String, Object>();
-        parametros.put(null, "Prueba de titulo");
+        parametros.put("txt_titulo", "Prueba de titulo");
 
         try {
             File file = new ClassPathResource("/reports/portafolio.jasper").getFile();
             JasperPrint print = JasperFillManager.fillReport(file.getPath(), 
-                    parametros,
+                    null,
                     new JRBeanCollectionDataSource(this.listarPerfil()));
             data = JasperExportManager.exportReportToPdf(print);
             // mitocode jasperreports | excel, pdf, ppt, word, csv

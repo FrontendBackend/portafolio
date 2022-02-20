@@ -54,6 +54,12 @@ export class PerfilService {
     return this.httpClient.get<any[]>(urlEndPoint);
   }
 
+  generarReporteCurriculum() {
+    return this.httpClient.get(`${this.url}/generarReporteCurriculum`, {
+      responseType: 'blob'
+    });
+  }
+
   /**
  * Permite analizar el error y responder un error específico para el usuario.
  * @param error que debe ser controlado.

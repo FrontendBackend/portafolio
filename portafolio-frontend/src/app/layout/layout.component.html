@@ -44,7 +44,12 @@
           <span>Mi perfil</span>
         </button>
 
-        <button mat-menu-item matTooltip="Descargar Curriculum Vitae">
+        <button mat-menu-item matTooltip="Ver Curriculum Vitae" (click)="verCurriculumVitae()">
+          <mat-icon>get_app</mat-icon>
+          <span>Ver CV</span>
+        </button>
+
+        <button mat-menu-item matTooltip="Descargar Curriculum Vitae" (click)="descargarReporteCurriculum()">
           <mat-icon>get_app</mat-icon>
           <span>CV</span>
         </button>
@@ -87,7 +92,7 @@
       Contact
     </button>
 
-    <button mat-menu-item matTooltip="Descargar Curriculum Vitae">
+    <button mat-menu-item matTooltip="Descargar Curriculum Vitae" (click)="descargarReporteCurriculum()">
       <mat-icon>get_app</mat-icon>
       CV
     </button>

@@ -6,6 +6,7 @@ public class TblPerfilDTOResultado extends TblPerfilDTO {
 
     /**
      * @see com.portafolio.portafoliobackend.models.repository.PerfilRepository#obtenerPerfilPorId
+     * @see com.portafolio.portafoliobackend.models.repository.PerfilRepository#listarPerfil
      */
     public TblPerfilDTOResultado(Long idPerfil, Long nuDniPerfil, String noPerfil, String apPerfil, String dirPerfil,
             Long telPerfil, String emailPerfil, Date feNacimientoPerfil, String imgPerfil, String tipoImg,

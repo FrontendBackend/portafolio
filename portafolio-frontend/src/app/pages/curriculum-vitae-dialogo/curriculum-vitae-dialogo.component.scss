@@ -1,0 +1,32 @@
+.cabecera-color {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.scroll {
+  // overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.alerta-warning {
+  background-color: #fff3cd;
+  color: #ae9548;
+  height: 50px;
+  line-height: 50px; //Damos 200px de alto para notar el efecto
+}
+
+//Alinear el texto al centro
+.text-center {
+  text-align: center;
+}

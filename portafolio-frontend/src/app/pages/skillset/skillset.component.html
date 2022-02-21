@@ -1,0 +1,36 @@
+<!-- <title>{{titulo}}</title> -->
+<mat-toolbar class="cabecera-color" color="primary">
+  <mat-toolbar-row>
+    <div class="no-shadow">
+      <button mat-icon-button color="Basic" matTooltip="Crear skillset" (click)="crearSkillset()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <span class="span">
+      <b>
+        Habilidades
+      </b>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+  <!--Inicio contentenido de tarjeas-->
+  <mat-progress-bar *ngIf="enProceso" color="primary" mode="query"></mat-progress-bar>
+
+  <div class="alerta alerta-warning animated fadeInDown" *ngIf="lTblSkillsetDTO?.length == 0">
+    Sin registros para mostrar
+  </div>
+
+  <div *ngIf="!enProceso" class="items-supervision-container" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <!-- fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" -->
+    <div class="item-supervision-wrap" *ngFor="let tblSkillsetDTO of lTblSkillsetDTO; let i = index"
+      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%"
+      fxFlex.sm="33%">
+      <app-skillset-tarjeta [tblSkillsetDTO]="tblSkillsetDTO"
+        (eventoSkillsetSolicitadoParaEliminar)="eliminarSkillset($event)"
+        (eventoSkillsetSolicitadoParaModificar)="modificarSkillset($event)"
+        (eventoSkillsetSolicitadoParaSubirFoto)="subirFoto($event)">
+      </app-skillset-tarjeta>
+    </div>
+  </div>
+</mat-card>

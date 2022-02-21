@@ -1,0 +1,111 @@
+<title>{{titulo}}</title>
+<div class="example-container">
+  <mat-toolbar color="primary" class="expanded-toolbar cabecera-color">
+    <span>
+      <button mat-button routerLink="/pages/2/:idPerfil/:nroPestania">
+        <mat-icon>person</mat-icon>
+        {{title}}
+      </button>
+    </span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button mat-button routerLink="/pages">
+        <mat-icon>home</mat-icon>
+        Home
+      </button>
+
+      <button mat-button routerLink="/pages/portafolio">
+        <mat-icon>business_center</mat-icon>
+        Portafolio
+      </button>
+
+      <button mat-button routerLink="/pages/habilidades">
+        <mat-icon>military_tech</mat-icon>
+        Skillset
+      </button>
+
+      <button mat-button routerLink="/pages/experiencia">
+        <mat-icon>emoji_events</mat-icon>
+        Experience
+      </button>
+
+      <button mat-button routerLink="/pages/contacto">
+        <mat-icon>perm_contact_calendar</mat-icon>
+        Contact
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menuBarra" >
+        <mat-icon>settings</mat-icon>
+        Configuración
+      </button>
+
+      <mat-menu #menuBarra="matMenu">
+        <button mat-menu-item routerLink="/pages/2/:idPerfil/:nroPestania">
+          <mat-icon>account_circle</mat-icon>
+          <span>Mi perfil</span>
+        </button>
+
+        <button mat-menu-item matTooltip="Ver Curriculum Vitae" (click)="verCurriculumVitae()">
+          <mat-icon>get_app</mat-icon>
+          <span>Ver CV</span>
+        </button>
+
+        <button mat-menu-item matTooltip="Descargar Curriculum Vitae" (click)="descargarReporteCurriculum()">
+          <mat-icon>get_app</mat-icon>
+          <span>CV</span>
+        </button>
+      </mat-menu>
+    </div>
+
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/pages/2/:idPerfil/:nroPestania">
+      <mat-icon>account_circle</mat-icon>
+      Mi perfil
+    </button>
+
+    <button mat-menu-item routerLink="/pages">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+
+    <button mat-menu-item routerLink="/pages/portafolio">
+      <mat-icon>business_center</mat-icon>
+      Portafolio
+    </button>
+
+    <button mat-menu-item routerLink="/pages/habilidades">
+      <mat-icon>military_tech</mat-icon>
+      Skillset
+    </button>
+
+    <button mat-menu-item routerLink="/pages/experiencia">
+      <mat-icon>emoji_events</mat-icon>
+      Experience
+    </button>
+
+    <button mat-menu-item routerLink="/pages/contacto">
+      <mat-icon>perm_contact_calendar</mat-icon>
+      Contact
+    </button>
+
+    <button mat-menu-item matTooltip="Descargar Curriculum Vitae" (click)="descargarReporteCurriculum()">
+      <mat-icon>get_app</mat-icon>
+      CV
+    </button>
+  </mat-menu>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav-content>
+      <div align="center">
+        <br>
+        <div class="example-card">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

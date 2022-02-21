@@ -1,0 +1,59 @@
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary" matTooltip="Nombre del proyecto">
+  <span class="span">
+    <b>
+      <h2 matDialogTitle>{{nombreAccion | titlecase}} portafolio</h2>
+    </b>
+  </span>
+</mat-toolbar>
+
+<form fxLayout="column" [formGroup]="frmReactivo" (ngSubmit)="enviar()">
+
+  <div fxLayout="row" *ngIf="enProceso">
+    <mat-progress-bar mode="query" color="primary" fxFlex></mat-progress-bar>
+    <br />
+  </div>
+
+  <mat-dialog-content class="mat-typography body" *ngIf="!enProceso">
+    <br />
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <mat-form-field fxFlex>
+        <input matInput formControlName="noPortafolio" autocomplete="off" placeholder="Nombre del portafolio">
+        <mat-error *ngIf="tieneError('noPortafolio', 'required')">
+          Es requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <br />
+
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <mat-form-field fxFlex>
+        <input matInput formControlName="imgPortafolio" autocomplete="off" placeholder="Imagen del portafolio">
+      </mat-form-field>
+    </div>
+
+    <br />
+
+    <mat-label>Descripción del portafolio</mat-label>
+    <br /><br />
+    <div fxLayout="row" fxLayoutGap="50px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <mat-form-field fxFlex>
+        <mat-label>Describa...</mat-label>
+        <textarea #textAreaInfoAcceso matInput rows="3" maxlength="1024" formControlName="dePortafolio"></textarea>
+        <mat-hint align="end">{{ textAreaInfoAcceso.value?.length || 0 }}/1024</mat-hint>
+      </mat-form-field>
+    </div>
+    <mat-error *ngIf="tieneError('dePortafolio', 'any')">
+      Es requerido
+    </mat-error>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CERRAR</button>
+    <button type="submit" mat-button color="primary" *ngIf="parametroDialogo.accion !== 4 && !enProceso">
+      <mat-icon>save</mat-icon>
+      {{nombreAccion}}
+    </button>
+  </mat-dialog-actions>
+</form>

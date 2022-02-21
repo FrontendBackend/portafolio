@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.13.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portafolio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1fd949-9786-4370-a9a6-4d3b0653ecc5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="IlRCTF9QRVJGSUwiICwxNSwxNSwxNjUxMTUxNC1jYmZhLTRhN2QtYTRlOS03ZGI1ZWQ0ZDA2OWM7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="apt_portafolio"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT "ID_PERFIL",
+	"AP_PERFIL",
+	"NO_PERFIL"
+FROM "TBL_PERFIL"]]>
+	</queryString>
+	<field name="idPerfil" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="ID_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_PERFIL"/>
+	</field>
+	<field name="apPerfil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AP_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="AP_PERFIL"/>
+	</field>
+	<field name="noPerfil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NO_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="NO_PERFIL"/>
+	</field>
+	<group name="ID_PERFIL">
+		<groupExpression><![CDATA[$F{idPerfil}]]></groupExpression>
+	</group>
+	<group name="AP_PERFIL">
+		<groupExpression><![CDATA[$F{apPerfil}]]></groupExpression>
+	</group>
+	<group name="NO_PERFIL">
+		<groupExpression><![CDATA[$F{noPerfil}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="20" width="290" height="30" backcolor="#181FAB" uuid="ac698c3a-3eb4-42d0-a80d-4c090d63194a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[CURRICULUM VITAE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="0" width="160" height="30" uuid="4c9f115d-46c0-46bf-ac5c-1260a4dccfdb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7415177d-78bf-4e7b-b167-3f715282d8ba"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="160" height="30" uuid="c434771b-ff23-4a27-a036-237fc0e5a1ec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b67b368e-e220-4bb5-b92c-1b35ec5bb189"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="0" width="160" height="30" uuid="8b365557-28b7-4359-9682-df6f7a636227">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7415177d-78bf-4e7b-b167-3f715282d8ba"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apPerfil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="160" height="30" uuid="11491090-a4f9-474d-87d2-9dfeba73cdcd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b67b368e-e220-4bb5-b92c-1b35ec5bb189"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noPerfil}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

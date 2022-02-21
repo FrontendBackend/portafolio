@@ -1,0 +1,36 @@
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary" matTooltip="Nombre del skillset">
+  <span class="span">
+    <b>
+      <h2 matDialogTitle>{{nombreAccion | titlecase}} skillset</h2>
+    </b>
+  </span>
+</mat-toolbar>
+
+<form fxLayout="column" [formGroup]="frmReactivo" (ngSubmit)="enviar()">
+
+  <div fxLayout="row" *ngIf="enProceso">
+    <mat-progress-bar mode="query" color="primary" fxFlex></mat-progress-bar>
+    <br />
+  </div>
+
+  <mat-dialog-content class="mat-typography body" *ngIf="!enProceso">
+    <br />
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <mat-form-field fxFlex>
+        <input matInput formControlName="noSkillset" autocomplete="off" placeholder="Nombre del skillset">
+        <mat-error *ngIf="tieneError('noSkillset', 'required')">
+          Es requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CERRAR</button>
+    <button type="submit" mat-button color="primary" *ngIf="parametroDialogo.accion !== 4 && !enProceso">
+      <mat-icon>save</mat-icon>
+      {{nombreAccion}}
+    </button>
+  </mat-dialog-actions>
+</form>

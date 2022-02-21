@@ -1,0 +1,56 @@
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.tamanio-icon {
+  font-size: 100px;
+}
+
+.cabecera-color {
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.altura-toolbar {
+  height: 41px;
+}
+
+.circular {
+  border-radius: 50%;
+}
+
+.contenedor {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-header {
+  display: flow-root;
+}
+
+/*Estilo para ordenar los textos sin salir de su contenido*/
+.text-statico {
+  word-wrap: break-word;
+}
+
+.img-tamanio{
+  display: flex;
+  flex-direction: column;
+}
+
+.breakpoint  {
+  max-width: 100%;
+  display: inline-block;
+  }

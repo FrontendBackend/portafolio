@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.13.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portafolio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1fd949-9786-4370-a9a6-4d3b0653ecc5">
-	<property name="com.jaspersoft.studio.data.sql.tables" value="IlRCTF9QRVJGSUwiICwxNSwxNSwxNjUxMTUxNC1jYmZhLTRhN2QtYTRlOS03ZGI1ZWQ0ZDA2OWM7"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="apt_portafolio"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT "ID_PERFIL",
-	"AP_PERFIL",
-	"NO_PERFIL"
+		<![CDATA[SELECT "ID_PERFIL" AS idPerfil,
+	"AP_PERFIL" AS apPerfil,
+	"NO_PERFIL" AS noPerfil
 FROM "TBL_PERFIL"]]>
 	</queryString>
 	<field name="idPerfil" class="java.lang.Long">

@@ -29,6 +29,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                "output": "/assets/"
+              },
               "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
@@ -102,6 +107,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                "output": "/assets/"
+              },
               "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],

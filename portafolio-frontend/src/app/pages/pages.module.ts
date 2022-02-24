@@ -41,6 +41,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CurriculumVitaeDialogoComponent } from './curriculum-vitae-dialogo/curriculum-vitae-dialogo.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -96,6 +97,7 @@ const FECHA_FORMATOS = {
     MatGridListModule,
     MatAutocompleteModule,
     PdfViewerModule,
+    NgxExtendedPdfViewerModule
     // MaterialModule,
     // SharedModule,
   ],

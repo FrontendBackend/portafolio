@@ -31,7 +31,7 @@ export class CurriculumVitaeDialogoComponent implements OnInit {
 
     this.enProceso = true;
 
-    this.perfilService.generarReporteCurriculum().subscribe((data: Blob) => {
+    this.perfilService.generarReporteCurriculum(1).subscribe((data: Blob) => {
       let reader = new FileReader();
       reader.onload = (e: any) => {
         this.pdfSrc = e.target.result;

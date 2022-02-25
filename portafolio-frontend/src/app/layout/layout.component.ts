@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
   }
 
   descargarReporteCurriculum() {
-    this.perfilService.generarReporteCurriculum().subscribe(data => {
+    this.perfilService.generarReporteCurriculum(1).subscribe(data => {
       const url = window.URL.createObjectURL(data);
       const a = document.createElement('a');
       a.setAttribute('style', 'display:none');
@@ -38,8 +38,8 @@ export class LayoutComponent implements OnInit {
   }
 
   //pdfs//
-  generarReporteCurriculum() {
-    this.perfilService.generarReporteCurriculum().subscribe(data => {
+ /*  generarReporteCurriculum() {
+    this.perfilService.generarReporteCurriculum(1).subscribe(data => {
       let reader = new FileReader();
       reader.onload = (e: any) => {
         this.pdfSrc = e.target.result;
@@ -47,7 +47,7 @@ export class LayoutComponent implements OnInit {
       }
       reader.readAsArrayBuffer(data);
     });
-  }
+  } */
 
   verCurriculumVitae(): void {
     const dialogRef = this.dialog.open(CurriculumVitaeDialogoComponent, {

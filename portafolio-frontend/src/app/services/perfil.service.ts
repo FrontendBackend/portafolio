@@ -54,8 +54,8 @@ export class PerfilService {
     return this.httpClient.get<any[]>(urlEndPoint);
   }
 
-  generarReporteCurriculum() {
-    return this.httpClient.get(`${this.url}/generarReporteCurriculum`, {
+  generarReporteCurriculum(idPerfil: number) {
+    return this.httpClient.get(`${this.url}/generarReporteCurriculum/${idPerfil}`, {
       responseType: 'blob'
     });
   }

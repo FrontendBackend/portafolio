@@ -3,23 +3,24 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portafolio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1fd949-9786-4370-a9a6-4d3b0653ecc5">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="apt_portafolio"/>
+	<parameter name="idPerfil" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT "ID_PERFIL" AS idPerfil,
 	"AP_PERFIL" AS apPerfil,
 	"NO_PERFIL" AS noPerfil
-FROM "TBL_PERFIL"]]>
+FROM "TBL_PERFIL" WHERE "ID_PERFIL" =$P{idPerfil}]]>
 	</queryString>
 	<field name="idPerfil" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="ID_PERFIL"/>
-		<property name="com.jaspersoft.studio.field.label" value="ID_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.name" value="IDPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDPERFIL"/>
 	</field>
 	<field name="apPerfil" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="AP_PERFIL"/>
-		<property name="com.jaspersoft.studio.field.label" value="AP_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.name" value="APPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="APPERFIL"/>
 	</field>
 	<field name="noPerfil" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="NO_PERFIL"/>
-		<property name="com.jaspersoft.studio.field.label" value="NO_PERFIL"/>
+		<property name="com.jaspersoft.studio.field.name" value="NOPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOPERFIL"/>
 	</field>
 	<group name="ID_PERFIL">
 		<groupExpression><![CDATA[$F{idPerfil}]]></groupExpression>

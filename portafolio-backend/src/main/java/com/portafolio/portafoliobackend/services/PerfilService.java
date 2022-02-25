@@ -8,7 +8,7 @@ import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 public interface PerfilService {
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
-    List<TblPerfilDTO> listarPerfil();
+    List<TblPerfilDTO> listarPerfil(Long idPerfil);
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
     public TblPerfilDTO obtenerPerfilPorId(Long idPerfil);
@@ -23,5 +23,5 @@ public interface PerfilService {
     public TblPerfil findById(Long idPerfil);
 
     // PERMITE GENERAR EL CURRICULUM VITAE
-    byte[] generarReporteCurriculum();
+    byte[] generarReporteCurriculum(Long idPerfil);
 }

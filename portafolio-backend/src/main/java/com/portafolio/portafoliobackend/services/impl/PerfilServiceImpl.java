@@ -116,17 +116,17 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public byte[] generarReporteCurriculum() {
+    public byte[] generarReporteCurriculum(Long idPerfil) {
         byte[] data = null;
 
         Map<String, Object> parametros = new HashMap<String, Object>();
-        parametros.put("txt_titulo", "Prueba de titulo");
+        parametros.put("idPerfil", "idPerfil");
 
         try {
             File file = new ClassPathResource("/reports/portafolio.jasper").getFile();
             JasperPrint print = JasperFillManager.fillReport(file.getPath(), 
-                    null,
-                    new JRBeanCollectionDataSource(this.listarPerfil()));
+                    parametros,
+                    new JRBeanCollectionDataSource(this.listarPerfil(idPerfil)));
             data = JasperExportManager.exportReportToPdf(print);
             // mitocode jasperreports | excel, pdf, ppt, word, csv
         } catch (Exception e) {
@@ -136,8 +136,8 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public List<TblPerfilDTO> listarPerfil() {
-        return this.perfilRepository.listarPerfil();
+    public List<TblPerfilDTO> listarPerfil(Long idPerfil) {
+        return this.perfilRepository.listarPerfil(idPerfil);
     }
 
 }

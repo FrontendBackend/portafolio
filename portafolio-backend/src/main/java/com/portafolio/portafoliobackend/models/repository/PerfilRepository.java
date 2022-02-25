@@ -35,6 +35,7 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
             + " ) " 
             + "FROM TblPerfil per "
             + "LEFT OUTER JOIN per.tblUbigeo ubi "
+            + "WHERE per.idPerfil = :idPerfil "
             )
-    List<TblPerfilDTO> listarPerfil();
+    List<TblPerfilDTO> listarPerfil(@Param("idPerfil") Long idPerfil);
 }

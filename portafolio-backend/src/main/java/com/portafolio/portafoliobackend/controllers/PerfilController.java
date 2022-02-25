@@ -191,10 +191,10 @@ public class PerfilController {
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/generarReporteCurriculum", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public ResponseEntity<byte[]> generarReporte() {
+    @GetMapping(value = "/generarReporteCurriculum/{idPerfil}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> generarReporte(@PathVariable Long idPerfil) {
         byte[] data = null;
-        data = perfilService.generarReporteCurriculum();
+        data = perfilService.generarReporteCurriculum(idPerfil);
         return new ResponseEntity<byte[]>(data, HttpStatus.OK);
     }
 }

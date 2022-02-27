@@ -37,6 +37,12 @@ export class TblPerfilDTO {
   // NOMBRE DE LA IMAGEN
   codImg: Byte[];
 
+  // DESCRIBIR SOBRE MÍ DE COMO SOY
+  sobreMi: string;
+
+  // RESUMEN DE LO QUE HAGO
+  resumen: string;
+
   // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
   // INACTIVO
   esRegistro: string;

@@ -13,7 +13,8 @@
           <mat-label><b>Foto de perfil: {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</b></mat-label>
           <br>
           <br>
-          <img class="img-tamanio" mat-card-image src="data:image/png;base64,{{imagenDataPerfil}}" alt="Photo of a Shiba Inu">
+          <img class="img-tamanio" mat-card-image src="data:image/png;base64,{{imagenDataPerfil}}"
+            alt="Photo of a Shiba Inu">
         </mat-card>
         <br>
       </div>
@@ -48,6 +49,19 @@
               <input matInput aria-label="State" autocomplete="off" formControlName="apPerfil"
                 [class.is-invalid]="tieneError('apPerfil', 'any')" />
               <mat-error *ngIf="tieneError('apPerfil', 'required')">
+                Es requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field appearance="outline">
+              <mat-label>Nacido el:</mat-label>
+              <input matInput type="text" formControlName="feNacimientoPerfil" autocomplete="off"
+                [matDatepicker]="dpFeNacimiento" [class.is-invalid]="tieneError('feNacimientoPerfil', 'any')" />
+              <mat-datepicker-toggle matSuffix [for]="dpFeNacimiento"></mat-datepicker-toggle>
+              <mat-datepicker #dpFeNacimiento></mat-datepicker>
+              <mat-error *ngIf="tieneError('feNacimientoPerfil', 'required')">
                 Es requerido
               </mat-error>
             </mat-form-field>
@@ -88,7 +102,8 @@
                   <mat-progress-bar mode="buffer"></mat-progress-bar>
                 </mat-option>
                 <ng-container *ngIf="!cargandoUbigeosNacimiento">
-                  <mat-option *ngFor="let ubigeoNacimientoDTO of lLegUbigeoDTONacimiento" [value]="ubigeoNacimientoDTO.codigoUnico"
+                  <mat-option *ngFor="let ubigeoNacimientoDTO of lLegUbigeoDTONacimiento"
+                    [value]="ubigeoNacimientoDTO.codigoUnico"
                     (onSelectionChange)="ubigeoNacimientoSeleccionado($event.source.selected, ubigeoNacimientoDTO)">
                     <span><small><strong>{{ ubigeoNacimientoDTO.codigoUnico }}</strong></small></span>
                   </mat-option>
@@ -108,19 +123,26 @@
           <br>
 
           <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
-            <mat-form-field appearance="outline">
-              <mat-label>Nacido el:</mat-label>
-              <input matInput type="text" formControlName="feNacimientoPerfil" autocomplete="off"
-                [matDatepicker]="dpFeNacimiento" [class.is-invalid]="tieneError('feNacimientoPerfil', 'any')" />
-              <mat-datepicker-toggle matSuffix [for]="dpFeNacimiento"></mat-datepicker-toggle>
-              <mat-datepicker #dpFeNacimiento></mat-datepicker>
-              <mat-error *ngIf="tieneError('feNacimientoPerfil', 'required')">
-                Es requerido
-              </mat-error>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Sobre mí</mat-label>
+              <textarea matInput #messageSobreMi formControlName="sobreMi" maxlength="4000" rows="6"
+                placeholder="Describete como eres:"></textarea>
+                <mat-hint align="end">{{messageSobreMi.value.length}} / 4000</mat-hint>
+            </mat-form-field>
+
+          </div>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Resumen</mat-label>
+              <textarea matInput #messageResumen formControlName="resumen" maxlength="4000" rows="6"
+                placeholder="Describete tu pasión:"></textarea>
+                <!-- <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint> -->
+                <mat-hint align="end">{{messageResumen.value.length}} / 4000</mat-hint>
             </mat-form-field>
           </div>
 
-          <br>
           <br>
           <div align="start" *ngIf="!esFormularioSoloLectura">
             <button type="submit" cdkFocusInitial mat-button color="primary" [disabled]="enProceso">

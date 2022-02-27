@@ -10,7 +10,7 @@ public class TblPerfilDTOResultado extends TblPerfilDTO {
      */
     public TblPerfilDTOResultado(Long idPerfil, Long nuDniPerfil, String noPerfil, String apPerfil, String dirPerfil,
             Long telPerfil, String emailPerfil, Date feNacimientoPerfil, String imgPerfil, String tipoImg,
-            byte[] codImg, Long idUbigeo, String descUbigeoNacimientoCompleto) {
+            byte[] codImg, String sobreMi, String resumen, Long idUbigeo, String descUbigeoNacimientoCompleto) {
         super();
         this.setIdPerfil(idPerfil);
         this.setNuDniPerfil(nuDniPerfil);
@@ -23,6 +23,8 @@ public class TblPerfilDTOResultado extends TblPerfilDTO {
         this.setImgPerfil(imgPerfil);
         this.setTipoImg(tipoImg);
         this.setCodImg(codImg);
+        this.setSobreMi(sobreMi);
+        this.setResumen(resumen);
         this.setIdUbigeo(idUbigeo);
         this.setDescUbigeoNacimientoCompleto(descUbigeoNacimientoCompleto);
     }

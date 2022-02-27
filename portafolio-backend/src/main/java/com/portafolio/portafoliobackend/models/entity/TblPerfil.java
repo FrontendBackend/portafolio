@@ -80,6 +80,17 @@ public class TblPerfil {
     @Column(name = "COD_IMG", nullable = true, length = 5000)
     private byte[] codImg;
 
+    // DESCRIBIR SOBRE MÍ DE COMO SOY
+    @Column(name = "SOBRE_MI", nullable = true, length = 4000)
+    private String sobreMi;
+
+    // RESUMEN DE LO QUE HAGO
+    @Column(name = "RESUMEN", nullable = true, length = 4000)
+    private String resumen;
+
+
+    /**--------------------------------- AUDITORIA --------------------------------------- */
+
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
     // INACTIVO
     @Column(name = "ES_REGISTRO", nullable = false, length = 1)

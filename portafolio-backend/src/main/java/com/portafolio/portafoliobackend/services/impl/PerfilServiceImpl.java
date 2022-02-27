@@ -58,6 +58,9 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
         tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
 
+        tblPerfil.setSobreMi(tblPerfilDTO.getSobreMi());
+        tblPerfil.setResumen(tblPerfilDTO.getResumen());
+
         // Lugar donde nació (origen)
         if (tblPerfilDTO.getIdUbigeo() != null) {
             TblUbigeo legUbigeoNacimiento = new TblUbigeo();
@@ -93,6 +96,9 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
         tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
 
+        tblPerfil.setSobreMi(tblPerfilDTO.getSobreMi());
+        tblPerfil.setResumen(tblPerfilDTO.getResumen());
+        
         // Lugar donde nació (origen)
         if (tblPerfilDTO.getIdUbigeo() != null) {
             TblUbigeo legUbigeoNacimiento = new TblUbigeo();

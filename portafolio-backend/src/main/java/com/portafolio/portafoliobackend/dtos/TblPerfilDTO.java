@@ -45,6 +45,12 @@ public class TblPerfilDTO {
     // NOMBRE DE LA IMAGEN
     private byte[] codImg;
 
+    // DESCRIBIR SOBRE MÍ DE COMO SOY
+    private String sobreMi;
+
+    // RESUMEN DE LO QUE HAGO
+    private String resumen;
+
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
     // INACTIVO
     private String esRegistro;

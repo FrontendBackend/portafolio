@@ -13,7 +13,7 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
     
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPerfilDTOResultado("
             + "per.idPerfil, per.nuDniPerfil, per.noPerfil, per.apPerfil, per.dirPerfil, per.telPerfil, " 
-            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg, " 
+            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg, per.sobreMi, per.resumen, " 
             + "ubi.idUbigeo, " 
             + "CASE " 
             + "WHEN ubi.idUbigeo is null THEN TRIM(ubi.departamento || ' ' || ubi.provincia || ' ' || ubi.distrito) " 
@@ -27,7 +27,7 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
 
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblPerfilDTOResultado("
             + "per.idPerfil, per.nuDniPerfil, per.noPerfil, per.apPerfil, per.dirPerfil, per.telPerfil, " 
-            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg, " 
+            + "per.emailPerfil, per.feNacimientoPerfil, per.imgPerfil, per.tipoImg, per.codImg, per.sobreMi, per.resumen, " 
             + "ubi.idUbigeo, " 
             + "CASE " 
             + "WHEN ubi.idUbigeo is null THEN TRIM(ubi.departamento || ' ' || ubi.provincia || ' ' || ubi.distrito) " 

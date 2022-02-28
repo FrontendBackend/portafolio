@@ -7,11 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 
+import com.portafolio.portafoliobackend.dtos.TblCurriculumVitaeAuxDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 import com.portafolio.portafoliobackend.models.entity.TblUbigeo;
@@ -98,7 +102,7 @@ public class PerfilServiceImpl implements PerfilService {
 
         tblPerfil.setSobreMi(tblPerfilDTO.getSobreMi());
         tblPerfil.setResumen(tblPerfilDTO.getResumen());
-        
+
         // Lugar donde nació (origen)
         if (tblPerfilDTO.getIdUbigeo() != null) {
             TblUbigeo legUbigeoNacimiento = new TblUbigeo();
@@ -132,8 +136,11 @@ public class PerfilServiceImpl implements PerfilService {
             File file = new ClassPathResource("/reports/portafolio.jasper").getFile();
             JasperPrint print = JasperFillManager.fillReport(file.getPath(), 
                     parametros,
-                    new JRBeanCollectionDataSource(this.listarPerfil(idPerfil)));
+                    new JRBeanCollectionDataSource(this.obtenerCurriculumPorId(idPerfil)));
             data = JasperExportManager.exportReportToPdf(print);
+
+            // JRExporter exporter = new JRXlsExporter();
+            // exporter.exportReport();
             // mitocode jasperreports | excel, pdf, ppt, word, csv
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,8 +149,8 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public List<TblPerfilDTO> listarPerfil(Long idPerfil) {
-        return this.perfilRepository.listarPerfil(idPerfil);
+    public List<TblCurriculumVitaeAuxDTO> obtenerCurriculumPorId(Long idPerfil) {
+        return this.perfilRepository.obtenerCurriculumPorId(idPerfil);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.portafolio.portafoliobackend.models.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "TBL_PERFIL")
 @Data
 @NoArgsConstructor
-public class TblPerfil {
+public class TblPerfil implements Serializable{
 
     // CAMPO IDENTIFICADOR DE PERFIL
     @Id

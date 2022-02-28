@@ -1,5 +1,6 @@
 package com.portafolio.portafoliobackend.models.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "TBL_SKILLSET")
-public class TblSkillset {
+public class TblSkillset implements Serializable {
 
 	// ID DE SKILLSET
 	@Id

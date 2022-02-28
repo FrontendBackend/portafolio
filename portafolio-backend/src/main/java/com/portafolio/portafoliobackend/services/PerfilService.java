@@ -2,13 +2,14 @@ package com.portafolio.portafoliobackend.services;
 
 import java.util.List;
 
+import com.portafolio.portafoliobackend.dtos.TblCurriculumVitaeAuxDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 
 public interface PerfilService {
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
-    List<TblPerfilDTO> listarPerfil(Long idPerfil);
+    List<TblCurriculumVitaeAuxDTO> obtenerCurriculumPorId(Long idPerfil);
 
     // PERMITE OBTENER LOS DATOS DEL OBJETO
     public TblPerfilDTO obtenerPerfilPorId(Long idPerfil);

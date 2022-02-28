@@ -1,5 +1,7 @@
 package com.portafolio.portafoliobackend.models.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "ARCHIVO")
 @Data
 @NoArgsConstructor
-public class Archivo {
+public class Archivo implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ARCHIVO_SEQ")

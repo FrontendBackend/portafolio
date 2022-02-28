@@ -1,5 +1,6 @@
 package com.portafolio.portafoliobackend.models.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "TBL_PORTAFOLIO")
 @Data
 @NoArgsConstructor
-public class TblPortafolio {
+public class TblPortafolio implements Serializable {
 
     // CAMPO IDENTIFICADOR DEL PORTAFOLIO
     @Id

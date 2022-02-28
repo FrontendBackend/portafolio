@@ -3,63 +3,74 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portafolio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1fd949-9786-4370-a9a6-4d3b0653ecc5">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="apt_portafolio"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="567"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="419"/>
 	<parameter name="idPerfil" class="java.lang.Long"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT "ID_PERFIL" AS idPerfil,
-	"AP_PERFIL" AS apPerfil,
-	"NO_PERFIL" AS noPerfil
-FROM "TBL_PERFIL" WHERE "ID_PERFIL" =$P{idPerfil}]]>
+		<![CDATA[SELECT ID_PERFIL AS idPerfil,
+NO_PERSONA AS noPersona,
+NU_DNI_PERFIL AS nuDniPerfil,
+TEL_PERFIL AS telPerfil,
+EMAIL_PERFIL AS emailPerfil,
+DIR_PERFIL AS dirPerfil,
+NO_PORTAFOLIO AS noPortafolio,
+NO_SKILLSET AS noSkillset,
+TURNO AS turno,
+SOBRE_MI AS sobreMi,
+RESUMEN AS resumen
+FROM "VW_CURRICULUM_VITAE_AUX"
+WHERE 
+	 "VW_CURRICULUM_VITAE_AUX"."ID_PERFIL" = $P{idPerfil}]]>
 	</queryString>
 	<field name="idPerfil" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="IDPERFIL"/>
 		<property name="com.jaspersoft.studio.field.label" value="IDPERFIL"/>
 	</field>
-	<field name="apPerfil" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="APPERFIL"/>
-		<property name="com.jaspersoft.studio.field.label" value="APPERFIL"/>
+	<field name="noPersona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOPERSONA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOPERSONA"/>
 	</field>
-	<field name="noPerfil" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="NOPERFIL"/>
-		<property name="com.jaspersoft.studio.field.label" value="NOPERFIL"/>
+	<field name="nuDniPerfil" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="NUDNIPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUDNIPERFIL"/>
 	</field>
-	<group name="ID_PERFIL">
-		<groupExpression><![CDATA[$F{idPerfil}]]></groupExpression>
-	</group>
-	<group name="AP_PERFIL">
-		<groupExpression><![CDATA[$F{apPerfil}]]></groupExpression>
-	</group>
-	<group name="NO_PERFIL">
-		<groupExpression><![CDATA[$F{noPerfil}]]></groupExpression>
-	</group>
+	<field name="telPerfil" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="TELPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="TELPERFIL"/>
+	</field>
+	<field name="emailPerfil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="EMAILPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="EMAILPERFIL"/>
+	</field>
+	<field name="dirPerfil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DIRPERFIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="DIRPERFIL"/>
+	</field>
+	<field name="noPortafolio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOPORTAFOLIO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOPORTAFOLIO"/>
+	</field>
+	<field name="noSkillset" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOSKILLSET"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOSKILLSET"/>
+	</field>
+	<field name="turno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TURNO"/>
+		<property name="com.jaspersoft.studio.field.label" value="TURNO"/>
+	</field>
+	<field name="sobreMi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SOBREMI"/>
+		<property name="com.jaspersoft.studio.field.label" value="SOBREMI"/>
+	</field>
+	<field name="resumen" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="RESUMEN"/>
+		<property name="com.jaspersoft.studio.field.label" value="RESUMEN"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="150" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="250" y="14" width="260" height="35" forecolor="#67A0C2" backcolor="#FFFFFF" uuid="ac698c3a-3eb4-42d0-a80d-4c090d63194a"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="26" isBold="true" isItalic="false" isUnderline="false"/>
-					<paragraph lineSpacing="Single" lineSpacingSize="1.0"/>
-				</textElement>
-				<text><![CDATA[J U A N]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="250" y="43" width="260" height="36" forecolor="#67A0C2" backcolor="#FFFFFF" uuid="621a3134-5858-4297-adaf-2d5561bcfe49"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="26" isBold="true" isItalic="false" isUnderline="false"/>
-					<paragraph lineSpacing="Single" lineSpacingSize="1.0"/>
-				</textElement>
-				<text><![CDATA[V A L E R I O]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="250" y="72" width="260" height="35" forecolor="#67A0C2" backcolor="#FFFFFF" uuid="2d257a39-90ff-424e-9991-705608d6abd9"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="26" isBold="true" isItalic="false" isUnderline="false"/>
-					<paragraph lineSpacing="Single" lineSpacingSize="1.0"/>
-				</textElement>
-				<text><![CDATA[M A Y T A]]></text>
-			</staticText>
 			<frame>
 				<reportElement mode="Opaque" x="12" y="0" width="218" height="150" backcolor="#18252E" uuid="44cd7052-be6c-4eac-b55b-c2f98687d8fa"/>
 				<ellipse>
@@ -73,11 +84,18 @@ FROM "TBL_PERFIL" WHERE "ID_PERFIL" =$P{idPerfil}]]>
 			</rectangle>
 			<staticText>
 				<reportElement x="250" y="110" width="239" height="30" uuid="2dabd86e-e8e1-4bc4-a4e8-e422cb54c3a3"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="html">
 					<font size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PROGRAMADOR JUNIOR]]></text>
 			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="250" y="10" width="150" height="100" forecolor="#67A0C2" uuid="17986114-8c3f-4833-bb8e-9e9878a90d7c"/>
+				<textElement textAlignment="Left">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noPersona}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<detail>
@@ -93,13 +111,32 @@ FROM "TBL_PERFIL" WHERE "ID_PERFIL" =$P{idPerfil}]]>
 					</textElement>
 					<text><![CDATA[RESUMEN]]></text>
 				</staticText>
+				<textField>
+					<reportElement x="20" y="29" width="180" height="101" uuid="5d435001-f43e-4f51-a65e-bc737b0220e4">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Justified"/>
+					<textFieldExpression><![CDATA[$F{resumen}]]></textFieldExpression>
+				</textField>
 				<staticText>
-					<reportElement x="20" y="30" width="180" height="50" uuid="1c0ef34d-c9c6-412c-a694-11a6d351d2fb"/>
-					<textElement textAlignment="Left">
-						<font isBold="false"/>
+					<reportElement x="20" y="154" width="180" height="20" uuid="144f133f-5620-4a28-ab73-d7e8eb41b96a"/>
+					<textElement>
+						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Soy una persona que le gusta programar y enamorar a chicas tambien. soy un galán jajaja.]]></text>
+					<text><![CDATA[Conocimientos tecnológicos]]></text>
 				</staticText>
+				<textField>
+					<reportElement x="20" y="173" width="180" height="50" uuid="b58783b4-77d1-4c1e-9ef7-3221cf817404">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Justified"/>
+					<textFieldExpression><![CDATA[$F{noSkillset} +"."]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="12" y="495" width="218" height="150" backcolor="rgba(202, 213, 222, 0.9882353)" uuid="0d818e16-6f2f-43b8-a68c-93ec48cdb21a"/>

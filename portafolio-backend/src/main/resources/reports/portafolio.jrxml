@@ -240,25 +240,88 @@ WHERE
 				<text><![CDATA[EXPERIENCIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="241" y="270" width="242" height="16" uuid="9e71604c-ac69-4e93-96c0-6df0c6bf747d"/>
+				<reportElement x="240" y="355" width="288" height="16" uuid="9e71604c-ac69-4e93-96c0-6df0c6bf747d"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sistema para la gestión de Legajos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="241" y="340" width="242" height="16" uuid="b63eb767-d8af-4673-9313-1fd5105156bd"/>
+				<reportElement x="240" y="535" width="289" height="16" uuid="b63eb767-d8af-4673-9313-1fd5105156bd"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Historias clínicas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="243" y="430" width="287" height="16" uuid="c82e3bff-b860-41d9-ab1c-241c41c9781f"/>
+				<reportElement x="240" y="457" width="290" height="16" uuid="c82e3bff-b860-41d9-ab1c-241c41c9781f"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sistema para la gestión de notas y asistencias del CAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="269" width="288" height="16" uuid="02f2360e-1a11-4c78-b016-e72170554a99"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plataforma de gestión minera de Osinergmin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="290" width="288" height="16" uuid="f169e490-9fc8-43be-9d2b-f2c391554dab"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[2020 - actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="314" width="288" height="26" uuid="c2329964-cf9a-40a0-b919-cb99f7633322"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="377" width="288" height="16" uuid="b3f9930a-305f-43ad-90bf-dfbfdbc4347c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Practica 2019]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="401" width="288" height="26" uuid="90d07897-7b1b-4ff5-b9f4-bc082a9c7227"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="477" width="288" height="16" uuid="e4eba58f-3bc9-4364-9b75-05b07f00e2e1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Practica 2019]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="501" width="288" height="26" uuid="59cf2577-ca82-48bc-b78e-a0237d65dd91"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="557" width="288" height="16" uuid="563f7baf-25da-4325-87f9-ed9f61eb6715"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Practica 2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="581" width="288" height="26" uuid="76bc0bd9-61b1-4db0-8058-72eedfc1e4a0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
 			</staticText>
 		</band>
 	</detail>

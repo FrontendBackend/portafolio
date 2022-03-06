@@ -1,19 +1,15 @@
 package com.portafolio.portafoliobackend.services.impl;
 
 import java.io.File;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRXlsExporter;
 
 import com.portafolio.portafoliobackend.dtos.TblCurriculumVitaeAuxDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;

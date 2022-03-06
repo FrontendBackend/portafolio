@@ -1,7 +1,6 @@
 package com.portafolio.portafoliobackend.models.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Immutable;
+import org.springframework.data.annotation.Immutable;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +26,7 @@ public class TblCurriculumVitaeAux implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VW_CURRICULUM_VITAE_AUX_SEQ")
     @SequenceGenerator(name = "VW_CURRICULUM_VITAE_AUX_SEQ", sequenceName = "VW_CURRICULUM_VITAE_AUX_SEQ", allocationSize = 1)
-    @Column(name = "ID_PERFIL", nullable = true)
+    @Column(name = "ID_PERFIL", updatable = false, nullable = true)
     private Long idPerfil;
 
     // CAMPO NOMBRE COMPLETO DE LA PERSONA

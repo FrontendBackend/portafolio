@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="PORTAFOLIO" directorySegmentName="seg_0" id="9DD39FA6-F855-7F43-E0BD-9F209220AE0B">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</SchemaObject>

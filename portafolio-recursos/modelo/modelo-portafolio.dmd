@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="modelo-portafolio" id="63AF171D-EF75-D024-B34B-7D3481D711F8" version="3.5">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:10:21 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>63AF171D-EF75-D024-B34B-7D3481D711F8</designId>
+</OSDM_Design>

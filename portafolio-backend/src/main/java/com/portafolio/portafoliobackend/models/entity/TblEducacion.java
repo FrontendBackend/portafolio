@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -34,4 +35,9 @@ public class TblEducacion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PERFIL", nullable = true)
     private TblPerfil tblPerfil;
+
+    // DESCRIBIR TU EDUCACIÓN
+    @Lob
+    @Column(name = "DE_EDUCACION", nullable = true, length = 8000)
+    private String deEducacion;
 }

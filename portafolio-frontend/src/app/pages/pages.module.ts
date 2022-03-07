@@ -42,6 +42,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CurriculumVitaeDialogoComponent } from './curriculum-vitae-dialogo/curriculum-vitae-dialogo.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { EducacionGeneralComponent } from './perfil/educacion/educacion-general/educacion-general.component';
+import { ExperienciaGeneralComponent } from './perfil/experiencia/experiencia-general/experiencia-general.component';
+import { FormacionGeneralComponent } from './perfil/formacion/formacion-general/formacion-general.component';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -71,6 +74,9 @@ const FECHA_FORMATOS = {
     PerfilFormularioComponent,
     PerfilGeneralComponent,
     CurriculumVitaeDialogoComponent,
+    EducacionGeneralComponent,
+    ExperienciaGeneralComponent,
+    FormacionGeneralComponent,
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.portafolio.portafoliobackend.dtos.TblEducacionDTO;
+import com.portafolio.portafoliobackend.dtos.TblExperienciaDTO;
+import com.portafolio.portafoliobackend.dtos.TblFormacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.dtos.TblUbigeoDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
@@ -190,11 +193,98 @@ public class PerfilController {
 
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
     }
-    
+
     @GetMapping(value = "/generarReporteCurriculum/{idPerfil}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<byte[]> generarReporte(@PathVariable Long idPerfil) {
         byte[] data = null;
         data = perfilService.generarReporteCurriculum(idPerfil);
         return new ResponseEntity<byte[]>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/obtenerEducacionPorId/{idEducacion}")
+    public ResponseEntity<?> obtenerEducacionPorId(@PathVariable Long idEducacion) {
+        String mensaje;
+        Map<String, Object> respuesta = new HashMap<>();
+
+        TblEducacionDTO tblEducacionDTO = null;
+
+        try {
+            tblEducacionDTO = this.perfilService.obtenerEducacionPorId(idEducacion);
+        } catch (DataAccessException e) {
+            respuesta.put("mensaje", "Ocurrió un error al intentar recuperar el perfil");
+            respuesta.put("error", e.getMostSpecificCause().getMessage());
+            log.error(e.getMostSpecificCause().getMessage());
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (tblEducacionDTO == null) {
+            mensaje = String.format("El perfil con el id: %d no existe en la base de datos", idEducacion);
+            respuesta.put("mensaje", mensaje);
+
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NO_CONTENT);
+        }
+
+        respuesta.put("mensaje", "El perfil ha sido recuperado");
+        respuesta.put("tblEducacionDTO", tblEducacionDTO);
+
+        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+    }
+
+    @GetMapping("/obtenerFormacionPorId/{idFormacion}")
+    public ResponseEntity<?> obtenerFormacionPorId(@PathVariable Long idFormacion) {
+        String mensaje;
+        Map<String, Object> respuesta = new HashMap<>();
+
+        TblFormacionDTO tblFormacionDTO = null;
+
+        try {
+            tblFormacionDTO = this.perfilService.obtenerFormacionPorId(idFormacion);
+        } catch (DataAccessException e) {
+            respuesta.put("mensaje", "Ocurrió un error al intentar recuperar el perfil");
+            respuesta.put("error", e.getMostSpecificCause().getMessage());
+            log.error(e.getMostSpecificCause().getMessage());
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (tblFormacionDTO == null) {
+            mensaje = String.format("El perfil con el id: %d no existe en la base de datos", idFormacion);
+            respuesta.put("mensaje", mensaje);
+
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NO_CONTENT);
+        }
+
+        respuesta.put("mensaje", "El perfil ha sido recuperado");
+        respuesta.put("tblFormacionDTO", tblFormacionDTO);
+
+        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
+    }
+
+    @GetMapping("/obtenerExperienciaPorId/{idEducacion}")
+    public ResponseEntity<?> obtenerExperienciaPorId(@PathVariable Long idExperiencia) {
+        String mensaje;
+        Map<String, Object> respuesta = new HashMap<>();
+
+        TblExperienciaDTO tblExperienciaDTO = null;
+
+        try {
+            tblExperienciaDTO = this.perfilService.obtenerExperienciaPorId(idExperiencia);
+        } catch (DataAccessException e) {
+            respuesta.put("mensaje", "Ocurrió un error al intentar recuperar la experiencia");
+            respuesta.put("error", e.getMostSpecificCause().getMessage());
+            log.error(e.getMostSpecificCause().getMessage());
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (tblExperienciaDTO == null) {
+            mensaje = String.format("La experiencia con el id: %d no existe en la base de datos", idExperiencia);
+            respuesta.put("mensaje", mensaje);
+
+            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NO_CONTENT);
+        }
+
+        respuesta.put("mensaje", "La experiencia ha sido recuperado");
+        respuesta.put("tblExperienciaDTO", tblExperienciaDTO);
+
+        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
     }
 }

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="FUN_LISTA_NO_SKILLSET" directorySegmentName="seg_0" id="AD2043FA-7939-C826-1872-15A6EEA7812B">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>FUN_LISTA_NO_SKILLSET</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<owner>6CAE455B-274B-F51C-DC3F-73E56A578468</owner>
+<source>CREATE OR REPLACE FUNCTION PORTAFOLIO.FUN_LISTA_NO_SKILLSET (VL_ID_PERFIL NUMBER)&lt;br/&gt;RETURN VARCHAR2 IS&lt;br/&gt;VL_NO_SKILLSET VARCHAR2(1024);&lt;br/&gt;VL_DSC_NO_SKILLSET VARCHAR2(1024);&lt;br/&gt;&lt;br/&gt;CURSOR C1 IS&lt;br/&gt;    SELECT TRIM(skl.NO_SKILLSET) AS NO_SKILLSET&lt;br/&gt;    FROM TBL_SKILLSET skl &lt;br/&gt;    WHERE skl.ES_REGISTRO=&apos;1&apos; &lt;br/&gt;    AND skl.ID_PERFIL = VL_ID_PERFIL&lt;br/&gt;    ;&lt;br/&gt;BEGIN&lt;br/&gt;  OPEN C1;&lt;br/&gt;  LOOP&lt;br/&gt;    FETCH C1&lt;br/&gt;      INTO VL_NO_SKILLSET;&lt;br/&gt;    EXIT WHEN C1%NOTFOUND;&lt;br/&gt;&lt;br/&gt;    IF (VL_DSC_NO_SKILLSET IS NULL) THEN&lt;br/&gt;        VL_DSC_NO_SKILLSET := VL_NO_SKILLSET;&lt;br/&gt;    ELSE &lt;br/&gt;         VL_DSC_NO_SKILLSET := VL_DSC_NO_SKILLSET || &apos;, &apos; || VL_NO_SKILLSET;&lt;br/&gt;    END IF;&lt;br/&gt;  END LOOP;&lt;br/&gt;  CLOSE C1;&lt;br/&gt;  RETURN VL_DSC_NO_SKILLSET;  &lt;br/&gt;END FUN_LISTA_NO_SKILLSET;</source>
+</FunctionOracle>

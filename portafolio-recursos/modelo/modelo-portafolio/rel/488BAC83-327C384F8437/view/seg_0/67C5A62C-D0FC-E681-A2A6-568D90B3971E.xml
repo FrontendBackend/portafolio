@@ -1,0 +1,227 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="67C5A62C-D0FC-E681-A2A6-568D90B3971E" schemaObject="9DD39FA6-F855-7F43-E0BD-9F209220AE0B" name="VW_CURRICULUM_VITAE_AUX">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>VW_CURRICULUM_VITAE_AUX</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW VW_CURRICULUM_VITAE_AUX&lt;br/&gt;AS &lt;br/&gt;SELECT &lt;br/&gt;pef.ID_PERFIL, pef.NO_PERFIL || &apos; &apos; || pef.AP_PERFIL AS NO_PERSONA&lt;br/&gt;,pef.NU_DNI_PERFIL&lt;br/&gt;,pef.TEL_PERFIL&lt;br/&gt;,pef.EMAIL_PERFIL&lt;br/&gt;,pef.DIR_PERFIL&lt;br/&gt;,FUN_LISTA_NO_PORTAFOLIO(pef.ID_PERFIL) AS NO_PORTAFOLIO&lt;br/&gt;,FUN_LISTA_NO_SKILLSET(pef.ID_PERFIL) AS NO_SKILLSET&lt;br/&gt;,CASE &lt;br/&gt;    WHEN TO_CHAR(SYSDATE,&apos;HH24:MI&apos;) BETWEEN &apos;07:00:00&apos; AND &apos;11:59:59&apos; THEN &apos;Buenos dias, &apos;&lt;br/&gt;    WHEN TO_CHAR(SYSDATE,&apos;HH24:MI&apos;) BETWEEN &apos;12:00:00&apos; AND &apos;18:59:59&apos; THEN &apos;Buenas tardes, &apos;&lt;br/&gt;    ELSE &apos;Buenas noches, &apos;&lt;br/&gt;END AS TURNO&lt;br/&gt;,pef.SOBRE_MI&lt;br/&gt;,pef.RESUMEN&lt;br/&gt;--, LISTAGG(por.NO_PORTAFOLIO, &apos;; &apos;) WITHIN GROUP (ORDER BY pef.ID_PERFIL) AS NO_PORTAFOLIO&lt;br/&gt;--, LISTAGG(skl.NO_SKILLSET, &apos;; &apos;) WITHIN GROUP (ORDER BY skl.NO_SKILLSET) AS NO_SKILLSET&lt;br/&gt;FROM TBL_PERFIL pef&lt;br/&gt;--INNER JOIN TBL_PORTAFOLIO por ON (por.ID_PERFIL = pef.ID_PERFIL AND por.ES_REGISTRO = &apos;1&apos;)&lt;br/&gt;--INNER JOIN TBL_SKILLSET skl ON (skl.ID_PERFIL = pef.ID_PERFIL AND skl.ES_REGISTRO = &apos;1&apos;)</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ID_PERFIL" id="BD7C95A9-75EA-611E-F349-079D5B3DEE90">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>ID_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ID_PERFIL</alias>
+<dataType>NUMBER (19)</dataType>
+<headerAlias>ID_PERFIL</headerAlias>
+<reference>false</reference>
+<referencedColumn>236DADA5-164C-2F9A-CF51-874342F9FE59</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_PERSONA" id="72FCCD3F-C8E4-02F0-3567-38FCD1ED3625">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>NO_PERSONA</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_PERSONA</alias>
+<dataType>NUMBER (19)</dataType>
+<headerAlias>NO_PERSONA</headerAlias>
+<reference>false</reference>
+<referencedColumn>FAACD7D8-BA31-04D9-BFE2-20F8606F407E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NU_DNI_PERFIL" id="6EA85A68-5A64-8743-5214-274397651235">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>NU_DNI_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NU_DNI_PERFIL</alias>
+<dataType>NUMBER (19)</dataType>
+<headerAlias>NU_DNI_PERFIL</headerAlias>
+<reference>false</reference>
+<referencedColumn>4BD798CD-E8A4-2D18-51F3-F730AE302981</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TEL_PERFIL" id="E7AC9AB1-ED38-4679-F1B2-A61767C28278">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>TEL_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TEL_PERFIL</alias>
+<dataType>VARCHAR2 (50 CHAR)</dataType>
+<headerAlias>TEL_PERFIL</headerAlias>
+<reference>false</reference>
+<referencedColumn>EDE4FB4C-EAB6-F9C0-0A04-72E82A5F6218</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="EMAIL_PERFIL" id="33E925AC-7D91-B387-6F55-5BEC2C92EDB6">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>EMAIL_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>EMAIL_PERFIL</alias>
+<dataType>VARCHAR2 (75 CHAR)</dataType>
+<headerAlias>EMAIL_PERFIL</headerAlias>
+<reference>false</reference>
+<referencedColumn>7E70EAA0-23D1-4FB8-BBF5-42D4E0A39512</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="DIR_PERFIL" id="06544CF2-2E10-B13F-C6CE-C6728C71F598">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>DIR_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>DIR_PERFIL</alias>
+<dataType>VARCHAR2 (4000 CHAR)</dataType>
+<headerAlias>DIR_PERFIL</headerAlias>
+<reference>false</reference>
+<referencedColumn>C44DCF77-6AF8-2760-FCCC-7FD23398EE40</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_PORTAFOLIO" id="405CF09D-1996-0DD3-83F5-2AEDF3B8949B">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>NO_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_PORTAFOLIO</alias>
+<dataType>VARCHAR2 (4000 CHAR)</dataType>
+<headerAlias>NO_PORTAFOLIO</headerAlias>
+<reference>false</reference>
+<referencedColumn>76CA19B5-683C-8A63-90F5-6051E7B57553</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_SKILLSET" id="C390D4EB-1E71-2469-FA60-A32E4DFB18B8">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>NO_SKILLSET</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_SKILLSET</alias>
+<dataType>VARCHAR2 (4000 BYTE)</dataType>
+<headerAlias>NO_SKILLSET</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TURNO" id="64658FEC-6D8F-FAF1-E88B-6F62F67F7F0A">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>TURNO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TURNO</alias>
+<dataType>VARCHAR2 (15 BYTE)</dataType>
+<headerAlias>TURNO</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="SOBRE_MI" id="A8630FA5-2305-21E4-B04C-66E3DED7A1B8">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>SOBRE_MI</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>SOBRE_MI</alias>
+<dataType>VARCHAR2 (4000 CHAR)</dataType>
+<headerAlias>SOBRE_MI</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="RESUMEN" id="5F2EC8AF-D4A2-1A89-7BF9-1F69557F27E7">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>VW_CURRICULUM_VITAE_AUX</sourceObjSchema>
+<sourceObjName>RESUMEN</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>RESUMEN</alias>
+<dataType>VARCHAR2 (4000 CHAR)</dataType>
+<headerAlias>RESUMEN</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="AC7DB737-F3B6-E34F-3517-5DA511CDDC3E">
+<container>true</container>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="236DADA5-164C-2F9A-CF51-874342F9FE59">
+<columnName>ID_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="FAACD7D8-BA31-04D9-BFE2-20F8606F407E">
+<columnName>NU_DNI_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4BD798CD-E8A4-2D18-51F3-F730AE302981">
+<columnName>TEL_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EDE4FB4C-EAB6-F9C0-0A04-72E82A5F6218">
+<columnName>EMAIL_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7E70EAA0-23D1-4FB8-BBF5-42D4E0A39512">
+<columnName>DIR_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C44DCF77-6AF8-2760-FCCC-7FD23398EE40">
+<columnName>SOBRE_MI</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="76CA19B5-683C-8A63-90F5-6051E7B57553">
+<columnName>RESUMEN</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="26BFE4C1-1787-289B-C72F-D9AD77078E9D">
+<columnName>AP_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C8C1E680-9EC2-0795-1876-15DCBB793DB1">
+<columnName>NO_PERFIL</columnName>
+<schema>PORTAFOLIO</schema>
+<tableName>TBL_PERFIL</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

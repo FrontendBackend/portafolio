@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="VW_CURRICULUM_VITAE_AUX" directorySegmentName="seg_0" id="67C5A62C-D0FC-E681-A2A6-568D90B3971E">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+</TableViewProxyOraclev10g>

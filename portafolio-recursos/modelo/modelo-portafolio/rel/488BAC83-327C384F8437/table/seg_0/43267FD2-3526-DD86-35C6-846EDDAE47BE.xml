@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43267FD2-3526-DD86-35C6-846EDDAE47BE" schemaObject="9DD39FA6-F855-7F43-E0BD-9F209220AE0B" name="TBL_EXPERIENCIA">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>TBL_EXPERIENCIA</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_EXPERIENCIA" id="28DF07A5-B3DC-C58B-015D-8577BFB607AF">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_EXPERIENCIA</sourceObjSchema>
+<sourceObjName>ID_EXPERIENCIA</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_PERFIL" id="D3A5BBD9-7A3D-1224-3C95-87B2E037EA3E">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_EXPERIENCIA</sourceObjSchema>
+<sourceObjName>ID_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D64900DA-9A5C-DA38-0AB6-0683FF9CB3F6" referredColumn="236DADA5-164C-2F9A-CF51-874342F9FE59"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="74991FA2-5036-3552-8417-7E029DAB1884" schemaObject="9DD39FA6-F855-7F43-E0BD-9F209220AE0B" name="TBL_EXPERIENCIA_PK">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>SYS_C007393</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28DF07A5-B3DC-C58B-015D-8577BFB607AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="93B50FCB-B1F8-C77B-7880-F2A9B8D3C821" name="FKL8DTON8N6EO488BD38585J2Q8">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3A5BBD9-7A3D-1224-3C95-87B2E037EA3E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

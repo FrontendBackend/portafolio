@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ARCHIVO" directorySegmentName="seg_0" id="4F499EE7-5500-0B49-92A4-8E7E989A31FE">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>67B5D43C-ED0A-49AD-8AF1-7DF0722AADCE</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FILETYPE" id="13AF41E4-F41B-1B18-A978-302090462340">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CONTENT" id="2C63BDB9-FE1E-5EB2-88B8-8143A3F6ACED">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FILENAME" id="76E8A11D-C46A-E938-4895-103D2DBA5768">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_ARCHIVO" id="D8267565-3680-F415-BEBE-02651A527ED9">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ARCHIVO_PK" id="68D6BA21-0C37-9AD6-FF41-4508E3A99890">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<segment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<indexSegment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

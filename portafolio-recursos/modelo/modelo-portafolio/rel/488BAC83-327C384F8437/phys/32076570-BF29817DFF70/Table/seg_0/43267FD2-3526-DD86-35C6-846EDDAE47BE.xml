@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TBL_EXPERIENCIA" directorySegmentName="seg_0" id="43267FD2-3526-DD86-35C6-846EDDAE47BE">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>67B5D43C-ED0A-49AD-8AF1-7DF0722AADCE</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID_EXPERIENCIA" id="28DF07A5-B3DC-C58B-015D-8577BFB607AF">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_PERFIL" id="D3A5BBD9-7A3D-1224-3C95-87B2E037EA3E">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FKL8DTON8N6EO488BD38585J2Q8" id="93B50FCB-B1F8-C77B-7880-F2A9B8D3C821">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TBL_EXPERIENCIA_PK" id="74991FA2-5036-3552-8417-7E029DAB1884">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<segment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<indexSegment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

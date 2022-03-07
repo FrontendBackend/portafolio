@@ -1,0 +1,222 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CD034735-FD13-D3ED-FE12-50E9C7B56978" schemaObject="9DD39FA6-F855-7F43-E0BD-9F209220AE0B" name="TBL_PORTAFOLIO">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>TBL_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PORTAFOLIO" id="3C89C59A-EE25-E1AA-8F03-58E21867C7F2">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>ID_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DE_PORTAFOLIO" id="6EB9E6EF-E3FA-6FFB-9E90-E299D841F45A">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>DE_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1024 CHAR</dataTypeSize>
+<ownDataTypeParameters>1024 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ES_REGISTRO" id="E79A2271-81E7-F205-79E6-7F32F096F685">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>ES_REGISTRO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FE_ACTUALIZACION" id="CA73317D-DE60-7C94-1FEB-286361DB5891">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>FE_ACTUALIZACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FE_CREACION" id="0BB2D0B2-2992-7B2B-B036-8A580F8D267E">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>FE_CREACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IMG_PORTAFOLIO" id="01CEE502-2E48-62B7-B02E-B4691E193994">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>IMG_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IP_ACTUALIZACION" id="0415AA90-AAD5-6B92-FD39-6F386D0BBA54">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>IP_ACTUALIZACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IP_CREACION" id="BF997464-5489-61E5-875D-63FDAE5412CF">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>IP_CREACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_PORTAFOLIO" id="FAC9BA4A-97ED-3D68-513B-8E9E672B1418">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>NO_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="US_ACTUALIZACION" id="E0B88FE9-0804-4CE7-EE47-41CAD7CBC0D5">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>US_ACTUALIZACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="US_CREACION" id="049099C6-969D-CB22-3780-D8DBD5CCF171">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>US_CREACION</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_PERFIL" id="597DAEA9-7AC1-7CC0-699E-D63D1963E9D0">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>TBL_PORTAFOLIO</sourceObjSchema>
+<sourceObjName>ID_PERFIL</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="63438C5A-E621-255A-EC87-CF58E83F3B87" referredColumn="236DADA5-164C-2F9A-CF51-874342F9FE59"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B7D966F5-E5E2-538F-EB74-A45D351838CB" schemaObject="9DD39FA6-F855-7F43-E0BD-9F209220AE0B" name="TBL_PORTAFOLIO_PK">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>SYS_C007371</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3C89C59A-EE25-E1AA-8F03-58E21867C7F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AFCE9C41-0920-772D-CC6A-10302AD0E25D" name="FKRABE10HMJU45KS9AYMJDA6W5M">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="597DAEA9-7AC1-7CC0-699E-D63D1963E9D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B04E58C2-95DF-E171-D6D7-5E1BFB8CE130" containerWithKeyObject="ECCB1C05-5951-45F5-DD0E-9E07D4068194" localFKIndex="1897F74B-32E1-205D-5A64-C1317035C80D" name="FK989XTH63VTKIEBBBBFA10ONDV">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>FK989XTH63VTKIEBBBBFA10ONDV</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<referredTableLongName>PORTAFOLIO.TBL_PERFIL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AC7DB737-F3B6-E34F-3517-5DA511CDDC3E</referredTableID>
+<keyObject>6AC2A641-6D06-5986-FA11-09B1A2B43B26</keyObject>
+<referredKeyID>6AC2A641-6D06-5986-FA11-09B1A2B43B26</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_PERFIL</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

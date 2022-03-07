@@ -2,8 +2,8 @@
   <div fxLayout="row" fxFlex>
     <div fxFlex>
       <h2> -->
-        <!-- <strong *ngIf="tblPerfilDTO">Perfil - {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</strong> -->
-      <!-- </h2>
+<!-- <strong *ngIf="tblPerfilDTO">Perfil - {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</strong> -->
+<!-- </h2>
     </div>
   </div>
 </div> -->
@@ -37,6 +37,36 @@
           <ng-template matTabContent>
             <app-perfil-general *ngIf="tblPerfilDTO" [tblPerfilDTO]="tblPerfilDTO" [tipoAccionCrud]="tipoAccionCrud"
               (eventoPerfilModificado)="eventoPerfilModificado($event)"></app-perfil-general>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">school</mat-icon>
+            EDUCACIÓN
+          </ng-template>
+          <ng-template matTabContent>
+            <app-educacion-general *ngIf="tblPerfilDTO"></app-educacion-general>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">engineering</mat-icon>
+            FORMACIÓN
+          </ng-template>
+          <ng-template matTabContent>
+            <app-formacion-general *ngIf="tblPerfilDTO"></app-formacion-general>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">work_history</mat-icon>
+            EXPERIENCIA
+          </ng-template>
+          <ng-template matTabContent>
+            <app-experiencia-general *ngIf="tblPerfilDTO"></app-experiencia-general>
           </ng-template>
         </mat-tab>
       </mat-tab-group>

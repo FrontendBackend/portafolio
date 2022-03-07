@@ -186,140 +186,140 @@ WHERE
 			<staticText>
 				<reportElement x="240" y="10" width="180" height="20" uuid="729c805a-fe61-4e19-81ce-d00dfc164233"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[EDUCACIÓN]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="30" width="240" height="16" uuid="e593de99-17a8-4f41-8351-938b36089bd1"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Instituto Tecnologico Superior Valle Grande]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="45" width="245" height="20" uuid="f43e7983-fbaf-439f-bf7f-ca7a867932f6"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Carrera: Análisis de Sistemas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="100" width="180" height="20" uuid="bd7eb78d-f665-43f7-9cbb-ff6faa213253"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FORMACIÓN EN PROGRAMACIÓN]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="120" width="242" height="16" uuid="a111c627-74e4-41fd-9e32-2b14e60d7f3a"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Java Fullstack Developer. 40h.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="135" width="305" height="34" uuid="69c4bce7-37f3-47d9-b3d4-85317d1acdb1"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Angular 12, Spring Boot, TypeScript, JasperReport, CSS, HTML, Spring Security, Spring Data, Spring JPA.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="168" width="305" height="19" uuid="8f030ad6-0d75-4c37-a04d-633a5900658c"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Mitocode Network]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="250" width="180" height="20" uuid="a72246ab-7c20-4b7f-838c-8475ef9d1cdb"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[EXPERIENCIA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="355" width="288" height="16" uuid="9e71604c-ac69-4e93-96c0-6df0c6bf747d"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sistema para la gestión de Legajos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="535" width="289" height="16" uuid="b63eb767-d8af-4673-9313-1fd5105156bd"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Historias clínicas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="457" width="290" height="16" uuid="c82e3bff-b860-41d9-ab1c-241c41c9781f"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sistema para la gestión de notas y asistencias del CAME]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="269" width="288" height="16" uuid="02f2360e-1a11-4c78-b016-e72170554a99"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Plataforma de gestión minera de Osinergmin]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="290" width="288" height="16" uuid="f169e490-9fc8-43be-9d2b-f2c391554dab"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[2020 - actual]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="314" width="288" height="26" uuid="c2329964-cf9a-40a0-b919-cb99f7633322"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="377" width="288" height="16" uuid="b3f9930a-305f-43ad-90bf-dfbfdbc4347c"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Practica 2019]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="240" y="401" width="288" height="26" uuid="90d07897-7b1b-4ff5-b9f4-bc082a9c7227"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="241" y="477" width="288" height="16" uuid="e4eba58f-3bc9-4364-9b75-05b07f00e2e1"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Practica 2019]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="241" y="501" width="288" height="26" uuid="59cf2577-ca82-48bc-b78e-a0237d65dd91"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="241" y="557" width="288" height="16" uuid="563f7baf-25da-4325-87f9-ed9f61eb6715"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Practica 2018]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="241" y="581" width="288" height="26" uuid="76bc0bd9-61b1-4db0-8058-72eedfc1e4a0"/>
 				<textElement>
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[- Aqui va todas la herramientas que has trabajado en el proyecto.]]></text>
 			</staticText>

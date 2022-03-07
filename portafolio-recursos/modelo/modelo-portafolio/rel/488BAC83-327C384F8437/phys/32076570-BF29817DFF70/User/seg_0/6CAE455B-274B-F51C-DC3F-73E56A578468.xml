@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="PORTAFOLIO" directorySegmentName="seg_0" id="6CAE455B-274B-F51C-DC3F-73E56A578468">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjName>PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<privileges>CREATE ANY CONTEXT, CREATE CLUSTER, CREATE SESSION, CREATE PROCEDURE, CREATE DIMENSION, CREATE SYNONYM, CREATE INDEXTYPE, CREATE TYPE, CREATE SEQUENCE, CREATE VIEW, CREATE TABLE, CREATE MATERIALIZED VIEW, CREATE TRIGGER, CREATE JOB, CREATE OPERATOR</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="B908188A-3E75-D4D8-F841-969CE349238B">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

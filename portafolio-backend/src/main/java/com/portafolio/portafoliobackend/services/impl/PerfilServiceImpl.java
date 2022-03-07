@@ -12,9 +12,15 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import com.portafolio.portafoliobackend.dtos.TblCurriculumVitaeAuxDTO;
+import com.portafolio.portafoliobackend.dtos.TblEducacionDTO;
+import com.portafolio.portafoliobackend.dtos.TblExperienciaDTO;
+import com.portafolio.portafoliobackend.dtos.TblFormacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 import com.portafolio.portafoliobackend.models.entity.TblUbigeo;
+import com.portafolio.portafoliobackend.models.repository.EducacionRepository;
+import com.portafolio.portafoliobackend.models.repository.ExperienciaRepository;
+import com.portafolio.portafoliobackend.models.repository.FormacionRepository;
 import com.portafolio.portafoliobackend.models.repository.PerfilRepository;
 import com.portafolio.portafoliobackend.services.PerfilService;
 import com.portafolio.portafoliobackend.utils.ConstantesUtil;
@@ -31,6 +37,15 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Autowired
     private PerfilRepository perfilRepository;
+
+    @Autowired
+    private EducacionRepository educacionRepository;
+
+    @Autowired
+    private FormacionRepository formacionRepository;
+
+    @Autowired
+    private ExperienciaRepository experienciaRepository;
 
     @Override
     public TblPerfilDTO obtenerPerfilPorId(Long idPerfil) {
@@ -130,7 +145,7 @@ public class PerfilServiceImpl implements PerfilService {
 
         try {
             File file = new ClassPathResource("/reports/portafolio.jasper").getFile();
-            JasperPrint print = JasperFillManager.fillReport(file.getPath(), 
+            JasperPrint print = JasperFillManager.fillReport(file.getPath(),
                     parametros,
                     new JRBeanCollectionDataSource(this.obtenerCurriculumPorId(idPerfil)));
             data = JasperExportManager.exportReportToPdf(print);
@@ -147,6 +162,21 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public List<TblCurriculumVitaeAuxDTO> obtenerCurriculumPorId(Long idPerfil) {
         return this.perfilRepository.obtenerCurriculumPorId(idPerfil);
+    }
+
+    @Override
+    public TblEducacionDTO obtenerEducacionPorId(Long idEducacion) {
+        return this.educacionRepository.obtenerEducacionPorId(idEducacion);
+    }
+
+    @Override
+    public TblFormacionDTO obtenerFormacionPorId(Long idFormacion) {
+        return this.formacionRepository.obtenerFormacionPorId(idFormacion);
+    }
+
+    @Override
+    public TblExperienciaDTO obtenerExperienciaPorId(Long idExperiencia) {
+        return this.experienciaRepository.obtenerExperienciaPorId(idExperiencia);
     }
 
 }

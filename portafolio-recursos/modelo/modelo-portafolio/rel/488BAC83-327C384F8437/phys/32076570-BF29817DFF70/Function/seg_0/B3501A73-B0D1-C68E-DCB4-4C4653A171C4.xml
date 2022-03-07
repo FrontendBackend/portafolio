@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="FUN_LISTA_NO_PORTAFOLIO" directorySegmentName="seg_0" id="B3501A73-B0D1-C68E-DCB4-4C4653A171C4">
+<sourceConnName>portafolio</sourceConnName>
+<sourceObjSchema>PORTAFOLIO</sourceObjSchema>
+<sourceObjName>FUN_LISTA_NO_PORTAFOLIO</sourceObjName>
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<owner>6CAE455B-274B-F51C-DC3F-73E56A578468</owner>
+<source>CREATE OR REPLACE FUNCTION PORTAFOLIO.FUN_LISTA_NO_PORTAFOLIO (VL_ID_PERFIL NUMBER)&lt;br/&gt;RETURN VARCHAR2 IS&lt;br/&gt;VL_NO_PORTAFOLIO VARCHAR2(1024);&lt;br/&gt;VL_DSC_NO_PORTAFOLIO VARCHAR2(1024);&lt;br/&gt;&lt;br/&gt;CURSOR C1 IS&lt;br/&gt;    SELECT TRIM(por.NO_PORTAFOLIO) AS NO_PORTAFOLIO&lt;br/&gt;    FROM TBL_PORTAFOLIO por &lt;br/&gt;    WHERE por.ES_REGISTRO=&apos;1&apos; &lt;br/&gt;    AND por.ID_PERFIL = VL_ID_PERFIL&lt;br/&gt;    ;&lt;br/&gt;BEGIN&lt;br/&gt;  OPEN C1;&lt;br/&gt;  LOOP&lt;br/&gt;    FETCH C1&lt;br/&gt;      INTO VL_NO_PORTAFOLIO;&lt;br/&gt;    EXIT WHEN C1%NOTFOUND;&lt;br/&gt;&lt;br/&gt;    IF (VL_DSC_NO_PORTAFOLIO IS NULL) THEN&lt;br/&gt;        VL_DSC_NO_PORTAFOLIO := VL_NO_PORTAFOLIO;&lt;br/&gt;    ELSE &lt;br/&gt;         VL_DSC_NO_PORTAFOLIO := VL_DSC_NO_PORTAFOLIO || &apos;, &apos; || VL_NO_PORTAFOLIO;&lt;br/&gt;    END IF;&lt;br/&gt;  END LOOP;&lt;br/&gt;  CLOSE C1;&lt;br/&gt;  RETURN VL_DSC_NO_PORTAFOLIO;  &lt;br/&gt;END FUN_LISTA_NO_PORTAFOLIO;</source>
+</FunctionOracle>

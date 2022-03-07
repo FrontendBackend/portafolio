@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TBL_PORTAFOLIO" directorySegmentName="seg_0" id="CD034735-FD13-D3ED-FE12-50E9C7B56978">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>67B5D43C-ED0A-49AD-8AF1-7DF0722AADCE</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="IMG_PORTAFOLIO" id="01CEE502-2E48-62B7-B02E-B4691E193994">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IP_ACTUALIZACION" id="0415AA90-AAD5-6B92-FD39-6F386D0BBA54">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="US_CREACION" id="049099C6-969D-CB22-3780-D8DBD5CCF171">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FE_CREACION" id="0BB2D0B2-2992-7B2B-B036-8A580F8D267E">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_PORTAFOLIO" id="3C89C59A-EE25-E1AA-8F03-58E21867C7F2">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_PERFIL" id="597DAEA9-7AC1-7CC0-699E-D63D1963E9D0">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DE_PORTAFOLIO" id="6EB9E6EF-E3FA-6FFB-9E90-E299D841F45A">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IP_CREACION" id="BF997464-5489-61E5-875D-63FDAE5412CF">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FE_ACTUALIZACION" id="CA73317D-DE60-7C94-1FEB-286361DB5891">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="US_ACTUALIZACION" id="E0B88FE9-0804-4CE7-EE47-41CAD7CBC0D5">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ES_REGISTRO" id="E79A2271-81E7-F205-79E6-7F32F096F685">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NO_PORTAFOLIO" id="FAC9BA4A-97ED-3D68-513B-8E9E672B1418">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FKRABE10HMJU45KS9AYMJDA6W5M" id="AFCE9C41-0920-772D-CC6A-10302AD0E25D">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TBL_PORTAFOLIO_PK" id="B7D966F5-E5E2-538F-EB74-A45D351838CB">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<segment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<indexSegment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

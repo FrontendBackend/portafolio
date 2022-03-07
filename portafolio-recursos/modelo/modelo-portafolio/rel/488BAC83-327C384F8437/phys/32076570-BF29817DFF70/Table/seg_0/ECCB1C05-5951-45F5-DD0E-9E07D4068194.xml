@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TBL_SKILLSET" directorySegmentName="seg_0" id="ECCB1C05-5951-45F5-DD0E-9E07D4068194">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>67B5D43C-ED0A-49AD-8AF1-7DF0722AADCE</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="US_ACTUALIZACION" id="108080EF-F540-736F-98C9-DE98A45EA3CE">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NO_IMAGEN" id="116DE591-D07D-F2F3-3912-12E0A5FA6CF1">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FOTO_SKILLSET" id="2E57E452-664C-0B6E-AFFB-3C53F07C4C99">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FE_CREACION" id="49664D5D-1FAB-192F-A137-447D62C70A3B">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_PERFIL" id="562EA212-892E-014F-B91F-09540567DFFF">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NO_IMAGEN_ORIGINAL" id="57021FE3-C60D-4F15-FE12-6D5505446BEA">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NO_SKILLSET" id="67592C1A-418B-BE5B-8917-BE2C3FA70EB6">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPO_IMAGEN" id="7C5B1AC1-E66B-8C87-201E-C60DD4FA2FC7">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_SKILLSET" id="98E6E596-7F59-35A1-3C42-A21E15D54DBC">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IP_CREACION" id="9B5CE678-6444-8CAE-DCDC-CA9A17BA193B">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IP_ACTUALIZACION" id="9D192408-9533-DA64-50E5-AB6B13C36DE4">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="US_CREACION" id="B06F4F06-8429-1C7E-D9B3-282D84E45CE9">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ES_REGISTRO" id="CE7B1327-3BD9-B3F0-DA66-DB20117C1DE6">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FE_ACTUALIZACION" id="D41445B2-36EF-A164-E7A2-26DBC29B6643">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK989XTH63VTKIEBBBBFA10ONDV" id="1897F74B-32E1-205D-5A64-C1317035C80D">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TBL_SKILLSET_PK" id="A049F3D0-6661-7CE6-087F-F1BA956F5FCF">
+<createdBy>jvale</createdBy>
+<createdTime>2022-03-07 00:11:55 UTC</createdTime>
+<ownerDesignName>modelo-portafolio</ownerDesignName>
+<schemaObject>9DD39FA6-F855-7F43-E0BD-9F209220AE0B</schemaObject>
+<segment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</segment>
+<tableSpace>1303D637-AE09-E0FA-6106-A1A22B5E465B</tableSpace>
+<indexSegment>3A2F6514-3B35-DCDA-BD67-F6745C87B4EA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

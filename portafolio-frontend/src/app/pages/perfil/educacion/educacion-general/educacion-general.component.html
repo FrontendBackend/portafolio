@@ -1,1 +1,49 @@
-<p>educacion-general works!</p>
+<div class="main-container">
+  <form fxLayout="column" [formGroup]="frmReactivo" (ngSubmit)="enviar()">
+
+    <div fxLayout="row" *ngIf="enProceso">
+      <mat-progress-bar mode="query" color="accent" fxFlex></mat-progress-bar>
+      <br />
+    </div>
+
+    <div class="items-supervision-container">
+
+      <div class="item-supervision-wrap" fxFlex.lt-sm="100%" fxFlex>
+        <mat-card>
+          <!-- <mat-label><b>Foto de perfil: {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</b></mat-label> -->
+          <br>
+          <br>
+          <!-- <img class="img-tamanio" mat-card-image src="data:image/png;base64,{{imagenDataPerfil}}"
+            alt="Photo of a Shiba Inu"> -->
+        </mat-card>
+        <br>
+      </div>
+
+      <div fxFlex="50px"></div>
+
+      <div class="item-supervision-wrap" fxFlex.lt-sm="100%" fxFlex>
+        <mat-card>
+          <mat-label><b>Educación</b></mat-label>
+          <br>
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Describir tu educación:</mat-label>
+              <textarea matInput #messageResumen formControlName="deEducacion" maxlength="4000" rows="15"
+                placeholder="Describir tu educación:"></textarea>
+              <mat-hint align="end">{{messageResumen.value.length}} / 4000</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <br>
+
+          <div align="start" *ngIf="!esFormularioSoloLectura">
+            <button type="submit" cdkFocusInitial mat-button color="primary" [disabled]="enProceso">
+              <mat-icon>save</mat-icon>
+              {{ etiquetaAccion }}
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </form>
+</div>

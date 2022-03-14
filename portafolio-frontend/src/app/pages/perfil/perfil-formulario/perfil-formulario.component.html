@@ -46,7 +46,8 @@
             EDUCACIÓN
           </ng-template>
           <ng-template matTabContent>
-            <app-educacion-general *ngIf="tblPerfilDTO"></app-educacion-general>
+            <app-educacion-general *ngIf="tblPerfilDTO" [tblPerfilDTO]="tblPerfilDTO" [tipoAccionCrud]="tipoAccionCrud">
+            </app-educacion-general>
           </ng-template>
         </mat-tab>
 

@@ -1,0 +1,45 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 15px;
+}
+
+.span-flag-custom {
+  margin-right: 20px !important;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.main-container {
+  margin: 20px;
+  min-height: 800px;
+}
+
+/** items unidad-minera container **/
+
+.items-supervision-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  .item-supervision-wrap {
+    float: left;
+  }
+  .items-supervision-paginacion {
+    width: 100%;
+    text-align: center;
+    margin: 1.5rem 0;
+    align-self: flex-end;
+    justify-content: flex-end;
+    .mat-paginator {
+      background-color: #ffffff; //color debe ser igual que el .unidad-minera-sidenav
+    }
+  }
+}
+
+.img-tamanio{
+  max-width: 65%;
+}

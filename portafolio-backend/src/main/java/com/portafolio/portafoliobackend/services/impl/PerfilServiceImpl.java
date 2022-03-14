@@ -16,6 +16,7 @@ import com.portafolio.portafoliobackend.dtos.TblEducacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblExperienciaDTO;
 import com.portafolio.portafoliobackend.dtos.TblFormacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
+import com.portafolio.portafoliobackend.models.entity.TblEducacion;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 import com.portafolio.portafoliobackend.models.entity.TblUbigeo;
 import com.portafolio.portafoliobackend.models.repository.EducacionRepository;
@@ -23,6 +24,7 @@ import com.portafolio.portafoliobackend.models.repository.ExperienciaRepository;
 import com.portafolio.portafoliobackend.models.repository.FormacionRepository;
 import com.portafolio.portafoliobackend.models.repository.PerfilRepository;
 import com.portafolio.portafoliobackend.services.PerfilService;
+import com.portafolio.portafoliobackend.utils.CommonsUtil;
 import com.portafolio.portafoliobackend.utils.ConstantesUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,8 +167,8 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public TblEducacionDTO obtenerEducacionPorId(Long idEducacion) {
-        return this.educacionRepository.obtenerEducacionPorId(idEducacion);
+    public TblEducacionDTO obtenerEducacionPorId(Long idPerfil) {
+        return this.educacionRepository.obtenerEducacionPorId(idPerfil);
     }
 
     @Override
@@ -179,4 +181,65 @@ public class PerfilServiceImpl implements PerfilService {
         return this.experienciaRepository.obtenerExperienciaPorId(idExperiencia);
     }
 
+    @Override
+    public TblEducacionDTO modificarEducacion(TblEducacionDTO tblEducacionDTO, TblEducacion tblEducacion)
+            throws Exception {
+
+        tblEducacion.setFeActualizacion(new Date());
+        tblEducacion.setUsActualizacion("jvalerio");
+        tblEducacion.setIpActualizacion("127.0.0.0");
+
+        tblEducacion.setDeEducacion(tblEducacionDTO.getDeEducacion());
+
+        TblPerfil tblPerfil = new TblPerfil();
+        tblPerfil.setIdPerfil(tblEducacionDTO.getIdPerfil());
+        tblEducacion.setTblPerfil(tblPerfil);
+
+        TblEducacion tblEducacionModificado = this.educacionRepository.save(tblEducacion);
+
+        TblEducacionDTO tblEducacionDTOModificado = this
+                .obtenerEducacionPorId(tblEducacionModificado.getIdEducacion());
+
+        return tblEducacionDTOModificado;
+    }
+
+    @Override
+    public TblEducacionDTO crearEducacion(TblEducacionDTO tblEducacionDTO) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public TblEducacion findByEducacionId(Long idEducacion) {
+        return educacionRepository.findById(idEducacion).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = false)
+    public Long modificarEducacion2(TblEducacionDTO tblEducacionDTO) {
+        Long rpta = 0L;
+
+        TblEducacion tblEducacion = null;
+
+        if (CommonsUtil.isNullOrZeroLong(tblEducacionDTO.getIdEducacion())) {
+            tblEducacion = educacionRepository.findById(tblEducacionDTO.getIdEducacion()).orElse(null);
+
+            if (tblEducacion != null) {
+                
+                tblEducacion.setDeEducacion(tblEducacionDTO.getDeEducacion());
+                
+                TblPerfil tblPerfil = new TblPerfil();
+                tblPerfil.setIdPerfil(tblEducacionDTO.getIdPerfil());
+                tblEducacion.setTblPerfil(tblPerfil);
+
+                tblEducacion.setFeActualizacion(new Date());
+                tblEducacion.setUsActualizacion("jvalerio");
+                tblEducacion.setIpActualizacion("127.0.0.0");
+                educacionRepository.save(tblEducacion);
+                rpta = tblEducacion.getIdEducacion();
+            }
+        }
+
+        return rpta;
+    }
 }

@@ -13,6 +13,6 @@ public interface EducacionRepository extends JpaRepository<TblEducacion, Long> {
             + "edu.idEducacion, edu.tblPerfil.idPerfil, edu.deEducacion "
             + " ) "
             + "FROM TblEducacion edu "
-            + "WHERE edu.idEducacion = :idEducacion ")
-    TblEducacionDTO obtenerEducacionPorId(@Param("idEducacion") Long idEducacion);
+            + "WHERE edu.tblPerfil.idPerfil = :idPerfil ")
+    TblEducacionDTO obtenerEducacionPorId(@Param("idPerfil") Long idPerfil);
 }

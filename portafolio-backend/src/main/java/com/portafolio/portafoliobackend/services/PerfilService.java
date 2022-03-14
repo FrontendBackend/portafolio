@@ -7,6 +7,7 @@ import com.portafolio.portafoliobackend.dtos.TblEducacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblExperienciaDTO;
 import com.portafolio.portafoliobackend.dtos.TblFormacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
+import com.portafolio.portafoliobackend.models.entity.TblEducacion;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 
 public interface PerfilService {
@@ -37,8 +38,20 @@ public interface PerfilService {
      * ----------------------------EDUCACIÓN---------------------------------
      */
 
+     // PERMITE OBTENER LAS PROPIEDADES DE EDUCACIÓN
+    public TblEducacion findByEducacionId(Long idEducacion);
+
     // ME PERMITE OBTENER LAS PROPIEDADES POR EL ID DE EDUCACIÓN
-    TblEducacionDTO obtenerEducacionPorId(Long idEducacion);
+    TblEducacionDTO obtenerEducacionPorId(Long idPerfil);
+
+    // PERMITE MODIFICAR LA EDUCACIÓN
+    public TblEducacionDTO modificarEducacion(TblEducacionDTO tblEducacionDTO,
+            TblEducacion tblEducacion) throws Exception;
+
+    // PERMITE CREAR UN NUEVO PERFIL
+    public TblEducacionDTO crearEducacion(TblEducacionDTO tblEducacionDTO) throws Exception;
+
+    public Long modificarEducacion2(TblEducacionDTO tblEducacionDTO);
 
     /**
      * ----------------------------FORMACIÓN---------------------------------

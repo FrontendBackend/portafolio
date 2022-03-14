@@ -1,3 +1,4 @@
+import { ResponseDTO } from './../models/ResponseDTO';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { TblPerfilDTO } from '../models/TblPerfilDTO';
 import { TblUbigeoDTO } from '../models/TblUbigeoDTO';
+import { TblEducacionDTO } from '../models/TblEducacionDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +60,28 @@ export class PerfilService {
     return this.httpClient.get(`${this.url}/generarReporteCurriculum/${idPerfil}`, {
       responseType: 'blob'
     });
+  }
+
+  /**
+  * ----------------------------EDUCACIÓN---------------------------------
+  */
+
+  obtenerEducacionPorId(idPerfil: number): Observable<any> {
+    const urlEndPoint = `${this.url}/obtenerEducacionPorId/${idPerfil}`;
+    return this.httpClient.get<any[]>(urlEndPoint);
+  }
+
+  modificarEducacion(tblEducacionDTO: TblEducacionDTO): Observable<TblEducacionDTO> {
+    const urlEndPoint = `${this.url}/modificarEducacion`;
+    const clave = 'tblEducacionDTOModificada';
+    return this.httpClient.put<TblEducacionDTO>(urlEndPoint, tblEducacionDTO, { headers: this.httpHeaders })
+      .pipe(
+        map((respuesta: any) => respuesta[clave] as TblEducacionDTO)
+      );
+  }
+
+  modificarEducacion2(tblEducacionDTO: TblEducacionDTO): Observable<ResponseDTO> {
+    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarEducacion2`, tblEducacionDTO);
   }
 
   /**

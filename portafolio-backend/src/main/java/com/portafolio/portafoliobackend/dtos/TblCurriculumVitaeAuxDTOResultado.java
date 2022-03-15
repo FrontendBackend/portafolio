@@ -7,7 +7,7 @@ public class TblCurriculumVitaeAuxDTOResultado extends TblCurriculumVitaeAuxDTO 
      */
     public TblCurriculumVitaeAuxDTOResultado(Long idPerfil, String noPersona, Long nuDniPerfil, Long telPerfil,
             String emailPerfil, String dirPerfil, String noPortafolio, String noSkillset, String turno, String sobreMi,
-            String resumen) {
+            String resumen, String deEducacion, String deExperiencia, String deFormacion) {
         super();
         this.setIdPerfil(idPerfil);
         this.setNoPersona(noPersona);
@@ -20,6 +20,9 @@ public class TblCurriculumVitaeAuxDTOResultado extends TblCurriculumVitaeAuxDTO 
         this.setTurno(turno);
         this.setSobreMi(sobreMi);
         this.setResumen(resumen);
+        this.setDeEducacion(deEducacion);
+        this.setDeExperiencia(deExperiencia);
+        this.setDeFormacion(deFormacion);
     }
 
 }

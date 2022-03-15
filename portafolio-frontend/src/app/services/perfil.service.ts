@@ -80,8 +80,8 @@ export class PerfilService {
       );
   }
 
-  modificarEducacion2(tblEducacionDTO: TblEducacionDTO): Observable<ResponseDTO> {
-    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarEducacion2`, tblEducacionDTO);
+  modificarEducacion2(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
+    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarEducacion2`, tblPerfilDTO);
   }
 
   /**

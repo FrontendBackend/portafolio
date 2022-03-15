@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -68,4 +69,19 @@ public class TblCurriculumVitaeAux implements Serializable {
     // RESUMEN DE LO QUE HAGO
     @Column(name = "RESUMEN", nullable = true)
     private String resumen;
+
+    // DESCRIBIR TU EDUCACIÓN
+    @Lob
+    @Column(name = "DE_EDUCACION", nullable = true)
+    private String deEducacion;
+
+    // DESCRIBIR TU EXPERIENCIA
+    @Lob
+    @Column(name = "DE_EXPERIENCIA", nullable = true)
+    private String deExperiencia;
+
+    // DESCRIBIR TU FORMACION
+    @Lob
+    @Column(name = "DE_FORMACION", nullable = true)
+    private String deFormacion;
 }

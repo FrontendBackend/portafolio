@@ -39,4 +39,13 @@ public class TblCurriculumVitaeAuxDTO {
 
     // RESUMEN DE LO QUE HAGO
     private String resumen;
+
+    // DESCRIBIR TU EDUCACIÓN
+    private String deEducacion;
+
+    // DESCRIBIR TU EXPERIENCIA
+    private String deExperiencia;
+
+    // DESCRIBIR TU FORMACION
+    private String deFormacion;
 }

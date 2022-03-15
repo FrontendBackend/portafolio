@@ -51,6 +51,15 @@ public class TblPerfilDTO {
     // RESUMEN DE LO QUE HAGO
     private String resumen;
 
+    // DESCRIBIR TU EDUCACIÓN
+    private String deEducacion;
+
+    // DESCRIBIR TU EXPERIENCIA
+    private String deExperiencia;
+
+    // DESCRIBIR TU FORMACION
+    private String deFormacion;
+
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
     // INACTIVO
     private String esRegistro;
@@ -73,7 +82,7 @@ public class TblPerfilDTO {
     // CAMPO FECHA Y HORA DE MODIFICACIÓN
     private Date feActualizacion;
 
-    /**--------nuevo------- */
+    /** --------nuevo------- */
     // Ubigeo nacimiento u origen
     private String descUbigeoNacimientoCompleto;
 }

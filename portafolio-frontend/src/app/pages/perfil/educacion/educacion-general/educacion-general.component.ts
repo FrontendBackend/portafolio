@@ -16,11 +16,7 @@ export class EducacionGeneralComponent implements OnInit {
 
   @Input() tblPerfilDTO: TblPerfilDTO;
 
-  @Input() tblEducacionDTO: TblEducacionDTO;
-
   @Input() tipoAccionCrud = ETipoAccionCRUD.NINGUNA;
-
-  @Input() idPersona: number;
 
   @Output() eventoEducacionModificado = new EventEmitter<TblEducacionDTO>();
 
@@ -41,10 +37,32 @@ export class EducacionGeneralComponent implements OnInit {
     private matSnackBar: MatSnackBar,) { }
 
   ngOnInit(): void {
-    this.iniciarFormulario();
-    this.configurarInicio();
-    console.log(this.tblPerfilDTO);
 
+    if (this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
+      this.esFormularioSoloLectura = true;
+    }
+
+    // console.log(this.tblPerfilDTO);
+
+    // this.configurarInicio();
+    this.iniciarFormulario();
+  }
+
+
+
+  get f() { return this.frmReactivo.controls; }
+
+  iniciarFormulario() {
+
+    this.frmReactivo = this.formBuilder.group(
+      {
+        deEducacion: [this.tblPerfilDTO.deEducacion]
+      }
+    );
+
+    if (this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
+      Object.values(this.frmReactivo.controls).forEach(control => control.disable());
+    }
   }
 
   guardarActualizarEducacion(): void {
@@ -53,9 +71,8 @@ export class EducacionGeneralComponent implements OnInit {
       return;
     }
 
-    this.tblEducacionDTO.deEducacion = this.frmReactivo.value.deEducacion;
-    this.tblEducacionDTO.idPerfil = this.tblPerfilDTO.idPerfil;
-    this.perfilService.modificarEducacion2(this.tblEducacionDTO).subscribe(resp => {
+    this.tblPerfilDTO.deEducacion = this.frmReactivo.value.deEducacion;
+    this.perfilService.modificarEducacion2(this.tblPerfilDTO).subscribe(resp => {
       if ('success' === resp.status) {
         this.matSnackBar.open(resp.mensaje, 'OK', { duration: 4000 });
       } else {
@@ -64,45 +81,30 @@ export class EducacionGeneralComponent implements OnInit {
     });
   }
 
-  iniciarFormulario() {
+  // configurarInicio() {
+  //   this.enProceso = true;
 
-    if (this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
-      this.esFormularioSoloLectura = true;
-    }
+  //   let idPerfil = 0;
 
-    this.frmReactivo = this.formBuilder.group(
-      {
-        deEducacion: [this.tblEducacionDTO.deEducacion],
-      }
-    );
+  //   const tblEducacionDTO = new TblEducacionDTO();
 
-    if (this.esFormularioSoloLectura) {
-      Object.values(this.frmReactivo.controls).forEach(control => control.disable());
-    }
-  }
+  //   tblEducacionDTO.idPerfil = this.tblPerfilDTO.idPerfil;
 
-  configurarInicio() {
-    this.enProceso = true;
+  //   idPerfil = tblEducacionDTO.idPerfil
 
-    let idPerfil = 0;
+  //   this.perfilService.obtenerEducacionPorId(idPerfil).subscribe(respuesta => {
 
-    if (this.tblPerfilDTO.idPerfil) {
-      idPerfil = this.tblPerfilDTO.idPerfil;
-    }
+  //     if (this.tipoAccionCrud === ETipoAccionCRUD.MODIFICAR || this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
+  //       const clave = 'tblEducacionDTO';
+  //       this.tblEducacionDTO = respuesta[clave] as TblEducacionDTO;
 
-    this.perfilService.obtenerEducacionPorId(idPerfil).subscribe(respuesta => {
+  //       this.enProceso = false;
+  //     }
 
-      if (this.tipoAccionCrud === ETipoAccionCRUD.MODIFICAR || this.tipoAccionCrud === ETipoAccionCRUD.CONSULTAR) {
-        const clave = 'tblEducacionDTO';
-        this.tblEducacionDTO = respuesta[clave];
+  //     this.enProceso = false;
 
-        this.enProceso = false;
-      }
-
-      this.enProceso = false;
-
-    });
-  }
+  //   });
+  // }
 
   /**
  * Permite verificar si el control dado por el nombre tiene algún tipo de error.
@@ -121,69 +123,6 @@ export class EducacionGeneralComponent implements OnInit {
     );
   }
 
-  enviar() {
-    // this.buscarControlesNoValidos();
-    if (this.frmReactivo.invalid) {
-      Object.values(this.frmReactivo.controls).forEach(control => control.markAllAsTouched());
-
-      this.matSnackBar.open('Existen datos incorrectos o faltantes, por favor verifique', 'CERRAR', {
-        duration: 4000
-      });
-      return;
-    }
-
-    this.procesarCrearOModificar();
-  }
-
-
-  /**
-   * Permite procesar la acción de crear o modificar una persona.
-   */
-  procesarCrearOModificar() {
-    this.enProceso = true;
-
-    let tblEducacionDTOCU = new TblEducacionDTO();
-    tblEducacionDTOCU = this.frmReactivo.value;
-
-    // Recuperando las propiedades originales
-    tblEducacionDTOCU.esRegistro = this.tblEducacionDTO.esRegistro;
-    tblEducacionDTOCU.idPerfil = this.tblEducacionDTO.idPerfil;
-
-    let peticion: Observable<TblEducacionDTO>;
-    let mensaje: string;
-
-    switch (+this.tipoAccionCrud) {
-      // case ETipoAccionCRUD.CREAR:
-      //   peticion = this.perfilService.crearPerfil(tblEducacionDTOCU);
-      //   mensaje = 'Genial, la persona ha sido creada';
-      //   break;
-      case ETipoAccionCRUD.MODIFICAR:
-        peticion = this.perfilService.modificarEducacion(tblEducacionDTOCU);
-        mensaje = 'Genial, la educación ha sido modificada';
-        break;
-      default:
-        console.log('Ninguna acción implementada');
-        break;
-    }
-
-    if (peticion) {
-      peticion.subscribe(respuesta => {
-        this.matSnackBar.open(mensaje, 'Ok', {
-          duration: 4000
-        });
-
-        this.tblEducacionDTO = respuesta;
-
-        if (this.tipoAccionCrud === ETipoAccionCRUD.CREAR) {
-          // this.eventoPersonaCreado.emit(this.tblPerfilDTO);
-        } else {
-          this.eventoEducacionModificado.emit(this.tblEducacionDTO);
-          this.enProceso = false;
-        }
-      }
-      );
-    }
-  }
 
   get etiquetaAccion(): string {
     let nombreAccionCrud: string;

@@ -51,7 +51,7 @@ public interface PerfilService {
     // PERMITE CREAR UN NUEVO PERFIL
     public TblEducacionDTO crearEducacion(TblEducacionDTO tblEducacionDTO) throws Exception;
 
-    public Long modificarEducacion2(TblEducacionDTO tblEducacionDTO);
+    public Long modificarEducacion2(TblPerfilDTO tblPerfilDTO);
 
     /**
      * ----------------------------FORMACIÓN---------------------------------

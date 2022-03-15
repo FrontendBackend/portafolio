@@ -216,27 +216,23 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Override
     @Transactional(readOnly = false)
-    public Long modificarEducacion2(TblEducacionDTO tblEducacionDTO) {
+    public Long modificarEducacion2(TblPerfilDTO tblPerfilDTO) {
         Long rpta = 0L;
 
-        TblEducacion tblEducacion = null;
+        TblPerfil tblPerfil = null;
 
-        if (CommonsUtil.isNullOrZeroLong(tblEducacionDTO.getIdEducacion())) {
-            tblEducacion = educacionRepository.findById(tblEducacionDTO.getIdEducacion()).orElse(null);
+        if (CommonsUtil.isNullOrZeroLong(tblPerfilDTO.getIdPerfil())) {
+            tblPerfil = perfilRepository.findById(tblPerfilDTO.getIdPerfil()).orElse(null);
 
-            if (tblEducacion != null) {
-                
-                tblEducacion.setDeEducacion(tblEducacionDTO.getDeEducacion());
-                
-                TblPerfil tblPerfil = new TblPerfil();
-                tblPerfil.setIdPerfil(tblEducacionDTO.getIdPerfil());
-                tblEducacion.setTblPerfil(tblPerfil);
+            if (tblPerfil != null) {
 
-                tblEducacion.setFeActualizacion(new Date());
-                tblEducacion.setUsActualizacion("jvalerio");
-                tblEducacion.setIpActualizacion("127.0.0.0");
-                educacionRepository.save(tblEducacion);
-                rpta = tblEducacion.getIdEducacion();
+                tblPerfil.setDeEducacion(tblPerfilDTO.getDeEducacion());
+
+                tblPerfil.setFeActualizacion(new Date());
+                tblPerfil.setUsActualizacion("jvalerio");
+                tblPerfil.setIpActualizacion("127.0.0.0");
+                perfilRepository.save(tblPerfil);
+                rpta = tblPerfil.getIdPerfil();
             }
         }
 

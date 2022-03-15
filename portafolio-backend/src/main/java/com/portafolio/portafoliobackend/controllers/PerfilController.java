@@ -345,10 +345,10 @@ public class PerfilController {
     }
 
     @PostMapping("modificarEducacion2")
-    public ResponseEntity<ResponseDTO> modificarEducacion2(@RequestBody TblEducacionDTO tblEducacionDTO)
+    public ResponseEntity<ResponseDTO> modificarEducacion2(@RequestBody TblPerfilDTO tblPerfilDTO)
             throws Exception {
 
-        Long rpta = perfilService.modificarEducacion2(tblEducacionDTO);
+        Long rpta = perfilService.modificarEducacion2(tblPerfilDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 new ResponseDTO("success", "La observación de acta de inicio a sido actualizada correctamente", rpta));

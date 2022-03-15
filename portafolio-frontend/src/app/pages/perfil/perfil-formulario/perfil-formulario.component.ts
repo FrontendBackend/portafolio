@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ETipoAccionCRUD } from 'src/app/enums/tipo-accion';
+import { TblEducacionDTO } from 'src/app/models/TblEducacionDTO';
 import { TblPerfilDTO } from 'src/app/models/TblPerfilDTO';
 import { PerfilService } from 'src/app/services/perfil.service';
 
@@ -86,7 +87,7 @@ export class PerfilFormularioComponent implements OnInit {
    * Permite obtener los datos de perfil de la persona
    * @param idPerfil,
    */
-   obtenerPerfilPorId(idPerfil: number): void {
+  obtenerPerfilPorId(idPerfil: number): void {
     this.perfilService.obtenerPerfilPorId(idPerfil = 1).subscribe((respuesta: any) => {
       const clavePgimPersonaDTO = 'tblPerfilDTO';
       this.tblPerfilDTO = respuesta[clavePgimPersonaDTO] as TblPerfilDTO;

@@ -43,6 +43,15 @@ export class TblPerfilDTO {
   // RESUMEN DE LO QUE HAGO
   resumen: string;
 
+  // DESCRIBIR TU EDUCACIÓN
+  deEducacion: string;
+
+  // DESCRIBIR TU EXPERIENCIA
+  deExperiencia: string;
+
+  // DESCRIBIR TU FORMACION
+  deFormacion: string;
+
   // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
   // INACTIVO
   esRegistro: string;

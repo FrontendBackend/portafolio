@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "TBL_PERFIL")
 @Data
 @NoArgsConstructor
-public class TblPerfil implements Serializable{
+public class TblPerfil implements Serializable {
 
     // CAMPO IDENTIFICADOR DE PERFIL
     @Id
@@ -39,7 +40,7 @@ public class TblPerfil implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_UBIGEO", nullable = true)
     private TblUbigeo tblUbigeo;
-    
+
     // CAMPO NUMERO DE DNI DEL PERFIL
     @Column(name = "NU_DNI_PERFIL", nullable = false, length = 8)
     private Long nuDniPerfil;
@@ -89,8 +90,25 @@ public class TblPerfil implements Serializable{
     @Column(name = "RESUMEN", nullable = true, length = 4000)
     private String resumen;
 
+    // DESCRIBIR TU EDUCACIÓN
+    @Lob
+    @Column(name = "DE_EDUCACION", nullable = true, length = 8000)
+    private String deEducacion;
 
-    /**--------------------------------- AUDITORIA --------------------------------------- */
+    // DESCRIBIR TU EXPERIENCIA
+    @Lob
+    @Column(name = "DE_EXPERIENCIA", nullable = true, length = 8000)
+    private String deExperiencia;
+
+    // DESCRIBIR TU FORMACION
+    @Lob
+    @Column(name = "DE_FORMACION", nullable = true, length = 8000)
+    private String deFormacion;
+    
+    /**
+     * --------------------------------- AUDITORIA
+     * ---------------------------------------
+     */
 
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
     // INACTIVO

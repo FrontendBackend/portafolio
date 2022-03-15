@@ -45,6 +45,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { EducacionGeneralComponent } from './perfil/educacion/educacion-general/educacion-general.component';
 import { ExperienciaGeneralComponent } from './perfil/experiencia/experiencia-general/experiencia-general.component';
 import { FormacionGeneralComponent } from './perfil/formacion/formacion-general/formacion-general.component';
+import { EducacionListaComponent } from './perfil/educacion/educacion-lista/educacion-lista.component';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -77,6 +78,7 @@ const FECHA_FORMATOS = {
     EducacionGeneralComponent,
     ExperienciaGeneralComponent,
     FormacionGeneralComponent,
+    EducacionListaComponent,
   ],
   imports: [
     CommonModule,

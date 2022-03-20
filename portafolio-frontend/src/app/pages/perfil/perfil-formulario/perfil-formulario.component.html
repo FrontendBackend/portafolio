@@ -43,31 +43,11 @@
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="example-tab-icon">school</mat-icon>
-            EDUCACIÓN
+            MAS DATOS
           </ng-template>
           <ng-template matTabContent>
             <app-educacion-general *ngIf="tblPerfilDTO" [tblPerfilDTO]="tblPerfilDTO" [tipoAccionCrud]="tipoAccionCrud">
             </app-educacion-general>
-          </ng-template>
-        </mat-tab>
-
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">engineering</mat-icon>
-            FORMACIÓN
-          </ng-template>
-          <ng-template matTabContent>
-            <app-formacion-general *ngIf="tblPerfilDTO"></app-formacion-general>
-          </ng-template>
-        </mat-tab>
-
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">work_history</mat-icon>
-            EXPERIENCIA
-          </ng-template>
-          <ng-template matTabContent>
-            <app-experiencia-general *ngIf="tblPerfilDTO"></app-experiencia-general>
           </ng-template>
         </mat-tab>
       </mat-tab-group>

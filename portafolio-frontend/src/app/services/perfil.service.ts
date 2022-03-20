@@ -71,17 +71,16 @@ export class PerfilService {
     return this.httpClient.get<any[]>(urlEndPoint);
   }
 
-  modificarEducacion(tblEducacionDTO: TblEducacionDTO): Observable<TblEducacionDTO> {
-    const urlEndPoint = `${this.url}/modificarEducacion`;
-    const clave = 'tblEducacionDTOModificada';
-    return this.httpClient.put<TblEducacionDTO>(urlEndPoint, tblEducacionDTO, { headers: this.httpHeaders })
-      .pipe(
-        map((respuesta: any) => respuesta[clave] as TblEducacionDTO)
-      );
+  modificarEducacion(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
+    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarEducacion`, tblPerfilDTO);
   }
 
-  modificarEducacion2(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
-    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarEducacion2`, tblPerfilDTO);
+  modificarFormacion(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
+    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarFormacion`, tblPerfilDTO);
+  }
+
+  modificarExperiencia(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
+    return this.httpClient.post<ResponseDTO>(`${this.url}/modificarExperiencia`, tblPerfilDTO);
   }
 
   /**

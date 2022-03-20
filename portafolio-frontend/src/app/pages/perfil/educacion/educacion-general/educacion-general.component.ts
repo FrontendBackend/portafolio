@@ -6,6 +6,7 @@ import { ETipoAccionCRUD } from 'src/app/enums/tipo-accion';
 import { TblPerfilDTO } from 'src/app/models/TblPerfilDTO';
 import { PerfilService } from 'src/app/services/perfil.service';
 import { TblEducacionDTO } from 'src/app/models/TblEducacionDTO';
+import { SunatService } from 'src/app/services/sunat.service';
 
 @Component({
   selector: 'app-educacion-general',
@@ -28,12 +29,15 @@ export class EducacionGeneralComponent implements OnInit {
 
   frmReactivo: FormGroup;
 
+  numero: number;
+
   // lLegUbigeoDTONacimiento: TblUbigeoDTO[];
   // cargandoUbigeosNacimiento = false;
   // legUbigeoDTONacimientoSelec: TblUbigeoDTO;
 
   constructor(private formBuilder: FormBuilder,
     private perfilService: PerfilService,
+    private sunatService: SunatService,
     private matSnackBar: MatSnackBar,) { }
 
   ngOnInit(): void {
@@ -49,6 +53,11 @@ export class EducacionGeneralComponent implements OnInit {
   }
 
 
+  prueba() {
+    this.sunatService.obtenerDatosSunat(this.numero).subscribe(data => {
+      console.log(data);
+    })
+  }
 
   get f() { return this.frmReactivo.controls; }
 
@@ -56,7 +65,9 @@ export class EducacionGeneralComponent implements OnInit {
 
     this.frmReactivo = this.formBuilder.group(
       {
-        deEducacion: [this.tblPerfilDTO.deEducacion]
+        deEducacion: [this.tblPerfilDTO.deEducacion],
+        deFormacion: [this.tblPerfilDTO.deFormacion],
+        deExperiencia: [this.tblPerfilDTO.deExperiencia]
       }
     );
 
@@ -72,7 +83,39 @@ export class EducacionGeneralComponent implements OnInit {
     }
 
     this.tblPerfilDTO.deEducacion = this.frmReactivo.value.deEducacion;
-    this.perfilService.modificarEducacion2(this.tblPerfilDTO).subscribe(resp => {
+    this.perfilService.modificarEducacion(this.tblPerfilDTO).subscribe(resp => {
+      if ('success' === resp.status) {
+        this.matSnackBar.open(resp.mensaje, 'OK', { duration: 4000 });
+      } else {
+        this.matSnackBar.open(resp.mensaje, 'ERROR', { duration: 4000 });
+      }
+    });
+  }
+
+  guardarActualizarFormacion(): void {
+
+    if (!this.frmReactivo.valid) {
+      return;
+    }
+
+    this.tblPerfilDTO.deFormacion = this.frmReactivo.value.deFormacion;
+    this.perfilService.modificarFormacion(this.tblPerfilDTO).subscribe(resp => {
+      if ('success' === resp.status) {
+        this.matSnackBar.open(resp.mensaje, 'OK', { duration: 4000 });
+      } else {
+        this.matSnackBar.open(resp.mensaje, 'ERROR', { duration: 4000 });
+      }
+    });
+  }
+
+  guardarActualizarExperiencia(): void {
+
+    if (!this.frmReactivo.valid) {
+      return;
+    }
+
+    this.tblPerfilDTO.deExperiencia = this.frmReactivo.value.deExperiencia;
+    this.perfilService.modificarExperiencia(this.tblPerfilDTO).subscribe(resp => {
       if ('success' === resp.status) {
         this.matSnackBar.open(resp.mensaje, 'OK', { duration: 4000 });
       } else {

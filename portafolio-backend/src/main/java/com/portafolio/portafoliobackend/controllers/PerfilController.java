@@ -10,11 +10,8 @@ import javax.validation.Valid;
 
 import com.portafolio.portafoliobackend.dtos.ResponseDTO;
 import com.portafolio.portafoliobackend.dtos.TblEducacionDTO;
-import com.portafolio.portafoliobackend.dtos.TblExperienciaDTO;
-import com.portafolio.portafoliobackend.dtos.TblFormacionDTO;
 import com.portafolio.portafoliobackend.dtos.TblPerfilDTO;
 import com.portafolio.portafoliobackend.dtos.TblUbigeoDTO;
-import com.portafolio.portafoliobackend.models.entity.TblEducacion;
 import com.portafolio.portafoliobackend.models.entity.TblPerfil;
 import com.portafolio.portafoliobackend.services.PerfilService;
 import com.portafolio.portafoliobackend.services.UbigeoService;
@@ -232,125 +229,33 @@ public class PerfilController {
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
     }
 
-    @GetMapping("/obtenerFormacionPorId/{idFormacion}")
-    public ResponseEntity<?> obtenerFormacionPorId(@PathVariable Long idFormacion) {
-        String mensaje;
-        Map<String, Object> respuesta = new HashMap<>();
-
-        TblFormacionDTO tblFormacionDTO = null;
-
-        try {
-            tblFormacionDTO = this.perfilService.obtenerFormacionPorId(idFormacion);
-        } catch (DataAccessException e) {
-            respuesta.put("mensaje", "Ocurrió un error al intentar recuperar el perfil");
-            respuesta.put("error", e.getMostSpecificCause().getMessage());
-            log.error(e.getMostSpecificCause().getMessage());
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        if (tblFormacionDTO == null) {
-            mensaje = String.format("El perfil con el id: %d no existe en la base de datos", idFormacion);
-            respuesta.put("mensaje", mensaje);
-
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NO_CONTENT);
-        }
-
-        respuesta.put("mensaje", "El perfil ha sido recuperado");
-        respuesta.put("tblFormacionDTO", tblFormacionDTO);
-
-        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
-    }
-
-    @GetMapping("/obtenerExperienciaPorId/{idEducacion}")
-    public ResponseEntity<?> obtenerExperienciaPorId(@PathVariable Long idExperiencia) {
-        String mensaje;
-        Map<String, Object> respuesta = new HashMap<>();
-
-        TblExperienciaDTO tblExperienciaDTO = null;
-
-        try {
-            tblExperienciaDTO = this.perfilService.obtenerExperienciaPorId(idExperiencia);
-        } catch (DataAccessException e) {
-            respuesta.put("mensaje", "Ocurrió un error al intentar recuperar la experiencia");
-            respuesta.put("error", e.getMostSpecificCause().getMessage());
-            log.error(e.getMostSpecificCause().getMessage());
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        if (tblExperienciaDTO == null) {
-            mensaje = String.format("La experiencia con el id: %d no existe en la base de datos", idExperiencia);
-            respuesta.put("mensaje", mensaje);
-
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NO_CONTENT);
-        }
-
-        respuesta.put("mensaje", "La experiencia ha sido recuperado");
-        respuesta.put("tblExperienciaDTO", tblExperienciaDTO);
-
-        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.OK);
-    }
-
-    @PutMapping("/modificarEducacion")
-    public ResponseEntity<?> modificarEducacion(@Valid @RequestBody TblEducacionDTO tblEducacionDTO,
-            BindingResult resultadoValidacion) throws Exception {
-
-        TblEducacion tblEducacionActual = null;
-        TblEducacionDTO tblEducacionDTOModificada = null;
-        String mensaje;
-        Map<String, Object> respuesta = new HashMap<>();
-
-        if (resultadoValidacion.hasErrors()) {
-            List<String> errores = null;
-
-            errores = resultadoValidacion.getFieldErrors().stream()
-                    .map(err -> String.format("La propiedad '%s' %s", err.getField(), err.getDefaultMessage()))
-                    .collect(Collectors.toList());
-
-            respuesta.put("mensaje", "Se han encontrado inconsistencias para modificar el perfil");
-            respuesta.put("error", errores.toString());
-
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.BAD_REQUEST);
-        }
-
-        try {
-            tblEducacionActual = this.perfilService.findByEducacionId(tblEducacionDTO.getIdEducacion());
-
-            if (tblEducacionActual == null) {
-                mensaje = String.format("el perfil %s que intenta actualizar no existe en la base de datos",
-                        tblEducacionDTO.getIdEducacion());
-                respuesta.put("mensaje", mensaje);
-
-                return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NOT_FOUND);
-            }
-        } catch (DataAccessException e) {
-            respuesta.put("mensaje", "Ocurrió un error intentar recuperar el perfil a actualizar");
-            respuesta.put("error", e.getMostSpecificCause().getMessage());
-            log.error(e.getMostSpecificCause().getMessage());
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        try {
-            tblEducacionDTOModificada = this.perfilService.modificarEducacion(tblEducacionDTO, tblEducacionActual);
-        } catch (DataAccessException e) {
-            respuesta.put("mensaje", "Ocurrió un error al intentar modificar el perfil");
-            respuesta.put("error", e.getMostSpecificCause().getMessage());
-            log.error(e.getMostSpecificCause().getMessage());
-            return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        respuesta.put("mensaje", "el perfil ha sido modificada");
-        respuesta.put("tblEducacionDTOModificada", tblEducacionDTOModificada);
-
-        return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.CREATED);
-    }
-
-    @PostMapping("modificarEducacion2")
-    public ResponseEntity<ResponseDTO> modificarEducacion2(@RequestBody TblPerfilDTO tblPerfilDTO)
+    @PostMapping("modificarEducacion")
+    public ResponseEntity<ResponseDTO> modificarEducacion(@RequestBody TblPerfilDTO tblPerfilDTO)
             throws Exception {
 
-        Long rpta = perfilService.modificarEducacion2(tblPerfilDTO);
+        Long rpta = perfilService.modificarEducacion(tblPerfilDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
-                new ResponseDTO("success", "La observación de acta de inicio a sido actualizada correctamente", rpta));
+                new ResponseDTO("success", "La educación ha sido actualizada correctamente", rpta));
+    }
+
+    @PostMapping("modificarFormacion")
+    public ResponseEntity<ResponseDTO> modificarFormacion(@RequestBody TblPerfilDTO tblPerfilDTO)
+            throws Exception {
+
+        Long rpta = perfilService.modificarFormacion(tblPerfilDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                new ResponseDTO("success", "La formación ha sido actualizada correctamente", rpta));
+    }
+
+    @PostMapping("modificarExperiencia")
+    public ResponseEntity<ResponseDTO> modificarExperiencia(@RequestBody TblPerfilDTO tblPerfilDTO)
+            throws Exception {
+
+        Long rpta = perfilService.modificarExperiencia(tblPerfilDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                new ResponseDTO("success", "La experiencia ha sido actualizada correctamente", rpta));
     }
 }

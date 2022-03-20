@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe, DecimalPipe } from '@angular/common';
 
@@ -18,7 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PortafolioDialogoComponent } from './portafolio-dialogo/portafolio-dialogo.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -105,9 +106,11 @@ const FECHA_FORMATOS = {
     MatGridListModule,
     MatAutocompleteModule,
     PdfViewerModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
     // MaterialModule,
     // SharedModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [CurriculumVitaeDialogoComponent],
   providers: [DatePipe,

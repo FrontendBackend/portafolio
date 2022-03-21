@@ -60,6 +60,15 @@ public class TblPerfilDTO {
     // DESCRIBIR TU FORMACION
     private String deFormacion;
 
+    // DESCRIBIR LOS IDIOMAS QUE USAS
+    private String deIdioma;
+
+    // DESCRIBIR TUS HABILIDADES
+    private String deHabilidad;
+
+    // DESCRIBIR TUS DATOS
+    private String deDato;
+
     // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
     // INACTIVO
     private String esRegistro;

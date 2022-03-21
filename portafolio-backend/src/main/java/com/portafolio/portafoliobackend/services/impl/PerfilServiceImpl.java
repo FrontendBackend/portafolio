@@ -105,6 +105,10 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setSobreMi(tblPerfilDTO.getSobreMi());
         tblPerfil.setResumen(tblPerfilDTO.getResumen());
 
+        tblPerfil.setDeIdioma(tblPerfilDTO.getDeIdioma());
+        tblPerfil.setDeHabilidad(tblPerfilDTO.getDeHabilidad());
+        tblPerfil.setDeDato(tblPerfilDTO.getDeDato());
+
         // Lugar donde nació (origen)
         if (tblPerfilDTO.getIdUbigeo() != null) {
             TblUbigeo legUbigeoNacimiento = new TblUbigeo();

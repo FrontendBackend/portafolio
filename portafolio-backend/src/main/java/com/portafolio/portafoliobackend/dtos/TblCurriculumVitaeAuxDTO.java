@@ -48,4 +48,13 @@ public class TblCurriculumVitaeAuxDTO {
 
     // DESCRIBIR TU FORMACION
     private String deFormacion;
+
+    // DESCRIBIR LOS IDIOMAS QUE USAS
+    private String deIdioma;
+
+    // DESCRIBIR TUS HABILIDADES
+    private String deHabilidad;
+
+    // DESCRIBIR TUS DATOS
+    private String deDato;
 }

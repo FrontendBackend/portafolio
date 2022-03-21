@@ -86,7 +86,7 @@ public class TblPerfil implements Serializable {
     @Column(name = "SOBRE_MI", nullable = true, length = 4000)
     private String sobreMi;
 
-    // RESUMEN DE LO QUE HAGO
+    // DESCRIBIR RESUMEN DE LO QUE HAGO
     @Column(name = "RESUMEN", nullable = true, length = 4000)
     private String resumen;
 
@@ -104,6 +104,18 @@ public class TblPerfil implements Serializable {
     @Lob
     @Column(name = "DE_FORMACION", nullable = true, length = 8000)
     private String deFormacion;
+
+    // DESCRIBIR LOS IDIOMAS QUE USAS
+    @Column(name = "DE_IDIOMA", nullable = true, length = 4000)
+    private String deIdioma;
+
+    // DESCRIBIR TUS HABILIDADES
+    @Column(name = "DE_HABILIDAD", nullable = true, length = 4000)
+    private String deHabilidad;
+
+    // DESCRIBIR TUS DATOS
+    @Column(name = "DE_DATO", nullable = true, length = 4000)
+    private String deDato;
     
     /**
      * --------------------------------- AUDITORIA

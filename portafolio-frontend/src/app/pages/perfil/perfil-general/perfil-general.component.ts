@@ -80,6 +80,9 @@ export class PerfilGeneralComponent implements OnInit {
         // codImg: [this.tblPerfilDTO.codImg],
         sobreMi: [this.tblPerfilDTO.sobreMi],
         resumen: [this.tblPerfilDTO.resumen],
+        deHabilidad: [this.tblPerfilDTO.deHabilidad],
+        deIdioma: [this.tblPerfilDTO.deIdioma],
+        deDato: [this.tblPerfilDTO.deDato],
         descUbigeoNacimientoCompleto: [this.tblPerfilDTO.descUbigeoNacimientoCompleto, [Validators.required]],
       }
     );

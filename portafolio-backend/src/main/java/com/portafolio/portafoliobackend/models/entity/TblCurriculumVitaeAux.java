@@ -84,4 +84,16 @@ public class TblCurriculumVitaeAux implements Serializable {
     @Lob
     @Column(name = "DE_FORMACION", nullable = true)
     private String deFormacion;
+
+    // DESCRIBIR LOS IDIOMAS QUE USAS
+    @Column(name = "DE_IDIOMA", nullable = true)
+    private String deIdioma;
+
+    // DESCRIBIR TUS HABILIDADES
+    @Column(name = "DE_HABILIDAD", nullable = true)
+    private String deHabilidad;
+    
+    // DESCRIBIR TUS DATOS
+    @Column(name = "DE_DATO", nullable = true)
+    private String deDato;
 }

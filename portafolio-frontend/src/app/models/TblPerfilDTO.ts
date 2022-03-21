@@ -52,6 +52,15 @@ export class TblPerfilDTO {
   // DESCRIBIR TU FORMACION
   deFormacion: string;
 
+  // DESCRIBIR LOS IDIOMAS QUE USAS
+  deIdioma: string;
+
+  // DESCRIBIR TUS HABILIDADES
+  deHabilidad: string;
+
+  // DESCRIBIR TUS DATOS
+  deDato: string;
+
   // CAMPO ESTADO DEL REGISTRO. LOS POSIBLES VALORES SON: "1" = ACTIVO Y "0" =
   // INACTIVO
   esRegistro: string;

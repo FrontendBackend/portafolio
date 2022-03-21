@@ -125,6 +125,17 @@
           <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
 
             <mat-form-field fxFlex appearance="outline">
+              <mat-label>Datos</mat-label>
+              <textarea matInput #messageDat formControlName="deDato" maxlength="4000" rows="6"
+                placeholder="Describir tus datos:"></textarea>
+              <mat-hint align="end">{{messageDat.value.length}} / 4000</mat-hint>
+            </mat-form-field>
+
+          </div>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+
+            <mat-form-field fxFlex appearance="outline">
               <mat-label>Sobre mí</mat-label>
               <textarea matInput #messageSobreMi formControlName="sobreMi" maxlength="4000" rows="6"
                 placeholder="Describete como eres:"></textarea>
@@ -138,8 +149,23 @@
               <mat-label>Resumen</mat-label>
               <textarea matInput #messageResumen formControlName="resumen" maxlength="4000" rows="6"
                 placeholder="Describete tu pasión:"></textarea>
-              <!-- <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint> -->
               <mat-hint align="end">{{messageResumen.value.length}} / 4000</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Habilidades</mat-label>
+              <textarea matInput #messageHab formControlName="deHabilidad" maxlength="4000" rows="15"
+                placeholder="Describete tu habilidad:"></textarea>
+              <mat-hint align="end">{{messageHab.value.length}} / 4000</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+              <mat-label>Idiomas</mat-label>
+              <textarea matInput #messageIdi formControlName="deIdioma" maxlength="4000" rows="15"
+                placeholder="Describete tu idioma:"></textarea>
+              <mat-hint align="end">{{messageIdi.value.length}} / 4000</mat-hint>
             </mat-form-field>
           </div>
 

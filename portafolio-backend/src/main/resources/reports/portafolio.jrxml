@@ -20,7 +20,10 @@ SOBRE_MI AS sobreMi,
 RESUMEN AS resumen,
 DE_EDUCACION AS deEducacion,
 DE_EXPERIENCIA AS deExperiencia,
-DE_FORMACION AS deFormacion
+DE_FORMACION AS deFormacion,
+DE_IDIOMA AS deIdioma,
+DE_HABILIDAD AS deHabilidad,
+DE_DATO AS deDato
 FROM "VW_CURRICULUM_VITAE_AUX"
 WHERE 
 	 "VW_CURRICULUM_VITAE_AUX"."ID_PERFIL" = $P{idPerfil}]]>
@@ -72,6 +75,9 @@ WHERE
 	<field name="deEducacion" class="java.lang.String"/>
 	<field name="deExperiencia" class="java.lang.String"/>
 	<field name="deFormacion" class="java.lang.String"/>
+	<field name="deIdioma" class="java.lang.String"/>
+	<field name="deHabilidad" class="java.lang.String"/>
+	<field name="deDato" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -105,21 +111,21 @@ WHERE
 		</band>
 	</title>
 	<detail>
-		<band height="578" splitType="Stretch">
+		<band height="312" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout"/>
 			<frame>
-				<reportElement positionType="Float" mode="Opaque" x="12" y="4" width="218" height="475" backcolor="#71B3D9" uuid="731bd9e2-fffd-470d-94f4-6f87e6eb77e5">
+				<reportElement positionType="Float" mode="Opaque" x="12" y="4" width="218" height="210" backcolor="#71B3D9" uuid="731bd9e2-fffd-470d-94f4-6f87e6eb77e5">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<staticText>
-					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="20" y="10" width="180" height="20" uuid="19b99a1d-a7cf-4a4c-91cc-ec0a4ddbd1e0"/>
+					<reportElement positionType="Float" x="20" y="10" width="180" height="20" uuid="19b99a1d-a7cf-4a4c-91cc-ec0a4ddbd1e0"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[RESUMEN]]></text>
 				</staticText>
 				<textField textAdjust="StretchHeight">
-					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="20" y="29" width="180" height="21" uuid="5d435001-f43e-4f51-a65e-bc737b0220e4">
+					<reportElement positionType="Float" x="20" y="30" width="180" height="21" uuid="5d435001-f43e-4f51-a65e-bc737b0220e4">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.y" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -136,7 +142,7 @@ WHERE
 					<text><![CDATA[CONOCIMIENTOS TECNOLÓGICOS]]></text>
 				</staticText>
 				<textField textAdjust="StretchHeight">
-					<reportElement positionType="Float" x="20" y="82" width="180" height="17" uuid="b58783b4-77d1-4c1e-9ef7-3221cf817404">
+					<reportElement positionType="Float" x="20" y="83" width="180" height="17" uuid="b58783b4-77d1-4c1e-9ef7-3221cf817404">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -152,43 +158,43 @@ WHERE
 					<text><![CDATA[HABILIDADES]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="20" y="131" width="180" height="19" uuid="c5fbd284-95fc-4a21-8ab3-666a8575c1e2"/>
-					<textElement textAlignment="Left">
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[- Alta capacidad de aprendizaje	        - Autodidacta	                                    - Trabajo en equipo]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="Float" x="20" y="161" width="179" height="20" uuid="594fb02e-d8f6-47a3-bacd-aa24ebb60f25"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[IDIOMAS]]></text>
 				</staticText>
-				<staticText>
-					<reportElement positionType="Float" x="20" y="180" width="179" height="20" uuid="f656793f-03ce-4f31-854a-a49b3a13e70c"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Español, Ingles nivel básico.]]></text>
-				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement positionType="Float" x="19" y="181" width="180" height="17" uuid="09081787-2f1a-4395-aef3-fa830b55cfec">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{deIdioma}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement positionType="Float" x="20" y="132" width="180" height="17" uuid="f1346a7d-150b-4c22-968a-233b5a0552c0">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{deHabilidad}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
-				<reportElement positionType="Float" mode="Opaque" x="12" y="483" width="218" height="94" backcolor="rgba(202, 213, 222, 0.9882353)" uuid="0d818e16-6f2f-43b8-a68c-93ec48cdb21a"/>
+				<reportElement positionType="Float" mode="Opaque" x="12" y="218" width="218" height="94" backcolor="rgba(202, 213, 222, 0.9882353)" uuid="0d818e16-6f2f-43b8-a68c-93ec48cdb21a"/>
 				<staticText>
-					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="20" y="24" width="179" height="20" uuid="e410531f-5c99-43f8-a551-34b847496f80"/>
+					<reportElement positionType="Float" x="20" y="24" width="179" height="20" uuid="e410531f-5c99-43f8-a551-34b847496f80"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[DATOS]]></text>
 				</staticText>
-				<staticText>
-					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="20" y="43" width="179" height="36" uuid="d7d88ac0-f7f5-4d3a-8fbf-103b7a2b8fe6"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Correo, telefono, redes sociales, dirección, GitHub, portafolio.]]></text>
-				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement positionType="Float" x="19" y="44" width="180" height="17" uuid="ada99a68-e438-4e78-b84e-14a77eed2b54">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{deDato}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
 				<reportElement positionType="Float" x="240" y="7" width="310" height="38" uuid="7dcbbf11-32e2-4aa1-a193-f279303c25c7"/>

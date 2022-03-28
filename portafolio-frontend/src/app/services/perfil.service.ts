@@ -3,7 +3,7 @@ import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
 import { TblPerfilDTO } from '../models/TblPerfilDTO';
 import { TblUbigeoDTO } from '../models/TblUbigeoDTO';
 import { TblEducacionDTO } from '../models/TblEducacionDTO';
@@ -81,6 +81,18 @@ export class PerfilService {
 
   modificarExperiencia(tblPerfilDTO: TblPerfilDTO): Observable<ResponseDTO> {
     return this.httpClient.post<ResponseDTO>(`${this.url}/modificarExperiencia`, tblPerfilDTO);
+  }
+
+  subirFoto(archivo: File, idPerfil: any): Observable<HttpEvent<{}>> {
+    let formData = new FormData();
+    formData.append('adjunto', archivo);
+    formData.append('idPerfil', idPerfil);
+
+    const req = new HttpRequest('POST', `${this.url}/guardarArchivo`, formData, {
+      reportProgress: true,
+    });
+
+    return this.httpClient.request(req);
   }
 
   /**

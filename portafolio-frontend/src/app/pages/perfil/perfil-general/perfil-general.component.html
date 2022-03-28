@@ -10,13 +10,31 @@
 
       <div class="item-supervision-wrap" fxFlex.lt-sm="100%" fxFlex>
         <mat-card>
-          <mat-label><b>Foto de perfil: {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</b></mat-label>
-          <br>
-          <br>
-          <img class="img-tamanio" mat-card-image src="data:image/png;base64,{{imagenDataPerfil}}"
-            alt="Photo of a Shiba Inu">
+          <form>
+
+            <mat-label><b>Foto de perfil: {{tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil}}</b></mat-label>
+            <br>
+            <br>
+            <!-- <img class="img-tamanio" mat-card-image src="data:image/png;base64,{{imagenDataPerfil}}"
+              alt="Photo of a Shiba Inu"> -->
+
+            <img class="img-tamanio" *ngIf="tblPerfilDTO?.codImg"
+              src="data:image/png;base64,{{tblPerfilDTO.codImg}}" alt="{{tblPerfilDTO.codImg}}">
+
+            <mat-progress-bar *ngIf="progreso" color="primary" mode="query"></mat-progress-bar>
+
+            <mat-divider></mat-divider>
+
+            <mat-card-actions class="oh text-center little-profile">
+              <button mat-button color="primary" onclick="document.getElementById('inputGroupFile04').click()">Subir
+                perfil</button>
+
+              <input style="display: none;" (change)="seleccionarFoto($event)" type="file"
+                class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+
+            </mat-card-actions>
+          </form>
         </mat-card>
-        <br>
       </div>
 
       <div fxFlex="50px"></div>

@@ -1,5 +1,6 @@
 package com.portafolio.portafoliobackend.controllers;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -257,5 +260,27 @@ public class PerfilController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 new ResponseDTO("success", "La experiencia ha sido actualizada correctamente", rpta));
+    }
+
+    @PostMapping(value = "/guardarArchivo", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<?> guardarArchivo(@RequestParam("adjunto") MultipartFile file,
+            @RequestParam("idPerfil") Long idPerfil) throws IOException {
+
+        Map<String, Object> response = new HashMap<>();
+
+        TblPerfil tblPerfil = perfilService.findById(idPerfil);
+
+        // Archivo ar = new Archivo();
+
+        tblPerfil.setTipoImg(file.getContentType());
+        tblPerfil.setImgPerfil(file.getOriginalFilename());
+        tblPerfil.setCodImg(file.getBytes());
+
+        perfilService.save(tblPerfil);
+
+        response.put("tblPerfil", tblPerfil);
+        response.put("mensaje", "Has subido correctamente la imagen: " + tblPerfil.getImgPerfil());
+
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 }

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Img } from './../../../models/Img';
 import { environment } from './../../../../environments/environment';
 import { Observable } from 'rxjs';
@@ -9,6 +10,7 @@ import { TblPerfilDTO } from 'src/app/models/TblPerfilDTO';
 import { PerfilService } from 'src/app/services/perfil.service';
 import { debounceTime, finalize, switchMap, tap } from 'rxjs/operators';
 import { TblUbigeoDTO } from 'src/app/models/TblUbigeoDTO';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil-general',
@@ -43,6 +45,10 @@ export class PerfilGeneralComponent implements OnInit {
   // CUANDO SI HAY IMAGEN REAL
   imagenDataPerfil = Img.noPerfilCode2;
 
+  public fotoSeleccionada: File;
+  progreso = false;
+  clienteSeleccionado: TblPerfilDTO;
+
   constructor(private formBuilder: FormBuilder,
     private perfilService: PerfilService,
     private matSnackBar: MatSnackBar,
@@ -51,6 +57,7 @@ export class PerfilGeneralComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.configurarInicio();
+
   }
 
   iniciarFormulario() {
@@ -272,6 +279,51 @@ export class PerfilGeneralComponent implements OnInit {
       if (controls[name].invalid) {
         this.controlesNovalidos.push({ control: name, errores: controls[name].errors });
       }
+    }
+  }
+
+  seleccionarFoto(event: any) {
+    this.fotoSeleccionada = event.target.files[0];
+    console.log({ 'seleccionado: ': this.fotoSeleccionada });
+    if (this.fotoSeleccionada.type.indexOf('image') < 0) {
+      Swal.fire(
+        'Error seleccionar imagen: ',
+        'El archivo debe ser del tipo imagen',
+        'error'
+      );
+      this.fotoSeleccionada = null;
+    }
+    this.subirFoto();
+  }
+
+  subirFoto() {
+    this.progreso = true;
+
+    let idPerfil = this.tblPerfilDTO.idPerfil;
+
+    if (!this.fotoSeleccionada) {
+      Swal.fire('Error Upload: ', 'Debe seleccionar una foto', 'error');
+    } else {
+      this.perfilService.subirFoto(this.fotoSeleccionada, idPerfil).subscribe((event) => {
+        if (event.type === HttpEventType.Response) {
+          let response: any = event.body;
+          this.clienteSeleccionado = response.tblPerfilDTO as TblPerfilDTO;
+          console.log({ 'subido: ': this.clienteSeleccionado });
+
+          // if (idSkillset != null){
+          //   this.snack.open('mensaje', 'Ok', {
+          //     duration: 3000
+          //   });
+          // }
+          Swal.fire(
+            'La foto se ha subido completamente!',
+            response.mensaje,
+            'success',
+          );
+          this.configurarInicio();
+          this.progreso = false;
+        }
+      });
     }
   }
 }

@@ -45,6 +45,7 @@ export class SkillsetFotoComponent implements OnInit {
       );
       this.fotoSeleccionada = null;
     }
+    this.subirFoto();
   }
 
   subirFoto() {

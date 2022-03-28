@@ -43,4 +43,5 @@ public interface PerfilService {
     // PERMITE MODIFICAR LA EXPERIENCIA
     public Long modificarExperiencia(TblPerfilDTO tblPerfilDTO);
 
+    TblPerfil save(TblPerfil tblPerfil);
 }

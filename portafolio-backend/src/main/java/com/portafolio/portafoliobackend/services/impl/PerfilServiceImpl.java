@@ -98,9 +98,9 @@ public class PerfilServiceImpl implements PerfilService {
         tblPerfil.setTelPerfil(tblPerfilDTO.getTelPerfil());
         tblPerfil.setEmailPerfil(tblPerfilDTO.getEmailPerfil());
         tblPerfil.setFeNacimientoPerfil(tblPerfilDTO.getFeNacimientoPerfil());
-        tblPerfil.setImgPerfil(tblPerfilDTO.getImgPerfil());
-        tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
-        tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
+        // tblPerfil.setImgPerfil(tblPerfilDTO.getImgPerfil());
+        // tblPerfil.setTipoImg(tblPerfilDTO.getTipoImg());
+        // tblPerfil.setCodImg(tblPerfilDTO.getCodImg());
 
         tblPerfil.setSobreMi(tblPerfilDTO.getSobreMi());
         tblPerfil.setResumen(tblPerfilDTO.getResumen());
@@ -237,5 +237,11 @@ public class PerfilServiceImpl implements PerfilService {
         }
 
         return rpta;
+    }
+
+    @Override
+    @Transactional(readOnly = false)
+    public TblPerfil save(TblPerfil tblPerfil) {
+        return perfilRepository.save(tblPerfil);
     }
 }

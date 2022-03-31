@@ -57,4 +57,7 @@ public class TblCurriculumVitaeAuxDTO {
 
     // DESCRIBIR TUS DATOS
     private String deDato;
+
+    // NOMBRE DE LA IMAGEN
+    private byte[] codImg;
 }

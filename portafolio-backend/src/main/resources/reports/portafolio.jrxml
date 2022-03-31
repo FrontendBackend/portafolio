@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.13.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portafolio" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1fd949-9786-4370-a9a6-4d3b0653ecc5">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="567"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="419"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data_portafolio"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="apt_portafolio"/>
 	<parameter name="idPerfil" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT ID_PERFIL AS idPerfil,
@@ -23,7 +23,8 @@ DE_EXPERIENCIA AS deExperiencia,
 DE_FORMACION AS deFormacion,
 DE_IDIOMA AS deIdioma,
 DE_HABILIDAD AS deHabilidad,
-DE_DATO AS deDato
+DE_DATO AS deDato,
+COD_IMG AS codImg
 FROM "VW_CURRICULUM_VITAE_AUX"
 WHERE 
 	 "VW_CURRICULUM_VITAE_AUX"."ID_PERFIL" = $P{idPerfil}]]>
@@ -78,6 +79,7 @@ WHERE
 	<field name="deIdioma" class="java.lang.String"/>
 	<field name="deHabilidad" class="java.lang.String"/>
 	<field name="deDato" class="java.lang.String"/>
+	<field name="codImg" class="byte[]"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -85,9 +87,10 @@ WHERE
 		<band height="150" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="12" y="0" width="218" height="150" backcolor="#18252E" uuid="44cd7052-be6c-4eac-b55b-c2f98687d8fa"/>
-				<ellipse>
-					<reportElement x="50" y="14" width="119" height="115" uuid="dcc61abd-89e4-4f92-9cff-2cbc6e76075f"/>
-				</ellipse>
+				<image scaleImage="RealSize" rotation="None" hAlign="Center" vAlign="Middle" onErrorType="Blank">
+					<reportElement x="51" y="20" width="119" height="115" uuid="a238e872-15d5-41f7-b5e5-67eb387ba98c"/>
+					<imageExpression><![CDATA[$F{codImg}]]></imageExpression>
+				</image>
 			</frame>
 			<rectangle>
 				<reportElement mode="Opaque" x="230" y="148" width="345" height="2" forecolor="rgba(0, 0, 0, 0.0)" backcolor="#71B3D9" uuid="a87cf8c0-1557-46d5-92b1-26b603914cc1">

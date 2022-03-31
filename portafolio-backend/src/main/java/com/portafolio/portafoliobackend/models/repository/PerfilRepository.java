@@ -31,7 +31,7 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
             + "aux.idPerfil, aux.noPersona, aux.nuDniPerfil, aux.telPerfil, aux.emailPerfil, aux.dirPerfil, " 
             + "aux.noPortafolio, aux.noSkillset, aux.turno, aux.sobreMi, " 
             + "aux.resumen, aux.deEducacion, aux.deExperiencia, aux.deFormacion, " 
-            + "aux.deIdioma, aux.deHabilidad, aux.deDato " 
+            + "aux.deIdioma, aux.deHabilidad, aux.deDato, aux.codImg " 
             + " ) " 
             + "FROM TblCurriculumVitaeAux aux "
             + "WHERE aux.idPerfil = :idPerfil "

@@ -8,7 +8,7 @@ public class TblCurriculumVitaeAuxDTOResultado extends TblCurriculumVitaeAuxDTO 
     public TblCurriculumVitaeAuxDTOResultado(Long idPerfil, String noPersona, Long nuDniPerfil, Long telPerfil,
             String emailPerfil, String dirPerfil, String noPortafolio, String noSkillset, String turno, String sobreMi,
             String resumen, String deEducacion, String deExperiencia, String deFormacion, String deIdioma,
-            String deHabilidad, String deDato) {
+            String deHabilidad, String deDato, byte[] codImg) {
         super();
         this.setIdPerfil(idPerfil);
         this.setNoPersona(noPersona);
@@ -27,6 +27,7 @@ public class TblCurriculumVitaeAuxDTOResultado extends TblCurriculumVitaeAuxDTO 
         this.setDeIdioma(deIdioma);
         this.setDeHabilidad(deHabilidad);
         this.setDeDato(deDato);
+        this.setCodImg(codImg);
     }
 
 }

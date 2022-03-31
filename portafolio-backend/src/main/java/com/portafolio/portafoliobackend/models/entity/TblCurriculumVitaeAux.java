@@ -96,4 +96,8 @@ public class TblCurriculumVitaeAux implements Serializable {
     // DESCRIBIR TUS DATOS
     @Column(name = "DE_DATO", nullable = true)
     private String deDato;
+    
+    // NOMBRE DE LA IMAGEN
+    @Column(name = "COD_IMG", nullable = true)
+    private byte[] codImg;
 }

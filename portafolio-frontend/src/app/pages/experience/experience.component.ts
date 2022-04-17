@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ArchivoService } from 'src/app/services/archivo.service';
 import { PerfilService } from 'src/app/services/perfil.service';
+import { HttpClient } from '@angular/common/http';
+import { Details } from 'src/app/models/Details';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -12,27 +15,47 @@ export class ExperienceComponent implements OnInit {
 
   pdfSrc: string;
 
+  enProceso = false;
+
   // titulo = 'Experience';
   imagenData = Img.noImgCode;
 
+  title = 'EmailTemplate';
+  dataset: Details = {
+    name: '',
+    age: null,
+    country: '',
+    email: ''
+  };
+
   constructor(private archivoService: ArchivoService,
     private perfilService: PerfilService,
-    private sanitization: DomSanitizer) { }
+    private sanitization: DomSanitizer,
+    private https: HttpClient
+  ) { }
 
   ngOnInit(): void {
-    // this.generarReporteCurriculum();
-    this.pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+
   }
 
-  //pdfs//
-  // generarReporteCurriculum() {
-  //   this.perfilService.generarReporteCurriculum().subscribe(data => {
-  //     let reader = new FileReader();
-  //     reader.onload = (e: any) => {
-  //       this.pdfSrc = e.target.result;
-  //       console.log(this.pdfSrc);
-  //     }
-  //     reader.readAsArrayBuffer(data);
-  //   });
-  // }
+  onSubmit() {
+    this.enProceso = true;
+
+    this.https.post<Details>('http://localhost:9999/testapp/getdetails', this.dataset).subscribe(
+      res => {
+        this.dataset = res;
+        console.log(this.dataset);
+        Swal.fire(
+          'Notificación enviada!',
+          'Revise su correo',
+          'success',
+        );
+        this.dataset.age = null;
+        this.dataset.name = '';
+        this.dataset.country = '';
+        this.dataset.email = '';
+
+        this.enProceso = false;
+      });
+  }
 }

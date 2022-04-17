@@ -310,11 +310,6 @@ export class PerfilGeneralComponent implements OnInit {
           this.clienteSeleccionado = response.tblPerfilDTO as TblPerfilDTO;
           console.log({ 'subido: ': this.clienteSeleccionado });
 
-          // if (idSkillset != null){
-          //   this.snack.open('mensaje', 'Ok', {
-          //     duration: 3000
-          //   });
-          // }
           Swal.fire(
             'La foto se ha subido completamente!',
             response.mensaje,

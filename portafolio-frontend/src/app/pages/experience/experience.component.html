@@ -1,5 +1,5 @@
 <!-- <title>{{titulo}}</title> -->
-<mat-toolbar class="cabecera-color" color="primary">
+<mat-toolbar class="cabecera-color" color="primary" style="display: none;">
   <mat-toolbar-row>
     <span class="span">
       <b>
@@ -10,12 +10,52 @@
 </mat-toolbar>
 <mat-card>
 
-  <!-- <button mat-button color="primary" onclick="document.getElementById('flArchivo').click()">Seleccionar</button>
-  <input id="flArchivo" type="file" style="display: none;" (change)="seleccionarArchivo($event)">
-  <p>{{nombreArchivo}}</p>
+  <h1>Ingrese los siguientes detalles </h1>
+  <table>
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <tr>
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Nombres:</mat-label>
+          <input matInput aria-label="State" autocomplete="off" [(ngModel)]="dataset.name" name="name"/>
+        </mat-form-field>
+      </tr>
+    </div>
 
-  <button mat-button color="primary" (click)="subirArchivo()" [disabled]="!archivosSeleccionados">Subir Archivo</button> -->
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <tr>
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Edad:</mat-label>
+          <input matInput aria-label="State" type="number" autocomplete="off" [(ngModel)]="dataset.age" name="age" />
+        </mat-form-field>
+      </tr>
+    </div>
 
-  <!-- <img mat-card-image src="data:image/png;base64,{{imagenData}}" alt="demo"> -->
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <tr>
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>País:</mat-label>
+          <input matInput aria-label="State" autocomplete="off" [(ngModel)]="dataset.country" name="country" />
+        </mat-form-field>
+      </tr>
+    </div>
 
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutGap.lt-md="0px" fxLayout.lt-md="column">
+      <tr>
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Enviar notificación a:</mat-label>
+          <input matInput aria-label="State" autocomplete="off" [(ngModel)]="dataset.email" name="email" />
+        </mat-form-field>
+      </tr>
+    </div>
+
+    <tr>
+      <td>
+        <button type="submit" color="primary" cdkFocusInitial mat-raised-button [disabled]="enProceso" (click)="onSubmit()">
+          <mat-icon>send</mat-icon>
+          Enviar
+        </button>
+      </td>
+    </tr>
+
+  </table>
 </mat-card>

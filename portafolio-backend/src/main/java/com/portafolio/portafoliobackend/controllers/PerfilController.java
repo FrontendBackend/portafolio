@@ -2,6 +2,7 @@ package com.portafolio.portafoliobackend.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,9 @@ public class PerfilController {
 
     @Autowired
     private UbigeoService ubigeoService;
+
+    @Autowired
+    PerfilService emailService;
 
     @PostMapping("/crearPerfil")
     public ResponseEntity<?> crearPerfil(@Valid @RequestBody TblPerfilDTO tblPerfilDTO,
@@ -270,8 +274,6 @@ public class PerfilController {
 
         TblPerfil tblPerfil = perfilService.findById(idPerfil);
 
-        // Archivo ar = new Archivo();
-
         tblPerfil.setTipoImg(file.getContentType());
         tblPerfil.setImgPerfil(file.getOriginalFilename());
         tblPerfil.setCodImg(file.getBytes());
@@ -280,6 +282,32 @@ public class PerfilController {
 
         response.put("tblPerfil", tblPerfil);
         response.put("mensaje", "Has subido correctamente la imagen: " + tblPerfil.getImgPerfil());
+
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/subirArchivosGmail", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<?> subirArchivosGmail(@RequestParam("a") String[] a, @RequestParam("cc") String[] cc, @RequestParam("titulo") String titulo,
+            @RequestParam("contenido") String contenido, @RequestParam("adjunto") MultipartFile[] file)
+            throws IOException {
+
+        Map<String, Object> response = new HashMap<>();
+
+        List<String> fileNames = new ArrayList<>();
+
+        try {
+            Arrays.asList(file)
+                    .stream()
+                    .forEach(fil -> {
+                        fileNames.add(fil.getOriginalFilename());
+                    });
+            emailService.sendAttachementFileMail(a, cc, titulo, contenido, file);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw e;
+        }
+
+        response.put("mensaje", "Has subido correctamente el/los archivo(s): " + fileNames);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }

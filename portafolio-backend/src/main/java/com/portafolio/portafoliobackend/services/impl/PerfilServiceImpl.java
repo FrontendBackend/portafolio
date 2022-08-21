@@ -1,10 +1,14 @@
 package com.portafolio.portafoliobackend.services.impl;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -23,9 +27,14 @@ import com.portafolio.portafoliobackend.utils.CommonsUtil;
 import com.portafolio.portafoliobackend.utils.ConstantesUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 // @Slf4j
@@ -37,6 +46,12 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Autowired
     private EducacionRepository educacionRepository;
+
+    @Value("${spring.mail.username}")
+    private String sender;
+
+    @Autowired
+    private JavaMailSender mailSender;
 
     @Override
     public TblPerfilDTO obtenerPerfilPorId(Long idPerfil) {
@@ -243,5 +258,62 @@ public class PerfilServiceImpl implements PerfilService {
     @Transactional(readOnly = false)
     public TblPerfil save(TblPerfil tblPerfil) {
         return perfilRepository.save(tblPerfil);
+    }
+
+    /**
+     * Este metodo no esta en uso todavia
+     */
+    @Override
+    public void Sender(String sendto, String title, String content) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        // Remitente
+        simpleMailMessage.setFrom(sender);
+        // a quien
+        simpleMailMessage.setTo(sendto);
+        // Asunto del email
+        simpleMailMessage.setSubject(title);
+        // contenido del correo electrónico
+        simpleMailMessage.setText(content);
+
+        mailSender.send(simpleMailMessage);
+
+    }
+
+    @Override
+    public void sendAttachementFileMail(String[] sendto, String[] cc, String title, String content, MultipartFile[] file) {
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+
+        try {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
+            // Remitente
+            messageHelper.setFrom(sender); // El remitente
+            messageHelper.setTo(sendto); // A destinatario(s)
+            messageHelper.setCc(cc); // Con copia carbón a destinatario(s)
+            messageHelper.setSubject(title); // Titulo de la cabecera del correo
+            messageHelper.setText(content); // La descripción del contenido
+
+            System.out.println("De:" + sender + "\n" +
+                    "Destinatario:" + sendto + "\n" +
+                    "Título:" + title + "\n" +
+                    "Contenido:" + content);
+
+            Arrays.asList(file)
+                    .stream()
+                    .forEach(fil -> {
+                        String fileName = fil.getOriginalFilename();
+                        System.out.println(fileName);
+
+                        try {
+                            messageHelper.addAttachment(fileName, fil);
+                        } catch (MessagingException e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        mailSender.send(mimeMessage);
+
     }
 }

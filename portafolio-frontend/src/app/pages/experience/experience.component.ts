@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ArchivoService } from 'src/app/services/archivo.service';
 import { PerfilService } from 'src/app/services/perfil.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Details } from 'src/app/models/Details';
 import Swal from 'sweetalert2';
 @Component({
@@ -13,49 +13,81 @@ import Swal from 'sweetalert2';
 })
 export class ExperienceComponent implements OnInit {
 
-  pdfSrc: string;
+  nombreArchivo: string[];
 
   enProceso = false;
 
-  // titulo = 'Experience';
-  imagenData = Img.noImgCode;
+  a: string = "";
+  cc: string = "";
+  titulo: string = "";
+  contenido: string = "";
+  fotoSeleccionada: FileList;
 
-  title = 'EmailTemplate';
-  dataset: Details = {
-    name: '',
-    age: null,
-    country: '',
-    email: ''
-  };
+  progreso = false;
 
-  constructor(private archivoService: ArchivoService,
+  dataset: Details[];
+
+  constructor(
     private perfilService: PerfilService,
-    private sanitization: DomSanitizer,
-    private https: HttpClient
   ) { }
 
   ngOnInit(): void {
 
   }
 
-  onSubmit() {
-    this.enProceso = true;
+  seleccionarFoto(event: any) {
+    this.fotoSeleccionada = event.target.files;
+    let demo: any = event.target.files;
+    const set = new Set(demo);
+    this.dataset = [];
+    for (const lista of set) {
+      let demolista: any = [];
+      demolista = lista;
+      this.nombreArchivo = demolista;
+      this.dataset.push(demolista)
+    }
 
-    this.https.post<Details>('http://localhost:9999/testapp/getdetails', this.dataset).subscribe(
-      res => {
-        this.dataset = res;
-        console.log(this.dataset);
+    // if (this.fotoSeleccionada.type.indexOf('image') < 0) {
+    //   Swal.fire(
+    //     'Error seleccionar imagen: ',
+    //     'El archivo debe ser del tipo imagen',
+    //     'error'
+    //   );
+    //   this.fotoSeleccionada = null;
+    // }
+    // this.subirArchivosGmail();
+  }
+
+  subirArchivosGmail() {
+    this.progreso = true;
+
+    // let fotoSeleccionadas: any;
+    // if (this.fotoSeleccionada === undefined || this.fotoSeleccionada.length === 0) {
+    //   fotoSeleccionadas = ["0"];
+    // } else {
+    //   fotoSeleccionadas = this.fotoSeleccionada;
+    // }
+    // if (!this.fotoSeleccionada) {
+    //   Swal.fire('Error Upload: ', 'Debe seleccionar una foto', 'error');
+    // } else {
+    debugger;
+    this.perfilService.subirArchivosGmail(this.a, this.cc, this.titulo, this.contenido, this.fotoSeleccionada).subscribe((event) => {
+      if (event.type === HttpEventType.Response) {
+        let response: any = event.body;
         Swal.fire(
-          'Notificación enviada!',
-          'Revise su correo',
+          'El archivo se ha subido completamente!',
+          response.mensaje,
           'success',
         );
-        this.dataset.age = null;
-        this.dataset.name = '';
-        this.dataset.country = '';
-        this.dataset.email = '';
-
-        this.enProceso = false;
-      });
+        this.dataset = null;
+        this.fotoSeleccionada = null;
+        this.nombreArchivo.length = null;
+        this.a = null;
+        this.titulo = null;
+        this.contenido = null;
+        this.progreso = false;
+      }
+    });
+    // }
   }
 }

@@ -95,6 +95,22 @@ export class PerfilService {
     return this.httpClient.request(req);
   }
 
+  subirArchivosGmail(a: string, cc: string, titulo: string, contenido: string, archivo: FileList): Observable<HttpEvent<{}>> {
+    let formData: FormData = new FormData();
+    formData.append('a', a);
+    formData.append('cc', cc);
+    formData.append('titulo', titulo);
+    formData.append('contenido', contenido);
+    Array.from(archivo).forEach(archivo => formData.append('adjunto', archivo))
+    // formData.append('adjunto', archivo.item(null));
+
+    const req = new HttpRequest('POST', `${this.url}/subirArchivosGmail`, formData, {
+      reportProgress: true,
+    });
+
+    return this.httpClient.request(req);
+  }
+
   /**
  * Permite analizar el error y responder un error específico para el usuario.
  * @param error que debe ser controlado.

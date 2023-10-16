@@ -34,6 +34,8 @@ export class SkillsetFotoComponent implements OnInit {
   }
 
   seleccionarFoto(event: any) {
+    console.log("recibirfoto:", event);
+
     this.fotoSeleccionada = event.target.files[0];
     this.progreso = 0;
     console.log({'seleccionado: ': this.fotoSeleccionada});

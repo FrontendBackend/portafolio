@@ -24,7 +24,7 @@ export class PortafolioComponent implements OnInit {
   enProceso = false;
 
   /**
-   * Lista de contratos.
+   * Lista de portafolios.
    */
   lTblPortafolioDTO: TblPortafolioDTO[];
 

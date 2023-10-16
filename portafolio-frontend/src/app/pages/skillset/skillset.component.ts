@@ -50,7 +50,7 @@ export class SkillsetComponent implements OnInit {
 
       setTimeout(() => {
         this.enProceso = false;
-      }, 5000)
+      })
     });
   }
 

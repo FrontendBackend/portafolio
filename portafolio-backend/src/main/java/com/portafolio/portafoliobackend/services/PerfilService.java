@@ -31,7 +31,7 @@ public interface PerfilService {
       public TblPerfil findById(Long idPerfil);
 
       // LISTAR PERFILES
-      List<TblPerfilDTO> ListarPerfil();
+      List<TblPerfilDTO> listarPerfil();
 
 
 

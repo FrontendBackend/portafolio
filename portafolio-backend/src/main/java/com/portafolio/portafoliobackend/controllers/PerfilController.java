@@ -51,9 +51,9 @@ public class PerfilController {
     PerfilService emailService;
 
     @GetMapping("/listarPerfil")
-    public ResponseEntity<List<TblPerfilDTO>> ListarPerfil() {
+    public ResponseEntity<List<TblPerfilDTO>> listarPerfil() {
 
-        List<TblPerfilDTO> lTblPerfilDTO = this.perfilService.ListarPerfil();
+        List<TblPerfilDTO> lTblPerfilDTO = this.perfilService.listarPerfil();
         return new ResponseEntity<List<TblPerfilDTO>>(lTblPerfilDTO, HttpStatus.OK);
     }
 

@@ -39,7 +39,7 @@ public interface PerfilRepository extends JpaRepository<TblPerfil, Long>{
             + "FROM TblPerfil per "
             + "LEFT OUTER JOIN per.tblUbigeo ubi "
             )
-    List<TblPerfilDTO> ListarPerfil();
+    List<TblPerfilDTO> listarPerfil();
 
     @Query("SELECT new com.portafolio.portafoliobackend.dtos.TblCurriculumVitaeAuxDTOResultado("
             + "aux.idPerfil, aux.noPersona, aux.nuDniPerfil, aux.telPerfil, aux.emailPerfil, aux.dirPerfil, " 

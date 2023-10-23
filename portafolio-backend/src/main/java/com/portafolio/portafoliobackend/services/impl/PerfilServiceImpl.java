@@ -318,8 +318,8 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public List<TblPerfilDTO> ListarPerfil() {
-        List<TblPerfilDTO> lTblPerfilDTO = this.perfilRepository.ListarPerfil();
+    public List<TblPerfilDTO> listarPerfil() {
+        List<TblPerfilDTO> lTblPerfilDTO = this.perfilRepository.listarPerfil();
         return lTblPerfilDTO;
     }
 }

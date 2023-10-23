@@ -47,6 +47,7 @@ import { EducacionGeneralComponent } from './perfil/educacion/educacion-general/
 import { ExperienciaGeneralComponent } from './perfil/experiencia/experiencia-general/experiencia-general.component';
 import { FormacionGeneralComponent } from './perfil/formacion/formacion-general/formacion-general.component';
 import { EducacionListaComponent } from './perfil/educacion/educacion-lista/educacion-lista.component';
+import { PerfilTarjetaComponent } from './perfil-tarjeta/perfil-tarjeta.component';
 
 const FECHA_FORMATOS = {
   parse: {
@@ -80,6 +81,7 @@ const FECHA_FORMATOS = {
     ExperienciaGeneralComponent,
     FormacionGeneralComponent,
     EducacionListaComponent,
+    PerfilTarjetaComponent,
   ],
   imports: [
     CommonModule,

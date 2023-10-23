@@ -1,0 +1,41 @@
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary" matTooltip="Nombre">
+  <span class="span">
+    <b>
+      {{ tblPerfilDTO.noPerfil + ' ' + tblPerfilDTO.apPerfil | uppercase}}
+    </b>
+  </span>
+</mat-toolbar>
+<mat-card class="oh little-profile tarjeta text-statico">
+
+  <div class="breakpoint">
+    <div class="img-tamanio">
+      <img *ngIf="tblPerfilDTO.imgPerfil" src="data:image/png;base64,{{tblPerfilDTO.codImg}}" alt="" height="190">
+
+      <!-- <img *ngIf="tblPerfilDTO.imgPortafolio == null" src="data:image/png;base64,{{imagenData}}" alt="nullo"
+        height="190"> -->
+    </div>
+  </div>
+
+  <mat-card-content>
+    <!-- <span matTooltip="Descripción del proyecto">{{ tblPerfilDTO.dePortafolio}}</span> -->
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions class="oh text-center little-profile">
+    <!-- <button mat-raised-button color="primary" matTooltip="Editar" (click)="solicitarModificacion(tblPerfilDTO)"
+      class="cabecera-color">
+      <mat-icon>mode_edit</mat-icon>
+    </button> -->
+
+    <!-- <button mat-raised-button color="primary" matTooltip="Ver detalle" class="cabecera-color">
+      <mat-icon>remove_red_eye</mat-icon>
+    </button> -->
+
+   <!--  <button mat-raised-button color="primary" (click)="solicitarEliminacion(tblPerfilDTO)" matTooltip="Eliminar"
+      class="cabecera-color">
+      <mat-icon>delete</mat-icon>
+    </button> -->
+  </mat-card-actions>
+</mat-card>
+<br>

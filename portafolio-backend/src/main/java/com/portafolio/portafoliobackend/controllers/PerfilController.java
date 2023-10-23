@@ -50,6 +50,13 @@ public class PerfilController {
     @Autowired
     PerfilService emailService;
 
+    @GetMapping("/listarPerfil")
+    public ResponseEntity<List<TblPerfilDTO>> ListarPerfil() {
+
+        List<TblPerfilDTO> lTblPerfilDTO = this.perfilService.ListarPerfil();
+        return new ResponseEntity<List<TblPerfilDTO>>(lTblPerfilDTO, HttpStatus.OK);
+    }
+
     @PostMapping("/crearPerfil")
     public ResponseEntity<?> crearPerfil(@Valid @RequestBody TblPerfilDTO tblPerfilDTO,
             BindingResult resultadoValidacion) throws Exception {

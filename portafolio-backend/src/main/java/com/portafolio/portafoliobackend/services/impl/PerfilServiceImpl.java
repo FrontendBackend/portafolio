@@ -316,4 +316,10 @@ public class PerfilServiceImpl implements PerfilService {
         mailSender.send(mimeMessage);
 
     }
+
+    @Override
+    public List<TblPerfilDTO> ListarPerfil() {
+        List<TblPerfilDTO> lTblPerfilDTO = this.perfilRepository.ListarPerfil();
+        return lTblPerfilDTO;
+    }
 }

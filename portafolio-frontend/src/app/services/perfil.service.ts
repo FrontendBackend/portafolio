@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
 import { TblPerfilDTO } from '../models/TblPerfilDTO';
 import { TblUbigeoDTO } from '../models/TblUbigeoDTO';
-import { TblEducacionDTO } from '../models/TblEducacionDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +18,11 @@ export class PerfilService {
 
   constructor(private httpClient: HttpClient) {
     this.httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  }
+
+  listarPerfil(): Observable<TblPerfilDTO[]> {
+    const urlEndPoint = `${this.url}/listarPerfil`;
+    return this.httpClient.get<TblPerfilDTO[]>(urlEndPoint);
   }
 
   obtenerPerfilPorId(idPerfil: number): Observable<any> {

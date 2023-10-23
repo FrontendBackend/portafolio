@@ -1,13 +1,13 @@
-<mat-toolbar class="cabecera-color" color="primary" >
+<mat-toolbar class="cabecera-color" color="primary">
 </mat-toolbar>
-<mat-card >
+<mat-card>
   <img class="img-tamanio" mat-card-image [src]="host_img_portafolio" alt="Photo of a Shiba Inu">
   <!--<img class="img-tamanio" mat-card-image src="../../../assets/img/programer_3.png" alt="Photo of a Shiba Inu">-->
 </mat-card>
 
 <br>
 
-<mat-card >
+<mat-card>
 
   <mat-card-title>Sobre mí</mat-card-title>
 
@@ -23,11 +23,56 @@
 
 <br>
 
-<app-portafolio ></app-portafolio>
+
+<mat-toolbar class="cabecera-color altura-toolbar" color="primary" matTooltip="Nombre del proyecto">
+  <span class="span">
+    <b>
+      PERFILES
+    </b>
+  </span>
+</mat-toolbar>
+<mat-card>
+
+  <div class="no-shadow" align="start">
+    <button mat-raised-button color="primary" matTooltip="Crear perfil">
+      <mat-icon>
+        add
+      </mat-icon>
+      Crear perfil
+    </button>
+  </div>
+
+  <br>
+
+  <!--Inicio contentenido de tarjeas-->
+  <mat-progress-bar *ngIf="enProceso" color="primary" mode="query"></mat-progress-bar>
+
+  <div class="alerta alerta-warning animated fadeInDown" *ngIf="lTblPerfil?.length == 0">
+    Sin registros para mostrar
+  </div>
+
+  <div *ngIf="!enProceso" class="items-supervision-container" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <!-- fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" -->
+    <div class="item-supervision-wrap" *ngFor="let tblPerfil of lTblPerfil; let i = index"
+      [@animate]="{ value: '*',params: { delay: i * 100 + 'ms', y: '50px' } }" fxFlex="33.2%" fxFlex.xs="100%"
+      fxFlex.sm="33%">
+      <app-perfil-tarjeta [tblPerfilDTO]="tblPerfil" (eventoPerfilSolicitadoParaEliminar)="eliminarPerfil($event)"
+        (eventoPerfilSolicitadoParaModificar)="modificarPerfil($event)">
+        <!-- (eventoSkillsetSolicitadoParaSubirFoto)="subirFoto($event)" -->
+      </app-perfil-tarjeta>
+    </div>
+
+  </div>
+
+</mat-card>
 
 <br>
 
-<app-skillset id="skillset" ></app-skillset>
+<app-portafolio></app-portafolio>
+
+<br>
+
+<app-skillset id="skillset"></app-skillset>
 
 <br>
 
@@ -35,5 +80,5 @@
 
 <br>
 
-<app-contact id="contact" ></app-contact>
+<app-contact id="contact"></app-contact>
 <video src=""></video>

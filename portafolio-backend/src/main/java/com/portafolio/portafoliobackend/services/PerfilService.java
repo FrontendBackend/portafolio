@@ -30,6 +30,11 @@ public interface PerfilService {
       // PERMITE OBTENER LAS PROPIEDADES DEL PERFIL
       public TblPerfil findById(Long idPerfil);
 
+      // LISTAR PERFILES
+      List<TblPerfilDTO> ListarPerfil();
+
+
+
       // PERMITE GENERAR EL CURRICULUM VITAE
       byte[] generarReporteCurriculum(Long idPerfil);
 

@@ -22,8 +22,6 @@ public class ResponseDTO {
 	private Long id; //Id del objeto persistido cuando la transaccion es success
 	private Number valor; //Devuelve el valor de la consulta
 
-	
-
 	public ResponseDTO(String status, Object data, String mensaje){
 		this.status = status;
 		this.data = data;
